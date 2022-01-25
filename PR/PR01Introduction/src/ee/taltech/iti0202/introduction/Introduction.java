@@ -38,9 +38,14 @@ public class Introduction {
      */
 
     public List<Integer> findEvenNumbersList(List<Integer> numbers) {
-        return null;
+        List<Integer> even_numbers = new ArrayList<>();
+        for (int current_number : numbers) {
+            if (current_number % 2 == 0) {
+                even_numbers.add(current_number);
+            }
+        }
+        return even_numbers;
     }
-    
     /**
      * Method gets an array of numbers.
      * Return an array containing only even numbers of the given array.
