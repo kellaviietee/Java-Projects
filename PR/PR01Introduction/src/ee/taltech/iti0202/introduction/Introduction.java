@@ -19,9 +19,15 @@ public class Introduction {
      * @return String based on the values of valueOne and valueTwo
      */
     public String howIsOutcome(int valueOne, int valueTwo) {
-        return "";
+
+        if (valueOne < 5 || valueTwo < 5) {
+            return "bad";
+        } else if (valueOne == 2 * valueTwo || valueTwo == 2 * valueOne) {
+            return "good";
+        } else {
+            return "ok";
+        }
     }
-    
     /**
      * Method gets a list of numbers.
      * Return a list containing only even numbers of the given list.
@@ -30,6 +36,7 @@ public class Introduction {
      * @param numbers given list that contains numbers.
      * @return list of even numbers.
      */
+
     public List<Integer> findEvenNumbersList(List<Integer> numbers) {
         return null;
     }
