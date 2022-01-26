@@ -57,7 +57,14 @@ public class Introduction {
      * @return array of even numbers.
      */
     public int[] findEvenNumbersArray(int[] numbers) {
-        return null;
+        int[] evenNumbers = new int[numbers.length];
+        for(int i = 0; i< numbers.length;i++){
+            int currentNumber = numbers[i];
+            if(currentNumber % 2 ==0){
+                evenNumbers[i] = currentNumber;
+            }
+        }
+        return evenNumbers;
     }
     
         /**
