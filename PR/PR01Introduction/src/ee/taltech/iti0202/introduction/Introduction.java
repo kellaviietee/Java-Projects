@@ -58,10 +58,12 @@ public class Introduction {
      */
     public int[] findEvenNumbersArray(int[] numbers) {
         int[] evenNumbers = new int[numbers.length];
-        for(int i = 0; i< numbers.length;i++){
+        for (int i = 0; i < numbers.length; i++) {
             int currentNumber = numbers[i];
-            if(currentNumber % 2 ==0){
+            if (currentNumber % 2 == 0) {
                 evenNumbers[i] = currentNumber;
+            } else {
+                evenNumbers[i] = 0;
             }
         }
         return evenNumbers;
