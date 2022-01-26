@@ -90,15 +90,8 @@
       private boolean isGenderNumberCorrect() {
           String idCode = getIdCodeValue();
           int genderNumber = Integer.parseInt(String.valueOf(idCode.charAt(0)));
-          switch (genderNumber) {
-              case 1, 2, 3, 4, 5, 6 -> {
-                  return true;
+          return genderNumber >= 1 && genderNumber <= 6;
               }
-              default -> {
-                  return false;
-              }
-          }
-      }
 
       /**
        * Check if the year number is correct.
@@ -117,7 +110,9 @@
        * @return boolean describing whether the month number is correct.
        */
       private boolean isMonthNumberCorrect() {
-          return false;
+          String idCode = getIdCodeValue();
+          int monthNumber = Integer.parseInt(idCode.substring(3,5));
+          return monthNumber >= 1 && monthNumber <= 12;
       }
 
       /**
