@@ -109,9 +109,30 @@ public class Introduction {
      * @param word String
      * @return The number of triples
      */
-    public int countTripleChars(String word){
-        return -1;
+    public int countTripleChars(String word) {
+        if (word.length() < 3) {
+            return 0;
+        }
+        else{
+            char first_char = word.charAt(0);
+            int charsInRow = 0;
+            int i = 0;
+            while(i < word.length()){
+                if(word.charAt(i) != first_char){
+                    break;
+                }
+                charsInRow += 1;
+                i++;
+            }
+            if (charsInRow ==3){
+                return 1 + countTripleChars(word.substring(charsInRow));
+            }
+            else{
+                return countTripleChars(word.substring(charsInRow));
+            }
+        }
     }
+
     
     /**
      * Run tests.
