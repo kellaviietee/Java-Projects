@@ -83,7 +83,23 @@ public class Introduction {
      * @return String based on the values of first and second
      */
     public String findTheString(String first, String second) {
-        return "";
+        if(first.isBlank() && second.isBlank()){
+            return "FALSE";
+        }
+        else if(first.length() == second.length()){
+            return first + second;
+        }
+        else if(first.length() > second.length()){
+            int difference = first.length() - second.length();
+            String newFirst = first.substring(difference);
+            return (newFirst + second).toLowerCase();
+        }
+        else {
+            int difference = second.length() - first.length();
+            String newSecond = second.substring(difference);
+            return (first + newSecond).toUpperCase();
+        }
+
     }
 
     /**
