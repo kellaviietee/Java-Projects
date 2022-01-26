@@ -57,13 +57,13 @@ public class Introduction {
      * @return array of even numbers.
      */
     public int[] findEvenNumbersArray(int[] numbers) {
-        int[] evenNumbers = new int[numbers.length];
-        for (int i = 0; i < numbers.length; i++) {
-            int currentNumber = numbers[i];
-            if (currentNumber % 2 == 0) {
-                evenNumbers[i] = currentNumber;
-            } else {
-                evenNumbers[i] = 0;
+        int[] evenNumbers = new int[0];
+        for (int current_number : numbers) {
+            if (current_number % 2 == 0) {
+                int[] someNumbers = new int[evenNumbers.length + 1];
+                System.arraycopy(evenNumbers, 0, someNumbers, 0, evenNumbers.length);
+                someNumbers[someNumbers.length - 1] = current_number;
+                evenNumbers = someNumbers;
             }
         }
         return evenNumbers;
