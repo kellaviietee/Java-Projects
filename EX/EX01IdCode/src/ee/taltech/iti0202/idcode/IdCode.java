@@ -48,7 +48,7 @@
           String gender = getGender().toString();
           String location = getBirthPlace();
 
-          return MessageFormat.format("This is a {0} born on {1}.{2}.{3} in {4}.",gender,dayNumber,monthNumber,year,location);
+          return MessageFormat.format("This is a {0} born on {1}.{2}.{3} in {4}",gender,dayNumber,monthNumber,year,location);
       }
 
       /**
