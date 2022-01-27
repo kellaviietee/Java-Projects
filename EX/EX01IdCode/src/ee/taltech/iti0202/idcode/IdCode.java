@@ -1,6 +1,8 @@
 
   package ee.taltech.iti0202.idcode;
 
+  import java.text.MessageFormat;
+  import java.util.Arrays;
   import java.util.Calendar;
 
   public class IdCode {
@@ -29,7 +31,8 @@
        * @return boolean describing whether or not the id code was correct.
        */
       public boolean isCorrect() {
-          return false;
+
+          return isGenderNumberCorrect() && isYearNumberCorrect() && isMonthNumberCorrect() && isDayNumberCorrect() && isControlNumberCorrect();
       }
 
       /**
@@ -38,7 +41,14 @@
        * @return String containing information.
        */
       public String getInformation() {
-          return null;
+          String idCode = getIdCodeValue();
+          String monthNumber = idCode.substring(3,5);
+          String dayNumber = idCode.substring(5,7);
+          String year = Integer.toString(getFullYear());
+          String gender = getGender().toString();
+          String location = getBirthPlace();
+
+          return MessageFormat.format("This is a {0} born on {1}.{2}.{3} in {4}.",gender,dayNumber,monthNumber,year,location);
       }
 
       /**
@@ -61,7 +71,56 @@
        * @return String with the person's birth place.
        */
       public String getBirthPlace() {
-          return null;
+          String idCode = getIdCodeValue();
+          int birthplaceNumber = Integer.parseInt(idCode.substring(7, 10));
+          int year = getFullYear();
+          if (year >= 2013) {
+              return "unknown";
+          } else {
+              if (birthplaceNumber >= 1 && birthplaceNumber <= 10) {
+                  return "Kuressaare";
+              }
+              else if (birthplaceNumber >= 11 && birthplaceNumber <= 20) {
+                  return "Tartu";
+              }
+              else if (birthplaceNumber >= 21 && birthplaceNumber <= 220) {
+                  return "Tallinn";
+              }
+              else if (birthplaceNumber >= 221 && birthplaceNumber <= 270) {
+                  return "Kohtla-Järve";
+              }
+              else if (birthplaceNumber >= 271 && birthplaceNumber <= 370) {
+                  return "Tartu";
+              }
+              else if (birthplaceNumber >= 371 && birthplaceNumber <= 420) {
+                  return "Narva";
+              }
+              else if (birthplaceNumber >= 421 && birthplaceNumber <= 470) {
+                  return "Pärnu";
+              }
+              else if (birthplaceNumber >= 471 && birthplaceNumber <= 490) {
+                  return "Tallinn";
+              }
+              else if (birthplaceNumber >= 491 && birthplaceNumber <= 520) {
+                  return "Paide";
+              }
+              else if (birthplaceNumber >= 521 && birthplaceNumber <= 570) {
+                  return "Rakvere";
+              }
+              else if (birthplaceNumber >= 571 && birthplaceNumber <= 600) {
+                  return "Valga";
+              }
+              else if (birthplaceNumber >= 601 && birthplaceNumber <= 650) {
+                  return "Viljandi";
+              }
+              else if (birthplaceNumber >= 651 && birthplaceNumber <= 710) {
+                  return "Võru";
+              }
+              else{
+              return "unknown";
+              }
+          }
+
       }
 
       /**
@@ -121,6 +180,25 @@
        * @return boolean describing whether the day number is correct.
        */
       private boolean isDayNumberCorrect() {
+          String idCode = getIdCodeValue();
+          int monthNumber = Integer.parseInt(idCode.substring(3,5));
+          int dayNumber = Integer.parseInt(idCode.substring(5,7));
+          boolean isItLeapYear = isLeapYear(getFullYear());
+          switch (monthNumber) {
+              case 1, 3, 5, 7, 8, 10, 12 -> {
+                  return dayNumber >= 1 && dayNumber <= 31;
+              }
+              case 4, 6, 9, 11 -> {
+                  return dayNumber >= 1 && dayNumber <= 30;
+              }
+              case 2 -> {
+                  if (isItLeapYear) {
+                      return dayNumber >= 1 && dayNumber <= 29;
+                  } else {
+                      return dayNumber >= 1 && dayNumber <= 28;
+                  }
+              }
+          }
           return false;
       }
 
@@ -130,7 +208,25 @@
        * @return boolean describing whether the control number is correct.
        */
       private boolean isControlNumberCorrect() {
-          return false;
+          String idCode = getIdCodeValue();
+          int [] idNums = new int[idCode.length()];
+          int sum = 0;
+          int secondSum = 0;
+          for(int i = 0; i < idCode.length() - 1;i++){
+              char dummy = idCode.charAt(i);
+              int dummyInt = Character.getNumericValue(dummy);
+              if(i != 9){sum += (i+1) * dummyInt;}
+              else{sum += dummyInt;}
+              if (i <= 6){secondSum +=(i + 3) * dummyInt;}
+              else{secondSum +=(i - 6) * dummyInt;}
+          }
+          int controlNumber = sum % 11;
+          if (controlNumber == 10){
+              controlNumber = secondSum % 11;
+              if(controlNumber ==10){controlNumber = 0;}
+          }
+          int idControlNumber = Character.getNumericValue(idCode.charAt(idCode.length() - 1));
+          return controlNumber == idControlNumber;
       }
 
       /**
@@ -140,7 +236,14 @@
        * @return boolean describing whether the given year is a leap year.
        */
       private boolean isLeapYear(int fullYear) {
-          return false;
+          int year = getFullYear();
+          if(year % 400 == 0){
+              return true;
+          }
+          else if (year % 100 == 0){
+              return false;
+          }
+          else return year % 4 == 0;
       }
 
       /**
@@ -148,7 +251,7 @@
        * @param args info.
        */
       public static void main(String[] args) {
-          IdCode validMaleIdCode = new IdCode("37605030299");
+          IdCode validMaleIdCode = new IdCode("38909244917");
           System.out.println(validMaleIdCode.isCorrect());
           System.out.println(validMaleIdCode.getInformation());
           System.out.println(validMaleIdCode.getGender());
