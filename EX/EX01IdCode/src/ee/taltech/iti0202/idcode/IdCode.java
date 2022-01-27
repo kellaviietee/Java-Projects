@@ -32,12 +32,7 @@
        */
       public boolean isCorrect() {
 
-          boolean test = isGenderNumberCorrect() && isYearNumberCorrect() && isMonthNumberCorrect()
-                  && isDayNumberCorrect() && isControlNumberCorrect();
-          if(!test){
-              throw new IllegalArgumentException();
-          }
-          return true;
+          return isGenderNumberCorrect() && isYearNumberCorrect() && isMonthNumberCorrect() && isDayNumberCorrect() && isControlNumberCorrect();
       }
 
       /**
