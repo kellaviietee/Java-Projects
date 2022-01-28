@@ -156,9 +156,13 @@
        */
       private boolean isGenderNumberCorrect() {
           String idCode = getIdCodeValue();
-          int genderNumber = Integer.parseInt(String.valueOf(idCode.charAt(0)));
-          return genderNumber >= 1 && genderNumber <= 6;
-              }
+          try {
+              int genderNumber = Integer.parseInt(String.valueOf(idCode.charAt(0)));
+              return genderNumber >= 1 && genderNumber <= 6;
+          } catch (NumberFormatException e) {
+              throw new IllegalArgumentException();
+          }
+      }
 
       /**
        * Check if the year number is correct.
@@ -259,7 +263,7 @@
        * @param args info.
        */
       public static void main(String[] args) {
-          IdCode validMaleIdCode = new IdCode("37605030211");
+          IdCode validMaleIdCode = new IdCode("a");
           System.out.println(validMaleIdCode.isCorrect());
           System.out.println(validMaleIdCode.getInformation());
           System.out.println(validMaleIdCode.getGender());
