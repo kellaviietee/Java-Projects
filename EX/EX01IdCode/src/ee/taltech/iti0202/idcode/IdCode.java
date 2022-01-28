@@ -28,11 +28,6 @@
           } catch (NumberFormatException e) {
               throw new IllegalArgumentException();
           }
-          try{
-              isCorrect();
-          } catch (IllegalArgumentException e) {
-              e.printStackTrace();
-          }
       }
 
       /**
