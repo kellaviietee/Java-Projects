@@ -23,6 +23,10 @@
     
       public IdCode(String idCodeValue) {
           this.idCodeValue = idCodeValue;
+          boolean isIdCorrect = isCorrect();
+          if(!isIdCorrect){
+              throw new IllegalArgumentException();
+          }
       }
 
       /**
@@ -32,11 +36,7 @@
        */
       public boolean isCorrect() {
 
-          boolean test = isGenderNumberCorrect() && isYearNumberCorrect() && isMonthNumberCorrect() && isDayNumberCorrect() && isControlNumberCorrect();
-          if(!test){
-              throw new IllegalArgumentException();
-          }
-          return true;
+          return isGenderNumberCorrect() && isYearNumberCorrect() && isMonthNumberCorrect() && isDayNumberCorrect() && isControlNumberCorrect();
       }
 
       /**
@@ -62,17 +62,12 @@
        */
       public Gender getGender() {
           String idCode = getIdCodeValue();
-          int genderNumber;
-          try {
-              genderNumber = Integer.parseInt(String.valueOf(idCode.charAt(0)));
-          } catch (NumberFormatException e) {
-              throw new IllegalArgumentException();
-          }
+          int genderNumber = Integer.parseInt(String.valueOf(idCode.charAt(0)));
           if (genderNumber % 2 == 1) {
               return Gender.MALE;
           }
           return Gender.FEMALE;
-      }
+          }
 
       /**
        * Get person's birth location.
@@ -157,7 +152,13 @@
        */
       private boolean isGenderNumberCorrect() {
           String idCode = getIdCodeValue();
-          int genderNumber = Integer.parseInt(String.valueOf(idCode.charAt(0)));
+          int genderNumber;
+          try{
+              genderNumber = Integer.parseInt(String.valueOf(idCode.charAt(0)));
+          } catch (NumberFormatException e) {
+              throw new IllegalArgumentException();
+          }
+
           return genderNumber >= 1 && genderNumber <= 6;
               }
 
