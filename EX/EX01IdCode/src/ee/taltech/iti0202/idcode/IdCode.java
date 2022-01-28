@@ -23,6 +23,11 @@
     
       public IdCode(String idCodeValue) {
           this.idCodeValue = idCodeValue;
+          try {
+              int Value = Integer.parseInt(idCodeValue);
+          } catch (NumberFormatException e) {
+              throw new IllegalArgumentException();
+          }
           try{
               isCorrect();
           } catch (IllegalArgumentException e) {
@@ -260,7 +265,7 @@
        * @param args info.
        */
       public static void main(String[] args) {
-          IdCode validMaleIdCode = new IdCode("38909244917");
+          IdCode validMaleIdCode = new IdCode("abcde");
           System.out.println(validMaleIdCode.isCorrect());
           System.out.println(validMaleIdCode.getInformation());
           System.out.println(validMaleIdCode.getGender());
