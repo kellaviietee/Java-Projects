@@ -23,6 +23,11 @@
     
       public IdCode(String idCodeValue) {
           this.idCodeValue = idCodeValue;
+          try{
+              isCorrect();
+          } catch (IllegalArgumentException e) {
+              e.printStackTrace();
+          }
       }
 
       /**
@@ -32,7 +37,11 @@
        */
       public boolean isCorrect() {
 
-          return isGenderNumberCorrect() && isYearNumberCorrect() && isMonthNumberCorrect() && isDayNumberCorrect() && isControlNumberCorrect();
+          boolean test = isGenderNumberCorrect() && isYearNumberCorrect() && isMonthNumberCorrect() && isDayNumberCorrect() && isControlNumberCorrect();
+          if(!test){
+              throw new IllegalArgumentException();
+          }
+          return true;
       }
 
       /**
