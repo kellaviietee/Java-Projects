@@ -62,15 +62,16 @@
        */
       public Gender getGender() {
           String idCode = getIdCodeValue();
+          int genderNumber;
           try {
-              int genderNumber = Integer.parseInt(String.valueOf(idCode.charAt(0)));
-              if (genderNumber % 2 == 1) {
-                  return Gender.MALE;
-              }
-              return Gender.FEMALE;
+              genderNumber = Integer.parseInt(String.valueOf(idCode.charAt(0)));
           } catch (NumberFormatException e) {
               throw new IllegalArgumentException();
           }
+          if (genderNumber % 2 == 1) {
+              return Gender.MALE;
+          }
+          return Gender.FEMALE;
       }
 
       /**
@@ -156,13 +157,9 @@
        */
       private boolean isGenderNumberCorrect() {
           String idCode = getIdCodeValue();
-          try {
-              int genderNumber = Integer.parseInt(String.valueOf(idCode.charAt(0)));
-              return genderNumber >= 1 && genderNumber <= 6;
-          } catch (NumberFormatException e) {
-              throw new IllegalArgumentException();
-          }
-      }
+          int genderNumber = Integer.parseInt(String.valueOf(idCode.charAt(0)));
+          return genderNumber >= 1 && genderNumber <= 6;
+              }
 
       /**
        * Check if the year number is correct.
@@ -172,11 +169,7 @@
       private boolean isYearNumberCorrect() {
           int idYear = getFullYear();
           int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-          try {
-              return idYear >= 1800 && idYear <= currentYear;
-          } catch (Exception e) {
-              throw new IllegalArgumentException();
-          }
+          return idYear >= 1800 && idYear <= currentYear;
       }
 
       /**
@@ -267,7 +260,7 @@
        * @param args info.
        */
       public static void main(String[] args) {
-          IdCode validMaleIdCode = new IdCode("30002290231");
+          IdCode validMaleIdCode = new IdCode("a");
           System.out.println(validMaleIdCode.isCorrect());
           System.out.println(validMaleIdCode.getInformation());
           System.out.println(validMaleIdCode.getGender());
