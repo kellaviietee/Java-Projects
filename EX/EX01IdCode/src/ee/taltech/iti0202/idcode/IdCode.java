@@ -172,7 +172,11 @@
       private boolean isYearNumberCorrect() {
           int idYear = getFullYear();
           int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-          return idYear >= 1800 && idYear <= currentYear;
+          try {
+              return idYear >= 1800 && idYear <= currentYear;
+          } catch (Exception e) {
+              throw new IllegalArgumentException();
+          }
       }
 
       /**
@@ -263,7 +267,7 @@
        * @param args info.
        */
       public static void main(String[] args) {
-          IdCode validMaleIdCode = new IdCode("a");
+          IdCode validMaleIdCode = new IdCode("30002290231");
           System.out.println(validMaleIdCode.isCorrect());
           System.out.println(validMaleIdCode.getInformation());
           System.out.println(validMaleIdCode.getGender());
