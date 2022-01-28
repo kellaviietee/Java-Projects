@@ -23,11 +23,6 @@
     
       public IdCode(String idCodeValue) {
           this.idCodeValue = idCodeValue;
-          try {
-              Integer.parseInt(idCodeValue);
-          } catch (NumberFormatException e) {
-              throw new IllegalArgumentException();
-          }
       }
 
       /**
