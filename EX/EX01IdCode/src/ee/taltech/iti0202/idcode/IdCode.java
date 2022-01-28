@@ -62,11 +62,15 @@
        */
       public Gender getGender() {
           String idCode = getIdCodeValue();
-          int genderNumber = Integer.parseInt(String.valueOf(idCode.charAt(0)));
-          if(genderNumber % 2 == 1){
-              return Gender.MALE;
+          try {
+              int genderNumber = Integer.parseInt(String.valueOf(idCode.charAt(0)));
+              if (genderNumber % 2 == 1) {
+                  return Gender.MALE;
+              }
+              return Gender.FEMALE;
+          } catch (NumberFormatException e) {
+              throw new IllegalArgumentException();
           }
-          return Gender.FEMALE;
       }
 
       /**
