@@ -27,7 +27,7 @@ public class DataStructures {
         List<String> sortedWords = words.stream()
                 .sorted(
                         Comparator.comparingInt(String::length).reversed()
-                                .thenComparing(String::compareTo)).toList();
+                                .thenComparing(String::compareTo)).collect(Collectors.toList());
         return sortedWords.get(0);
     }
 
