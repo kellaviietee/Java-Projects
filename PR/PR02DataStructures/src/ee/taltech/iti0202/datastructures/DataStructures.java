@@ -1,12 +1,8 @@
 package ee.taltech.iti0202.datastructures;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.lang.reflect.Array;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class DataStructures {
 
@@ -27,7 +23,12 @@ public class DataStructures {
      * @return the longest String from input
      */
     public static String findLongestWord(String sentence) {
-        return null;
+        List<String> words = List.of(sentence.split(" "));
+        List<String> sortedWords = words.stream()
+                .sorted(
+                        Comparator.comparingInt(String::length).reversed()
+                                .thenComparing(String::compareTo)).toList();
+        return sortedWords.get(0);
     }
 
     /**
