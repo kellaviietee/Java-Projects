@@ -40,7 +40,11 @@ public class DataStructures {
      * @return map containing all word to count mappings.
      */
     public static Map<String, Integer> wordCount(String[] sentence) {
-        return null;
+        Map<String, Integer> wordCounter = new HashMap<>();
+        for (String name : sentence) {
+            wordCounter.put(name, wordCounter.getOrDefault(name, 0) + 1);
+        }
+        return wordCounter;
     }
 
     /**
