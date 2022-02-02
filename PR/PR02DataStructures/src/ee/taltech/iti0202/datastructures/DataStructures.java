@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class DataStructures {
     private Map<String, Integer> nameGrade;
 
-    public DataStructures(){
+    public DataStructures() {
         this.nameGrade = new HashMap<>();
     }
 
@@ -29,7 +29,8 @@ public class DataStructures {
      * <p>
      * Hints:
      * You can split words into an array using "str.split()"
-     * Sorting the list with the longest words can definitely help you to find the word which comes alphabetically first.
+     * Sorting the list with the longest words can definitely
+     * help you to find the word which comes alphabetically first.
      *
      * @param sentence input String to find the longest words
      * @return the longest String from input
@@ -70,11 +71,11 @@ public class DataStructures {
      * @param words input list to filter
      * @return list of strings matching criteria
      */
-    public static List<String> onlyEvenWords(List<String> words) {
+    public static List<String>onlyEvenWords(List<String> words) {
         Map <String, Integer> countedWords = wordCount(words.toArray(String[]::new));
-        Set<String> all_keys = countedWords.keySet();
+        Set<String> allKeys = countedWords.keySet();
         ArrayList<String> evenWords = new ArrayList<>();
-        for (String key : all_keys) {
+        for (String key : allKeys) {
             int howMany = (int) Math.floor(countedWords.get(key) / 2);
             for(int i = 0; i< howMany;i++){
                 evenWords.add(key);
