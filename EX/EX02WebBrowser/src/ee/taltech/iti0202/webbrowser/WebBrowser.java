@@ -9,8 +9,8 @@ public class WebBrowser {
 
     public WebBrowser() {
         this.webHistory = new ArrayList<>();
-        this.homePage = "google.com";
-        this.currentPage = homePage;
+        this.currentHomePage = "google.com";
+        this.currentPage = currentHomePage;
     }
 
     /**
