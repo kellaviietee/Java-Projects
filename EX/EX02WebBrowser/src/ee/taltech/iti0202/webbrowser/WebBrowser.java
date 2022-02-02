@@ -15,6 +15,10 @@ public class WebBrowser {
         this.webHistory = new ArrayList<>();
         this.currentHomePage = "google.com";
         this.currentPage = currentHomePage;
+        this.webHistory = new ArrayList<>();
+        this.backPages = new ArrayList<>();
+        this. forwardPages = new ArrayList<>();
+        this.bookmarks = new ArrayList<>();
     }
 
     /**
@@ -59,6 +63,7 @@ public class WebBrowser {
         //TODO: implement
         if(!Objects.equals(currentPage, url)) {
             backPages.add(currentPage);
+            webHistory.add(url);
         }
         currentPage = url;
     }
