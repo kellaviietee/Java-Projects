@@ -25,7 +25,6 @@ public class WebBrowser {
      * Goes to homepage.
      */
     public void homePage() {
-        //TODO: implement
         goTo(currentHomePage);
     }
 
@@ -33,7 +32,6 @@ public class WebBrowser {
      * Goes back to previous page.
      */
     public void back() {
-        //TODO: implement
         String previousPage = backPages.get(0);
         backPages.remove(0);
         forwardPages.add(currentPage);
@@ -46,7 +44,6 @@ public class WebBrowser {
      * Goes forward to next page.
      */
     public void forward() {
-        //TODO: implement
         if(!forwardPages.isEmpty()){
             String forwardPage = forwardPages.get(0);
             forwardPages.remove(0);
@@ -60,7 +57,6 @@ public class WebBrowser {
      * @param url url to go to
      */
     public void goTo(String url) {
-        //TODO: implement
         if(!Objects.equals(currentPage, url)) {
             backPages.add(currentPage);
             webHistory.add(url);
@@ -72,7 +68,6 @@ public class WebBrowser {
      * Add a webpage as a bookmark.
      */
     public void addAsBookmark() {
-        //TODO: implement
         String currentPage = getCurrentUrl();
         if(!bookmarks.contains(currentPage)){
             bookmarks.add(currentPage);
@@ -85,17 +80,14 @@ public class WebBrowser {
      * @param bookmark to remove
      */
     public void removeBookmark(String bookmark) {
-        //TODO: implement
         bookmarks.remove(bookmark);
     }
 
     public List<String> getBookmarks() {
-        //TODO: implement
         return bookmarks;
     }
 
     public void setHomePage(String homePage) {
-        //TODO: implement
         currentHomePage = homePage;
 
     }
@@ -107,32 +99,29 @@ public class WebBrowser {
      * @return a String that contains top three visited pages separated with a newline "\n"
      */
     public String getTop3VisitedPages() {
-        //TODO: implement
         return null;
     }
 
     /**
-    * Returns a list of all visited pages.
-    *
-    * Not to be confused with pages in your back-history.
-    *
-    * For example, if you visit "facebook.com" and hit back(),
-    * then the whole history would be: ["google.com", "facebook.com", "google.com"]
-    * @return list of all visited pages
-    */
+     * Returns a list of all visited pages.
+     *
+     * Not to be confused with pages in your back-history.
+     *
+     * For example, if you visit "facebook.com" and hit back(),
+     * then the whole history would be: ["google.com", "facebook.com", "google.com"]
+     * @return list of all visited pages
+     */
     public List<String> getHistory() {
-        //TODO: implement
-        return null;
+        return webHistory;
     }
 
 
     /**
-    * Returns the active web page (string).
-    * 
-    * @return active web page
-    */
+     * Returns the active web page (string).
+     *
+     * @return active web page
+     */
     public String getCurrentUrl() {
-        //TODO: implement
         return currentPage;
     }
 }
