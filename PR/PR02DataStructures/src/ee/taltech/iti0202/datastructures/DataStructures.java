@@ -71,13 +71,13 @@ public class DataStructures {
      * @param words input list to filter
      * @return list of strings matching criteria
      */
-    public static List<String>onlyEvenWords(List<String> words) {
-        Map <String, Integer> countedWords = wordCount(words.toArray(String[]::new));
+    public static List<String> onlyEvenWords(List<String> words) {
+        Map<String, Integer> countedWords = wordCount(words.toArray(String[]::new));
         Set<String> allKeys = countedWords.keySet();
         ArrayList<String> evenWords = new ArrayList<>();
         for (String key : allKeys) {
             int howMany = (int) Math.floor(countedWords.get(key) / 2);
-            for(int i = 0; i< howMany;i++){
+            for (int i = 0; i < howMany; i++){
                 evenWords.add(key);
             }
         }
