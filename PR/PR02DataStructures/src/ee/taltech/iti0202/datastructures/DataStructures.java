@@ -1,9 +1,14 @@
 package ee.taltech.iti0202.datastructures;
 
-import java.lang.reflect.Array;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.Comparator;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 public class DataStructures {
     private Map<String, Integer> nameGrade;
