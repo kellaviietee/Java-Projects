@@ -1,11 +1,15 @@
 package ee.taltech.iti0202.webbrowser;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class WebBrowser {
     private String currentHomePage;
     private List<String> webHistory;
     private String currentPage;
+    private List<String> backPages;
+    private List<String> forwardPages;
+    private List<String> bookmarks;
 
     public WebBrowser() {
         this.webHistory = new ArrayList<>();
@@ -26,6 +30,12 @@ public class WebBrowser {
      */
     public void back() {
         //TODO: implement
+        String previousPage = backPages.get(0);
+        backPages.remove(0);
+        forwardPages.add(currentPage);
+        goTo(previousPage);
+
+
     }
 
     /**
@@ -33,6 +43,11 @@ public class WebBrowser {
      */
     public void forward() {
         //TODO: implement
+        if(!forwardPages.isEmpty()){
+            String forwardPage = forwardPages.get(0);
+            forwardPages.remove(0);
+            goTo(forwardPage);
+        }
     }
 
     /**
@@ -42,6 +57,9 @@ public class WebBrowser {
      */
     public void goTo(String url) {
         //TODO: implement
+        if(!Objects.equals(currentPage, url)) {
+            backPages.add(currentPage);
+        }
         currentPage = url;
     }
 
@@ -50,6 +68,10 @@ public class WebBrowser {
      */
     public void addAsBookmark() {
         //TODO: implement
+        String currentPage = getCurrentUrl();
+        if(!bookmarks.contains(currentPage)){
+            bookmarks.add(currentPage);
+        }
     }
 
     /**
@@ -59,11 +81,12 @@ public class WebBrowser {
      */
     public void removeBookmark(String bookmark) {
         //TODO: implement
+        bookmarks.remove(bookmark);
     }
 
     public List<String> getBookmarks() {
         //TODO: implement
-        return null;
+        return bookmarks;
     }
 
     public void setHomePage(String homePage) {
