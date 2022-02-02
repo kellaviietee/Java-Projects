@@ -3,6 +3,7 @@ package ee.taltech.iti0202.datastructures;
 import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class DataStructures {
 
@@ -59,7 +60,16 @@ public class DataStructures {
      * @return list of strings matching criteria
      */
     public static List<String> onlyEvenWords(List<String> words) {
-        return null;
+        Map <String, Integer> countedWords = wordCount(words.toArray(String[]::new));
+        Set<String> all_keys = countedWords.keySet();
+        ArrayList<String> evenWords = new ArrayList<>();
+        for (String key : all_keys) {
+            int howMany = (int) Math.floor(countedWords.get(key) / 2);
+            for(int i = 0; i< howMany;i++){
+                evenWords.add(key);
+            }
+        }
+        return evenWords;
     }
 
     /**
@@ -69,7 +79,7 @@ public class DataStructures {
      * @param studentInfo String with a pattern (name:grade)
      */
     public void addStudent(String studentInfo) {
-        
+
     }
 
     /**
@@ -84,10 +94,10 @@ public class DataStructures {
         return 0;
     }
 
-   /**
-    * Main.
-    * @param args Commend line arguments.
-    */
+    /**
+     * Main.
+     * @param args Commend line arguments.
+     */
     public static void main(String[] args) {
         System.out.println(findLongestWord("nimi on salastatud"));  // "salastatud"
         System.out.println(findLongestWord("aaa bbbbb"));  // "bbbbb"
