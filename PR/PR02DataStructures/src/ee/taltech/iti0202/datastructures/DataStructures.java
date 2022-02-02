@@ -6,6 +6,12 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DataStructures {
+    private Map<String, Integer> nameGrade;
+
+    public DataStructures(){
+        this.nameGrade = new HashMap<>();
+    }
+
 
     /**
      * Given String is a sentence with some words.
@@ -81,7 +87,6 @@ public class DataStructures {
     public void addStudent(String studentInfo) {
         String[] splitInfo = studentInfo.split(":");
         Integer grade = Integer.parseInt(splitInfo[1]);
-        Map<String, Integer> nameGrade = new HashMap<>();
         if(grade >=0 && grade <=5){
             nameGrade.put(splitInfo[0],grade);
         }
@@ -96,7 +101,10 @@ public class DataStructures {
      * @return int student's grade.
      */
     public int getStudentGrade(String name) {
-        return 0;
+        if(nameGrade.containsKey(name)){
+            return nameGrade.get(name);
+        }
+        else return -1;
     }
 
     /**
