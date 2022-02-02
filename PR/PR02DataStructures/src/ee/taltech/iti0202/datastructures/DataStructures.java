@@ -79,7 +79,12 @@ public class DataStructures {
      * @param studentInfo String with a pattern (name:grade)
      */
     public void addStudent(String studentInfo) {
-
+        String[] splitInfo = studentInfo.split(":");
+        Integer grade = Integer.parseInt(splitInfo[1]);
+        Map<String, Integer> nameGrade = new HashMap<>();
+        if(grade >=0 && grade <=5){
+            nameGrade.put(splitInfo[0],grade);
+        }
     }
 
     /**
