@@ -77,7 +77,7 @@ public class DataStructures {
         ArrayList<String> evenWords = new ArrayList<>();
         for (String key : allKeys) {
             int howMany = (int) Math.floor(countedWords.get(key) / 2);
-            for (int i = 0; i < howMany; i++){
+            for (int i = 0; i < howMany; i++) {
                 evenWords.add(key);
             }
         }
@@ -93,8 +93,8 @@ public class DataStructures {
     public void addStudent(String studentInfo) {
         String[] splitInfo = studentInfo.split(":");
         Integer grade = Integer.parseInt(splitInfo[1]);
-        if(grade >=0 && grade <=5){
-            nameGrade.put(splitInfo[0],grade);
+        if (grade >= 0 && grade <= 5) {
+            nameGrade.put(splitInfo[0], grade);
         }
     }
 
@@ -107,10 +107,7 @@ public class DataStructures {
      * @return int student's grade.
      */
     public int getStudentGrade(String name) {
-        if(nameGrade.containsKey(name)){
-            return nameGrade.get(name);
-        }
-        else return -1;
+        return nameGrade.getOrDefault(name, -1);
     }
 
     /**
