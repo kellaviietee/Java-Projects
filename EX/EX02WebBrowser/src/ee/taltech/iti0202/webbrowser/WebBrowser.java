@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.Objects;
 
 public class WebBrowser {
-    private String currentHomePage;
-    private List<String> webHistory;
-    private String currentPage;
-    private List<String> backPages;
-    private List<String> forwardPages;
-    private List<String> bookmarks;
+    public String currentHomePage;
+    public List<String> webHistory;
+    public String currentPage;
+    public List<String> backPages;
+    public List<String> forwardPages;
+    public List<String> bookmarks;
 
     public WebBrowser() {
         this.webHistory = new ArrayList<>();
@@ -32,10 +32,12 @@ public class WebBrowser {
      * Goes back to previous page.
      */
     public void back() {
-        String previousPage = backPages.get(0);
-        backPages.remove(0);
-        forwardPages.add(currentPage);
-        goTo(previousPage);
+        if(!backPages.isEmpty()) {
+            String previousPage = backPages.get(0);
+            backPages.remove(0);
+            forwardPages.add(currentPage);
+            goTo(previousPage);
+        }
 
 
     }
@@ -59,7 +61,7 @@ public class WebBrowser {
     public void goTo(String url) {
         if(!Objects.equals(currentPage, url)) {
             backPages.add(currentPage);
-            webHistory.add(url);
+            webHistory.add(currentPage);
         }
         currentPage = url;
     }
