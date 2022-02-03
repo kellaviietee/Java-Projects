@@ -26,14 +26,14 @@ public class WebBrowser {
      */
     public void homePage() {
 
-        return null;
+
     }
 
     /**
      * Goes back to previous page.
      */
     public void back() {
-        return null;
+
 
 
     }
@@ -42,7 +42,7 @@ public class WebBrowser {
      * Goes forward to next page.
      */
     public void forward() {
-        return null;
+
     }
 
     /**
@@ -58,7 +58,7 @@ public class WebBrowser {
      * Add a webpage as a bookmark.
      */
     public void addAsBookmark() {
-        return null;
+
     }
 
     /**
@@ -68,7 +68,7 @@ public class WebBrowser {
      */
     public void removeBookmark(String bookmark) {
 
-        return null;
+
     }
 
     public List<String> getBookmarks() {
@@ -77,7 +77,7 @@ public class WebBrowser {
     }
 
     public void setHomePage(String homePage) {
-        return null;
+
 
     }
 
@@ -88,6 +88,7 @@ public class WebBrowser {
      * @return a String that contains top three visited pages separated with a newline "\n"
      */
     public String getTop3VisitedPages() {
+
         return null;
     }
 
@@ -101,6 +102,7 @@ public class WebBrowser {
      * @return list of all visited pages
      */
     public List<String> getHistory() {
+
         return webHistory;
     }
 
