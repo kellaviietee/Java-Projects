@@ -19,6 +19,7 @@ public class WebBrowser {
         this.backPages = new ArrayList<>();
         this. forwardPages = new ArrayList<>();
         this.bookmarks = new ArrayList<>();
+        webHistory.add(currentHomePage);
     }
 
     /**
@@ -36,7 +37,8 @@ public class WebBrowser {
             String previousPage = backPages.get(0);
             backPages.remove(0);
             forwardPages.add(currentPage);
-            goTo(previousPage);
+            webHistory.add(previousPage);
+            currentPage = previousPage;
         }
 
 
@@ -49,7 +51,7 @@ public class WebBrowser {
         if(!forwardPages.isEmpty()){
             String forwardPage = forwardPages.get(0);
             forwardPages.remove(0);
-            goTo(forwardPage);
+            currentPage = forwardPage;
         }
     }
 
@@ -61,10 +63,10 @@ public class WebBrowser {
     public void goTo(String url) {
         if(!Objects.equals(currentPage, url)) {
             backPages.add(currentPage);
-            webHistory.add(currentPage);
             forwardPages.clear();
+            webHistory.add(url);
+            currentPage = url;
         }
-        currentPage = url;
     }
 
     /**
