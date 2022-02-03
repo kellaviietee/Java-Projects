@@ -128,12 +128,12 @@ public class WebBrowser {
         uniqueList.sort((o1, o2) -> {
             if (topVisited.get(o1) > topVisited.get(o2)) {
                 return -1;
-            } else if (topVisited.get(o1) == topVisited.get(o2)) {
+            } else if (Objects.equals(topVisited.get(o1), topVisited.get(o2))) {
                 if (webHistory.indexOf(o1) < webHistory.indexOf(o2)) {
                     return -1;
                 }
             }
-            return 1;
+            return 0;
         });
         StringBuilder finalString = new StringBuilder();
         int topCounter = 1;
@@ -150,9 +150,7 @@ public class WebBrowser {
             }
             topCounter++;
         }
-        String trimmedFinalString = finalString.toString().trim();
-        System.out.println(trimmedFinalString);
-        return trimmedFinalString;
+        return finalString.toString().trim();
     }
 
 
