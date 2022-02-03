@@ -122,7 +122,12 @@ public class WebBrowser {
             if (topVisited.get(o1) > topVisited.get(o2)) {
                 return -1;
             }
-            return -1;
+            else if (topVisited.get(o1) == topVisited.get(o2)){
+                if(webHistory.indexOf(o1) < webHistory.indexOf(o2)){
+                    return -1;
+                }
+            }
+            return 1;
         });
         StringBuilder finalString = new StringBuilder();
         int topCounter = 1;
@@ -180,7 +185,6 @@ public class WebBrowser {
         goTo("facebook.com");
         goTo("youtube.com");
         goTo("google.com");
-        goTo("facebook.com");
         getTop3VisitedPages();
     }
 }
