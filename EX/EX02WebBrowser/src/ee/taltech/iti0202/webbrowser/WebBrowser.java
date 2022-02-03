@@ -100,8 +100,7 @@ public class WebBrowser {
     }
 
     public void setHomePage(String homePage) {
-
-
+        currentHomePage = homePage;
     }
 
 
