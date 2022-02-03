@@ -119,7 +119,7 @@ public class WebBrowser {
             topVisited.put(page, visited);
         }
         uniqueList.sort((o1, o2) -> {
-            if (topVisited.get(o1) >= topVisited.get(o2)) {
+            if (topVisited.get(o1) > topVisited.get(o2)) {
                 return -1;
             }
             return 0;
