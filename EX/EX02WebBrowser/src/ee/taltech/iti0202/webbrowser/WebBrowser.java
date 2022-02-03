@@ -51,7 +51,13 @@ public class WebBrowser {
      * @param url url to go to
      */
     public void goTo(String url) {
-        currentPage = url;
+        if(!Objects.equals(currentPage, url)) {
+            backPages.add(currentPage);
+            currentPage = url;
+            webHistory.add(url);
+            forwardPages.clear();
+        }
+
     }
 
     /**
