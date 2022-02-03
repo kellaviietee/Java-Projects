@@ -25,6 +25,7 @@ public class WebBrowser {
      * Goes to homepage.
      */
     public void homePage() {
+        goTo(currentHomePage);
 
 
     }
