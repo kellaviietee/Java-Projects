@@ -122,10 +122,10 @@ public class WebBrowser {
             if (topVisited.get(o1) >= topVisited.get(o2)) {
                 return -1;
             }
-            return 1;
+            return 0;
         });
         List<String> finalStrings = new ArrayList<>();
-        String finalString = "";
+        StringBuilder finalString = new StringBuilder();
         int topCounter = 1;
         for(String page : uniqueList){
             if (topCounter > 3){
@@ -133,15 +133,15 @@ public class WebBrowser {
             }
             Integer visitNumber = topVisited.get(page);
             if (visitNumber == 1){
-                finalString += page + " - 1 visit\n";
+                finalString.append(page).append(" - 1 visit\n");
 
             }
             else{
-                finalString += page + " - " + visitNumber + " visits\n";
+                finalString.append(page).append(" - ").append(visitNumber).append(" visits\n");
             }
             topCounter++;
         }
-        String trimmedFinalString = finalString.trim();
+        String trimmedFinalString = finalString.toString().trim();
         System.out.println(trimmedFinalString);
         return trimmedFinalString;
     }
