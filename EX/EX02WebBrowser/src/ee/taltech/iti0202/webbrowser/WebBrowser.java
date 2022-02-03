@@ -125,6 +125,7 @@ public class WebBrowser {
             return 1;
         });
         List<String> finalStrings = new ArrayList<>();
+        String finalString = "";
         for(String page : uniqueList){
             if (finalStrings.size() >= 3){
                 break;
@@ -132,12 +133,17 @@ public class WebBrowser {
             Integer visitNumber = topVisited.get(page);
             if (visitNumber == 1){
                 finalStrings.add(page + "- 1 visit");
+                finalString += page + "- 1 visit\n";
+
             }
             else{
                 finalStrings.add(page + " - " + visitNumber + " visits");
+                finalString += page + " - " + visitNumber + " visits\n";
             }
         }
-        return MessageFormat.format("{0}\n{1}\n{2}",finalStrings.get(0),finalStrings.get(1),finalStrings.get(2));
+        String trimmedFinalString = finalString.trim();
+        System.out.println(trimmedFinalString);
+        return trimmedFinalString;
     }
 
 
