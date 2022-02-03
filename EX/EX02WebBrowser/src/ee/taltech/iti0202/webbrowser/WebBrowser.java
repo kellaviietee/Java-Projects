@@ -120,7 +120,7 @@ public class WebBrowser {
         }
         uniqueList.sort((o1, o2) -> {
             if (topVisited.get(o1) >= topVisited.get(o2)) {
-                return 1;
+                return -1;
             }
             return 0;
         });
