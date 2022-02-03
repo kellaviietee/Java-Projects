@@ -122,9 +122,8 @@ public class WebBrowser {
             if (topVisited.get(o1) > topVisited.get(o2)) {
                 return -1;
             }
-            return 0;
+            return 1;
         });
-        List<String> finalStrings = new ArrayList<>();
         StringBuilder finalString = new StringBuilder();
         int topCounter = 1;
         for(String page : uniqueList){
