@@ -15,7 +15,7 @@ public class WebBrowser {
         this.currentPage = currentHomePage;
         this.webHistory = new ArrayList<>();
         this.backPages = new ArrayList<>();
-        this. forwardPages = new ArrayList<>();
+        this.forwardPages = new ArrayList<>();
         this.bookmarks = new ArrayList<>();
         webHistory.add(currentHomePage);
     }
@@ -33,7 +33,7 @@ public class WebBrowser {
      * Goes back to previous page.
      */
     public void back() {
-        if(!backPages.isEmpty()) {
+        if (!backPages.isEmpty()) {
             String previousPage = backPages.get(backPages.size() - 1);
             backPages.remove(backPages.size() - 1);
             forwardPages.add(currentPage);
@@ -42,17 +42,16 @@ public class WebBrowser {
         }
 
 
-
     }
 
     /**
      * Goes forward to next page.
      */
     public void forward() {
-        if(!forwardPages.isEmpty()){
+        if (!forwardPages.isEmpty()) {
             backPages.add(currentPage);
-            String nextPage = forwardPages.get(forwardPages.size()-1);
-            forwardPages.remove(forwardPages.size()-1);
+            String nextPage = forwardPages.get(forwardPages.size() - 1);
+            forwardPages.remove(forwardPages.size() - 1);
             currentPage = nextPage;
             webHistory.add(nextPage);
         }
@@ -66,7 +65,7 @@ public class WebBrowser {
      * @param url url to go to
      */
     public void goTo(String url) {
-        if(!Objects.equals(currentPage, url)) {
+        if (!Objects.equals(currentPage, url)) {
             backPages.add(currentPage);
             currentPage = url;
             webHistory.add(url);
@@ -79,7 +78,7 @@ public class WebBrowser {
      * Add a webpage as a bookmark.
      */
     public void addAsBookmark() {
-        if(!bookmarks.contains(currentPage)) {
+        if (!bookmarks.contains(currentPage)) {
             bookmarks.add(currentPage);
         }
     }
@@ -121,9 +120,8 @@ public class WebBrowser {
         uniqueList.sort((o1, o2) -> {
             if (topVisited.get(o1) > topVisited.get(o2)) {
                 return -1;
-            }
-            else if (topVisited.get(o1) == topVisited.get(o2)){
-                if(webHistory.indexOf(o1) < webHistory.indexOf(o2)){
+            } else if (topVisited.get(o1) == topVisited.get(o2)) {
+                if (webHistory.indexOf(o1) < webHistory.indexOf(o2)) {
                     return -1;
                 }
             }
@@ -131,16 +129,15 @@ public class WebBrowser {
         });
         StringBuilder finalString = new StringBuilder();
         int topCounter = 1;
-        for(String page : uniqueList){
-            if (topCounter > 3){
+        for (String page : uniqueList) {
+            if (topCounter > 3) {
                 break;
             }
             Integer visitNumber = topVisited.get(page);
-            if (visitNumber == 1){
+            if (visitNumber == 1) {
                 finalString.append(page).append(" - 1 visit\n");
 
-            }
-            else{
+            } else {
                 finalString.append(page).append(" - ").append(visitNumber).append(" visits\n");
             }
             topCounter++;
@@ -151,15 +148,14 @@ public class WebBrowser {
     }
 
 
-
-
     /**
      * Returns a list of all visited pages.
-     *
+     * <p>
      * Not to be confused with pages in your back-history.
-     *
+     * <p>
      * For example, if you visit "facebook.com" and hit back(),
      * then the whole history would be: ["google.com", "facebook.com", "google.com"]
+     *
      * @return list of all visited pages
      */
     public List<String> getHistory() {
@@ -175,16 +171,5 @@ public class WebBrowser {
     public String getCurrentUrl() {
         return currentPage;
 
-    }
-    public void testing(){
-        goTo("neti.ee");
-        goTo("facebook.com");
-        goTo("youtube.com");
-        goTo("facebook.com");
-        goTo("google.com");
-        goTo("facebook.com");
-        goTo("youtube.com");
-        goTo("google.com");
-        getTop3VisitedPages();
     }
 }
