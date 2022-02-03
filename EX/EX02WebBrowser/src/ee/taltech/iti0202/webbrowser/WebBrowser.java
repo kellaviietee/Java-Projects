@@ -62,6 +62,7 @@ public class WebBrowser {
         if(!Objects.equals(currentPage, url)) {
             backPages.add(currentPage);
             webHistory.add(currentPage);
+            forwardPages.clear();
         }
         currentPage = url;
     }
