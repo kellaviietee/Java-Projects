@@ -51,7 +51,7 @@ public class WebBrowser {
      * @param url url to go to
      */
     public void goTo(String url) {
-        return null;
+        currentPage = url;
     }
 
     /**
