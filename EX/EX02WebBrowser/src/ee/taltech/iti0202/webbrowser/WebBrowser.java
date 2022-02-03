@@ -26,6 +26,7 @@ public class WebBrowser {
      * Goes to homepage.
      */
     public void homePage() {
+
         goTo(currentHomePage);
     }
 
@@ -35,7 +36,7 @@ public class WebBrowser {
     public void back() {
         if(!backPages.isEmpty()) {
             String previousPage = backPages.get(0);
-            backPages.remove(0);
+            backPages.remove(backPages.size() - 1);
             forwardPages.add(currentPage);
             webHistory.add(previousPage);
             currentPage = previousPage;
@@ -85,10 +86,12 @@ public class WebBrowser {
      * @param bookmark to remove
      */
     public void removeBookmark(String bookmark) {
+
         bookmarks.remove(bookmark);
     }
 
     public List<String> getBookmarks() {
+
         return bookmarks;
     }
 
