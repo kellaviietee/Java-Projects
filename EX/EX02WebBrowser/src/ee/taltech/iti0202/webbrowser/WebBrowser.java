@@ -80,7 +80,9 @@ public class WebBrowser {
      * Add a webpage as a bookmark.
      */
     public void addAsBookmark() {
-
+        if(!bookmarks.contains(currentPage)) {
+            bookmarks.add(currentPage);
+        }
     }
 
     /**
@@ -89,13 +91,14 @@ public class WebBrowser {
      * @param bookmark to remove
      */
     public void removeBookmark(String bookmark) {
-
-
+        if (bookmarks.contains(bookmark)) {
+            bookmarks.remove(bookmark);
+        }
     }
 
     public List<String> getBookmarks() {
 
-        return null;
+        return bookmarks;
     }
 
     public void setHomePage(String homePage) {
