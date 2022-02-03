@@ -12,7 +12,6 @@ public class WebBrowser {
     public List<String> bookmarks;
 
     public WebBrowser() {
-        this.webHistory = new ArrayList<>();
         this.currentHomePage = "google.com";
         this.currentPage = currentHomePage;
         this.webHistory = new ArrayList<>();
@@ -27,20 +26,14 @@ public class WebBrowser {
      */
     public void homePage() {
 
-        goTo(currentHomePage);
+        return null;
     }
 
     /**
      * Goes back to previous page.
      */
     public void back() {
-        if(!backPages.isEmpty()) {
-            String previousPage = backPages.get(0);
-            backPages.remove(backPages.size() - 1);
-            forwardPages.add(currentPage);
-            webHistory.add(previousPage);
-            currentPage = previousPage;
-        }
+        return null;
 
 
     }
@@ -49,11 +42,7 @@ public class WebBrowser {
      * Goes forward to next page.
      */
     public void forward() {
-        if(!forwardPages.isEmpty()){
-            String forwardPage = forwardPages.get(0);
-            forwardPages.remove(0);
-            currentPage = forwardPage;
-        }
+        return null;
     }
 
     /**
@@ -62,22 +51,14 @@ public class WebBrowser {
      * @param url url to go to
      */
     public void goTo(String url) {
-        if(!Objects.equals(currentPage, url)) {
-            backPages.add(currentPage);
-            forwardPages.clear();
-            webHistory.add(url);
-            currentPage = url;
-        }
+        return null;
     }
 
     /**
      * Add a webpage as a bookmark.
      */
     public void addAsBookmark() {
-        String currentPage = getCurrentUrl();
-        if(!bookmarks.contains(currentPage)){
-            bookmarks.add(currentPage);
-        }
+        return null;
     }
 
     /**
@@ -87,16 +68,16 @@ public class WebBrowser {
      */
     public void removeBookmark(String bookmark) {
 
-        bookmarks.remove(bookmark);
+        return null;
     }
 
     public List<String> getBookmarks() {
 
-        return bookmarks;
+        return null;
     }
 
     public void setHomePage(String homePage) {
-        currentHomePage = homePage;
+        return null;
 
     }
 
