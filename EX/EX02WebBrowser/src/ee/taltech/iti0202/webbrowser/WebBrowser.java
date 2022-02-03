@@ -91,9 +91,7 @@ public class WebBrowser {
      * @param bookmark to remove
      */
     public void removeBookmark(String bookmark) {
-        if (bookmarks.contains(bookmark)) {
-            bookmarks.remove(bookmark);
-        }
+        bookmarks.remove(bookmark);
     }
 
     public List<String> getBookmarks() {
