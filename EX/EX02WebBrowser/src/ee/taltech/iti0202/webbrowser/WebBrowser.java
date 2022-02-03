@@ -34,6 +34,11 @@ public class WebBrowser {
      * Goes back to previous page.
      */
     public void back() {
+        String previousPage = backPages.get(backPages.size() - 1);
+        backPages.remove(backPages.size() - 1);
+        forwardPages.add(currentPage);
+        currentPage = previousPage;
+        webHistory.add(currentPage);
 
 
 
