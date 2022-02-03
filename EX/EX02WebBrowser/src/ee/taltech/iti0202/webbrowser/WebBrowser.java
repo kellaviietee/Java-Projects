@@ -126,20 +126,20 @@ public class WebBrowser {
         });
         List<String> finalStrings = new ArrayList<>();
         String finalString = "";
+        int topCounter = 1;
         for(String page : uniqueList){
-            if (finalStrings.size() >= 3){
+            if (topCounter > 3){
                 break;
             }
             Integer visitNumber = topVisited.get(page);
             if (visitNumber == 1){
-                finalStrings.add(page + "- 1 visit");
-                finalString += page + "- 1 visit\n";
+                finalString += page + " - 1 visit\n";
 
             }
             else{
-                finalStrings.add(page + " - " + visitNumber + " visits");
                 finalString += page + " - " + visitNumber + " visits\n";
             }
+            topCounter++;
         }
         String trimmedFinalString = finalString.trim();
         System.out.println(trimmedFinalString);
