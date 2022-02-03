@@ -122,7 +122,7 @@ public class WebBrowser {
             if (topVisited.get(o1) > topVisited.get(o2)) {
                 return -1;
             }
-            return 1;
+            return -1;
         });
         StringBuilder finalString = new StringBuilder();
         int topCounter = 1;
