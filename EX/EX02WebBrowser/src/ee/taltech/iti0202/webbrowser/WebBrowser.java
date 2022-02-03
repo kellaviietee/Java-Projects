@@ -34,11 +34,13 @@ public class WebBrowser {
      * Goes back to previous page.
      */
     public void back() {
-        String previousPage = backPages.get(backPages.size() - 1);
-        backPages.remove(backPages.size() - 1);
-        forwardPages.add(currentPage);
-        currentPage = previousPage;
-        webHistory.add(currentPage);
+        if(!backPages.isEmpty()) {
+            String previousPage = backPages.get(backPages.size() - 1);
+            backPages.remove(backPages.size() - 1);
+            forwardPages.add(currentPage);
+            currentPage = previousPage;
+            webHistory.add(currentPage);
+        }
 
 
 
@@ -48,6 +50,14 @@ public class WebBrowser {
      * Goes forward to next page.
      */
     public void forward() {
+        if(!forwardPages.isEmpty()){
+            backPages.add(currentPage);
+            String nextPage = forwardPages.get(forwardPages.size()-1);
+            forwardPages.remove(forwardPages.size()-1);
+            currentPage = nextPage;
+            webHistory.add(nextPage);
+        }
+
 
     }
 
