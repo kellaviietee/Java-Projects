@@ -124,13 +124,20 @@ public class WebBrowser {
             }
             return 1;
         });
-        String firstPage = uniqueList.get(0);
-        String firstViews = Integer.toString(topVisited.get(firstPage));
-        String secondPage = uniqueList.get(1);
-        String secondViews = Integer.toString(topVisited.get(secondPage));
-        String thirdPage = uniqueList.get(2);
-        String thirdViews = Integer.toString(topVisited.get(thirdPage));
-        return MessageFormat.format("{0} - {1} visits\n{2} - {3} visits\n{4} - {5} visits",firstPage,firstViews,secondPage,secondViews,thirdViews);
+        List<String> finalStrings = new ArrayList<>();
+        for(String page : uniqueList){
+            if (finalStrings.size() >= 3){
+                break;
+            }
+            Integer visitNumber = topVisited.get(page);
+            if (visitNumber == 1){
+                finalStrings.add(page + "- 1 visit");
+            }
+            else{
+                finalStrings.add(page + " - " + visitNumber + " visits");
+            }
+        }
+        return MessageFormat.format("{0}\n{1}\n{2}",finalStrings.get(0),finalStrings.get(1),finalStrings.get(2));
     }
 
 

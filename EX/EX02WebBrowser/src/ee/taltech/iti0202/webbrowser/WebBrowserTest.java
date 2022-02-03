@@ -8,5 +8,7 @@ class WebBrowserTest {
 
     @Test
     void testing() {
+        WebBrowser webBrowser = new WebBrowser();
+        webBrowser.testing();
     }
 }
