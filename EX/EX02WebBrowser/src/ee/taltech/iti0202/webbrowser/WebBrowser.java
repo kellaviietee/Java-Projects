@@ -1,7 +1,6 @@
 package ee.taltech.iti0202.webbrowser;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.text.MessageFormat;
+import java.util.*;
 
 public class WebBrowser {
     public String currentHomePage;
@@ -91,6 +90,7 @@ public class WebBrowser {
      * @param bookmark to remove
      */
     public void removeBookmark(String bookmark) {
+
         bookmarks.remove(bookmark);
     }
 
@@ -100,6 +100,7 @@ public class WebBrowser {
     }
 
     public void setHomePage(String homePage) {
+
         currentHomePage = homePage;
     }
 
@@ -110,9 +111,30 @@ public class WebBrowser {
      * @return a String that contains top three visited pages separated with a newline "\n"
      */
     public String getTop3VisitedPages() {
-
-        return null;
+        Map<String, Integer> topVisited = new HashMap<>();
+        Set<String> uniquePages = new HashSet<>(webHistory);
+        List<String> uniqueList = new ArrayList<>(uniquePages);
+        for (String page : uniquePages) {
+            Integer visited = Collections.frequency(webHistory, page);
+            topVisited.put(page, visited);
+        }
+        uniqueList.sort((o1, o2) -> {
+            if (topVisited.get(o1) >= topVisited.get(o2)) {
+                return -1;
+            }
+            return 1;
+        });
+        String firstPage = uniqueList.get(0);
+        String firstViews = Integer.toString(topVisited.get(firstPage));
+        String secondPage = uniqueList.get(1);
+        String secondViews = Integer.toString(topVisited.get(secondPage));
+        String thirdPage = uniqueList.get(2);
+        String thirdViews = Integer.toString(topVisited.get(thirdPage));
+        return MessageFormat.format("{0} - {1} visits\n{2} - {3} visits\n{4} - {5} visits",firstPage,firstViews,secondPage,secondViews,thirdViews);
     }
+
+
+
 
     /**
      * Returns a list of all visited pages.
@@ -124,7 +146,6 @@ public class WebBrowser {
      * @return list of all visited pages
      */
     public List<String> getHistory() {
-
         return webHistory;
     }
 
@@ -136,5 +157,18 @@ public class WebBrowser {
      */
     public String getCurrentUrl() {
         return currentPage;
+
+    }
+    public void testing(){
+        goTo("neti.ee");
+        goTo("facebook.com");
+        goTo("youtube.com");
+        goTo("facebook.com");
+        goTo("google.com");
+        goTo("facebook.com");
+        goTo("youtube.com");
+        goTo("google.com");
+        goTo("facebook.com");
+        getTop3VisitedPages();
     }
 }
