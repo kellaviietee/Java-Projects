@@ -1,5 +1,4 @@
 package ee.taltech.iti0202.webbrowser;
-import java.text.MessageFormat;
 import java.util.*;
 
 public class WebBrowser {
