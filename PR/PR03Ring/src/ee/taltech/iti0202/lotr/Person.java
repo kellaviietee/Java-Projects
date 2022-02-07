@@ -38,7 +38,7 @@ public class Person {
                 return "No, the ring is fake!";
             } else if (!Objects.equals(name, "Sauron") && currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() == Ring.Material.GOLD) {
                 return "No, he just stole the ring";
-            } else if (Objects.equals(name, "Sauron") && currentRing.getType() != Ring.Type.THE_ONE || currentRing == null) {
+            } else if (Objects.equals(name, "Sauron") && (currentRing.getType() != Ring.Type.THE_ONE || currentRing == null)) {
                 return "No, but he's claiming to be";
             } else {
                 return "No";
