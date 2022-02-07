@@ -7,22 +7,23 @@ public class Person {
         String name;
         Ring currentRing;
 
-        public Person(String race, String name) {
+        public Person(String race, String name, Ring ring) {
             this.race = race;
             this.name = name;
+            this.currentRing = ring;
         }
 
         public void setRing(Ring ring) {
             currentRing = ring;
         }
 
-        public String getName(){
+        public String getName() {
             return name;
         }
-        public String getRace(){
+        public String getRace() {
             return race;
         }
-        public Ring getRing(){
+        public Ring getRing() {
             return currentRing;
         }
 
