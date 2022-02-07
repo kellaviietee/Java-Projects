@@ -1,7 +1,6 @@
 package ee.taltech.iti0202.lotr;
 
 public class Ring {
-    Person person;
     enum Type {
         THE_ONE,
         GOLDEN,

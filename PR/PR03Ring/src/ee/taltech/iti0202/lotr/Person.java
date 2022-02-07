@@ -16,6 +16,16 @@ public class Person {
             currentRing = ring;
         }
 
+        public String getName(){
+            return name;
+        }
+        public String getRace(){
+            return race;
+        }
+        public Ring getRing(){
+            return currentRing;
+        }
+
         public String isSauron() {
             if (Objects.equals(name, "Sauron") && currentRing.type == Ring.Type.THE_ONE && currentRing.material == Ring.Material.GOLD) {
                 return "Affirmative";
