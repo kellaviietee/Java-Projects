@@ -11,6 +11,9 @@ public class Person {
             this.race = race;
             this.name = name;
         }
+        public Person(Ring ring){
+            this.currentRing = ring;
+        }
 
         public void setRing(Ring ring) {
             currentRing = ring;
