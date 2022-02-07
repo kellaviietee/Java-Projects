@@ -47,7 +47,8 @@ public class Person {
                     && currentRing.getMaterial() != Ring.Material.GOLD) {
                 return "No, the ring is fake!";
             }
-        } else if (!Objects.equals(name, "Sauron")) {
+        }
+        else if (!Objects.equals(name, "Sauron")) {
             if (currentRing == null) {
                 return "No";
             } else if (currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() == Ring.Material.GOLD) {
