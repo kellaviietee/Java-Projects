@@ -25,21 +25,7 @@ public class Ring {
     }
 
     public Type getType() {
-        if (type == Type.GOLDEN){
-            return type;
-        }
-        else if (type == Type.NENYA){
-            return type;
-        }
-        else if (type == Type.OTHER){
-            return type;
-        }
-        else if (type == Type.THE_ONE) {
-            return type;
-        }
-        else{
-        return null;
-        }
+        return type;
     }
 
     public Material getMaterial() {
