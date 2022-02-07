@@ -11,7 +11,9 @@ public class Person {
             this.race = race;
             this.name = name;
         }
-        public Person(Ring ring){
+        public Person(String race, String name, Ring ring){
+            this.race = race;
+            this.name = name;
             this.currentRing = ring;
         }
 
