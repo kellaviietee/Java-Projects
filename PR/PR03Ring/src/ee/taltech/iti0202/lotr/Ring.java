@@ -1,8 +1,7 @@
 package ee.taltech.iti0202.lotr;
 
-import java.util.Objects;
-
 public class Ring {
+    Person person;
     enum Type {
         THE_ONE,
         GOLDEN,
@@ -33,54 +32,24 @@ public class Ring {
     public Material getMaterial() {
         return material;
     }
-    public static class Person {
-        String race;
-        String name;
-        Ring currentRing;
-
-        public Person(String race, String name) {
-            this.race = race;
-            this.name = name;
-        }
-
-        public void setRing(Ring ring) {
-            currentRing = ring;
-        }
-
-        public String isSauron() {
-            if (Objects.equals(name, "Sauron") && currentRing.type == Type.THE_ONE && currentRing.material == Material.GOLD) {
-                return "Affirmative";
-            } else if (Objects.equals(name, "Sauron") && currentRing.type == Type.THE_ONE && currentRing.material != Material.GOLD) {
-                return "No, the ring is fake!";
-            } else if (!Objects.equals(name, "Sauron") && currentRing.type == Type.THE_ONE && currentRing.material == Material.GOLD) {
-                return "No, he just stole the ring";
-            } else if (Objects.equals(name, "Sauron") && currentRing.type != Type.THE_ONE || currentRing == null) {
-                return "No, but he's claiming to be";
-            } else {
-                return "No";
-            }
-        }
-
-    }
-
 
     public static void main(String[] args) {
 
 // LOTR simplified play through
         Ring theRing = new Ring(Ring.Type.THE_ONE, Ring.Material.GOLD);
-        Ring.Person sauron = new Person("Maiar", "Sauron");
+        Person sauron = new Person("Maiar", "Sauron");
         sauron.setRing(theRing);
 // after some 4000 years, Gollum got the ring
-        Ring.Person gollum = new Person("Hobbit", "Gollum");
+        Person gollum = new Person("Hobbit", "Gollum");
 // let's remove ring from Sauron
         sauron.setRing(null);
         gollum.setRing(theRing);
 // after about 500 years, Bilbo got the ring
-        Ring.Person bilbo = new Person("Hobbit", "Bilbo Baggins");
+        Person bilbo = new Person("Hobbit", "Bilbo Baggins");
         gollum.setRing(null);
         bilbo.setRing(theRing);
 // after 60 years, Frodo got the ring
-        Ring.Person frodo = new Person("Hobbit", "Frodo Baggins");
+        Person frodo = new Person("Hobbit", "Frodo Baggins");
         bilbo.setRing(null);
         frodo.setRing(theRing);
 // check Sauron
@@ -97,6 +66,4 @@ public class Ring {
         System.out.println(sauron.isSauron()); // Affirmative
 
     }
-
-
 }
