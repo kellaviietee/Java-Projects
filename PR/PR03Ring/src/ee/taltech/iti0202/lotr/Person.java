@@ -27,13 +27,13 @@ public class Person {
         }
 
         public String isSauron() {
-            if (Objects.equals(name, "Sauron") && currentRing.type == Ring.Type.THE_ONE && currentRing.material == Ring.Material.GOLD) {
+            if (Objects.equals(name, "Sauron") && currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() == Ring.Material.GOLD) {
                 return "Affirmative";
-            } else if (Objects.equals(name, "Sauron") && currentRing.type == Ring.Type.THE_ONE && currentRing.material != Ring.Material.GOLD) {
+            } else if (Objects.equals(name, "Sauron") && currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() != Ring.Material.GOLD) {
                 return "No, the ring is fake!";
-            } else if (!Objects.equals(name, "Sauron") && currentRing.type == Ring.Type.THE_ONE && currentRing.material == Ring.Material.GOLD) {
+            } else if (!Objects.equals(name, "Sauron") && currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() == Ring.Material.GOLD) {
                 return "No, he just stole the ring";
-            } else if (Objects.equals(name, "Sauron") && currentRing.type != Ring.Type.THE_ONE || currentRing == null) {
+            } else if (Objects.equals(name, "Sauron") && currentRing.getType() != Ring.Type.THE_ONE || currentRing == null) {
                 return "No, but he's claiming to be";
             } else {
                 return "No";
