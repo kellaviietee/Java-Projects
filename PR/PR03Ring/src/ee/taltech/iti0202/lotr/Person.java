@@ -3,8 +3,8 @@ package ee.taltech.iti0202.lotr;
 import java.util.Objects;
 
 public class Person {
-    private String race;
-    private String name;
+    private final String  race;
+    private final String  name;
     private Ring currentRing;
 
     public Person(String race, String name) {
@@ -47,7 +47,7 @@ public class Person {
                     && currentRing.getMaterial() != Ring.Material.GOLD) {
                 return "No, the ring is fake!";
             }
-        } else if (!Objects.equals(name, "Sauron")) {
+        }else {
             if (currentRing == null) {
                 return "No";
             } else if (currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() == Ring.Material.GOLD) {
