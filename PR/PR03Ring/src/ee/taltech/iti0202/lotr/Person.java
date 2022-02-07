@@ -11,7 +11,7 @@ public class Person {
             this.race = race;
             this.name = name;
         }
-        public Person(String race, String name, Ring ring){
+        public Person(String race, String name, Ring ring) {
             this.race = race;
             this.name = name;
             this.currentRing = ring;
@@ -38,14 +38,16 @@ public class Person {
                 } else if (currentRing.getType() != Ring.Type.THE_ONE) {
                     return "No, but he's claiming to be";
                 }
-                else if (currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() == Ring.Material.GOLD){
+                else if (currentRing.getType() == Ring.Type.THE_ONE &&
+                        currentRing.getMaterial() == Ring.Material.GOLD) {
                     return "Affirmative";
                 }
-                else if (currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() != Ring.Material.GOLD) {
+                else if (currentRing.getType() == Ring.Type.THE_ONE &&
+                        currentRing.getMaterial() != Ring.Material.GOLD) {
                     return "No, the ring is fake!";
             }
                 }
-            else if (!Objects.equals(name, "Sauron")){
+            else if (!Objects.equals(name, "Sauron")) {
                 if(currentRing == null){
                     return "No";
                 }
