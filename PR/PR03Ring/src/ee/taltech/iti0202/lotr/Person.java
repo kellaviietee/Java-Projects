@@ -37,14 +37,20 @@ public class Person {
                     return "No, but he's claiming to be";
                 } else if (currentRing.getType() != Ring.Type.THE_ONE) {
                     return "No, but he's claiming to be";
-                } else if (currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() == Ring.Material.GOLD) {
-                    return "Affirmative";
-                } else if (currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() != Ring.Material.GOLD) {
-                    return "No, the ring is fake!";
                 }
+                else if (currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() == Ring.Material.GOLD){
+                    return "Affirmative";
+                }
+                else if (currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() != Ring.Material.GOLD) {
+                    return "No, the ring is fake!";
             }
-            else if (!Objects.equals(name, "Sauron") && currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() == Ring.Material.GOLD) {
-                return "No, he just stole the ring";
+                }
+            else if (!Objects.equals(name, "Sauron")){
+                if(currentRing == null){
+                    return "No";
+                }
+                else if(currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() == Ring.Material.GOLD)
+                    return "No, he just stole the ring";
             }
             return "No";
         }
