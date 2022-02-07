@@ -34,8 +34,9 @@ public class Ring {
 
     public static void main(String[] args) {
 
+
 // LOTR simplified play through
-        Ring theRing = new Ring(Ring.Type.THE_ONE, Ring.Material.GOLD);
+        Ring theRing = new Ring(Type.THE_ONE, Material.GOLD);
         Person sauron = new Person("Maiar", "Sauron");
         sauron.setRing(theRing);
 // after some 4000 years, Gollum got the ring
@@ -52,17 +53,16 @@ public class Ring {
         bilbo.setRing(null);
         frodo.setRing(theRing);
 // check Sauron
-        Ring fakeOne = new Ring(Ring.Type.THE_ONE, Ring.Material.PLASTIC);
+        Ring fakeOne = new Ring(Type.THE_ONE, Material.PLASTIC);
         sauron.setRing(fakeOne);
         System.out.println(sauron.isSauron()); // No, the ring is fake!
         System.out.println(frodo.isSauron()); // No, he just stole the ring
-        Ring nenya = new Ring(Ring.Type.NENYA, Ring.Material.DIAMOND);
+        Ring nenya = new Ring(Type.NENYA, Material.DIAMOND);
         sauron.setRing(nenya);
         System.out.println(sauron.isSauron()); // No, but he's claiming to be
         frodo.setRing(nenya);
         System.out.println(frodo.isSauron()); // No
         sauron.setRing(theRing);
         System.out.println(sauron.isSauron()); // Affirmative
-
     }
 }
