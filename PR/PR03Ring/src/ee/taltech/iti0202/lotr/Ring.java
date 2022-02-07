@@ -37,19 +37,19 @@ public class Ring {
 
 // LOTR simplified play through
         Ring theRing = new Ring(Type.THE_ONE, Material.GOLD);
-        Person sauron = new Person("Maiar", "Sauron");
+        Person sauron = new Person("Maiar", "Sauron",null);
         sauron.setRing(theRing);
 // after some 4000 years, Gollum got the ring
-        Person gollum = new Person("Hobbit", "Gollum");
+        Person gollum = new Person("Hobbit", "Gollum", null);
 // let's remove ring from Sauron
         sauron.setRing(null);
         gollum.setRing(theRing);
 // after about 500 years, Bilbo got the ring
-        Person bilbo = new Person("Hobbit", "Bilbo Baggins");
+        Person bilbo = new Person("Hobbit", "Bilbo Baggins", null);
         gollum.setRing(null);
         bilbo.setRing(theRing);
 // after 60 years, Frodo got the ring
-        Person frodo = new Person("Hobbit", "Frodo Baggins");
+        Person frodo = new Person("Hobbit", "Frodo Baggins", null);
         bilbo.setRing(null);
         frodo.setRing(theRing);
 // check Sauron

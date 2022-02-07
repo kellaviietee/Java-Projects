@@ -10,6 +10,7 @@ public class Person {
         public Person(String race, String name, Ring ring) {
             this.race = race;
             this.name = name;
+            this.currentRing = ring;
         }
 
         public void setRing(Ring ring) {
