@@ -8,7 +8,7 @@ public class Book {
     int bookId;
     static int id = 0;
     public static int getAndIncrementNextId() {
-        return id;
+        return id + 1;
     }
 
     public Book(String title, String author, int yearOfPublishing, int price) {
