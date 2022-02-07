@@ -3,9 +3,9 @@ package ee.taltech.iti0202.lotr;
 import java.util.Objects;
 
 public class Person {
-        String race;
-        String name;
-        Ring currentRing;
+        private String race;
+        private String name;
+        private Ring currentRing;
 
         public Person(String race, String name) {
             this.race = race;

@@ -16,8 +16,8 @@ public class Ring {
         DIAMOND
     }
 
-    Type type;
-    Material material;
+    private Type type;
+    private Material material;
 
     public Ring(Type type, Material material) {
         this.type = type;
