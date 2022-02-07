@@ -7,10 +7,9 @@ public class Person {
         String name;
         Ring currentRing;
 
-        public Person(String race, String name, Ring ring) {
+        public Person(String race, String name) {
             this.race = race;
             this.name = name;
-            this.currentRing = ring;
         }
 
         public void setRing(Ring ring) {
