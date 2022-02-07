@@ -50,9 +50,11 @@ public class Person {
         } else if (!Objects.equals(name, "Sauron")) {
             if (currentRing == null) {
                 return "No";
-            } else if (currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() == Ring.Material.GOLD)
+            } else if (currentRing.getType() == Ring.Type.THE_ONE && currentRing.getMaterial() == Ring.Material.GOLD) {
                 return "No, he just stole the ring";
+            }
         }
         return "No";
     }
 }
+
