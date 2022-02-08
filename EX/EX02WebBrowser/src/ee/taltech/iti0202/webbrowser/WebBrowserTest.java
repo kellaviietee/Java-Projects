@@ -10,6 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class WebBrowserTest {
     public static final int MAX_PAGES = 10000;
+    public static final int FIRST_GO_TO_PAGES = 100;
+    public static final int FIRST_BACK_PAGES = 30;
+    public static final int SECOND_GO_TO_PAGES = 5;
+    public static final int SECOND_BACK_PAGES = 30;
 
     @Test
     /*
@@ -126,21 +130,17 @@ class WebBrowserTest {
     Test going to 100 new page, then going 30 pages back, then 5 forward and then back again.
      */
     void test100Pages30Back5GoTo30Back() {
-        int FIRSTGOTOPAGES = 100;
-        int FIRSTBACKPAGES = 30;
-        int SECONDGOTOPAGES = 5;
-        int SECONDBACKPAGES = 30;
         WebBrowser webBrowser = new WebBrowser();
-        for (int i = 0; i < FIRSTGOTOPAGES; i++) {
+        for (int i = 0; i < FIRST_GO_TO_PAGES; i++) {
             webBrowser.goTo("Page" + (i + 1));
         }
-        for (int i = 0; i < FIRSTBACKPAGES; i++) {
+        for (int i = 0; i < FIRST_BACK_PAGES; i++) {
             webBrowser.back();
         }
-        for (int i = 0; i < SECONDGOTOPAGES; i++) {
+        for (int i = 0; i < SECOND_GO_TO_PAGES; i++) {
             webBrowser.goTo("Page" + (i + 1));
         }
-        for (int i = 0; i < SECONDBACKPAGES; i++) {
+        for (int i = 0; i < SECOND_BACK_PAGES; i++) {
             webBrowser.back();
         }
         assertEquals("Page45", webBrowser.getCurrentUrl());
@@ -219,9 +219,8 @@ class WebBrowserTest {
     Test for 10000 Forward pressings.
      */
     void testEmptyForward() {
-        int MAXPAGES = 10000;
         WebBrowser webBrowser = new WebBrowser();
-        for (int i = 0; i < MAXPAGES; i++) {
+        for (int i = 0; i < MAX_PAGES; i++) {
             webBrowser.forward();
         }
         assertEquals("google.com",webBrowser.getCurrentUrl());
