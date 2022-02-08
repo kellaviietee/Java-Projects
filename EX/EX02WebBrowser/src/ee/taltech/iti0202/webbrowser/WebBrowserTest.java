@@ -180,7 +180,7 @@ class WebBrowserTest {
     void testTopPagesWithHome() {
         String testTopPages = "google.com - 1 visit";
         WebBrowser webBrowser = new WebBrowser();
-        assertEquals(testTopPages,webBrowser.getTop3VisitedPages());
+        assertEquals(testTopPages, webBrowser.getTop3VisitedPages());
     }
     @Test
     /*
@@ -192,7 +192,7 @@ class WebBrowserTest {
         webBrowser.goTo("facebook.com");
         webBrowser.back();
         webBrowser.forward();
-        assertEquals(testTopPages,webBrowser.getTop3VisitedPages());
+        assertEquals(testTopPages, webBrowser.getTop3VisitedPages());
     }
     @Test
     /*
@@ -212,7 +212,7 @@ class WebBrowserTest {
         webBrowser.goTo("neti.ee");
         webBrowser.goTo("youtube.com");
         webBrowser.goTo("facebook.com");
-        assertEquals(testTopPages,webBrowser.getTop3VisitedPages());
+        assertEquals(testTopPages, webBrowser.getTop3VisitedPages());
     }
     @Test
     /*
@@ -223,6 +223,6 @@ class WebBrowserTest {
         for (int i = 0; i < MAX_PAGES; i++) {
             webBrowser.forward();
         }
-        assertEquals("google.com",webBrowser.getCurrentUrl());
+        assertEquals("google.com", webBrowser.getCurrentUrl());
     }
 }
