@@ -14,7 +14,7 @@ class WebBrowserTest {
     /*
     Tests if going to the same Page keeps History the same length.
      */
-    void TestSamePageSameHistory() {
+    void testSamePageSameHistory() {
         WebBrowser webBrowser = new WebBrowser();
         for (int i = 0; i < 1000; i++) {
             webBrowser.goTo("google.com");
@@ -26,7 +26,7 @@ class WebBrowserTest {
     /*
     Test going to 10000 pages then back once and then forward once.
      */
-    void Test10000PagesThenBackThenForward() {
+    void test10000PagesThenBackThenForward() {
         int MAXPAGES = 10000;
         WebBrowser webBrowser = new WebBrowser();
         for (int i = 0; i < MAXPAGES; i++) {
@@ -41,7 +41,7 @@ class WebBrowserTest {
     /*
     Test if browser history adds all the pages.
      */
-    void TestHistory100Pages() {
+    void testHistory100Pages() {
         int MAXPAGES = 10000;
         WebBrowser webBrowser = new WebBrowser();
         List<String> testHistory = new ArrayList<>();
@@ -97,7 +97,7 @@ class WebBrowserTest {
     /*
     Test to see browsers history when no new pages have been visited.
      */
-    void HistoryNoPagesVisited() {
+    void historyNoPagesVisited() {
         WebBrowser webBrowser = new WebBrowser();
         List<String> testHistory = new ArrayList<>();
         testHistory.add("google.com");
@@ -179,7 +179,7 @@ class WebBrowserTest {
     /*
     Test Top3 visited pages when user has not left the homepage.
      */
-    void testTopPagesWithHome(){
+    void testTopPagesWithHome() {
         String testTopPages = "google.com - 1 visit";
         WebBrowser webBrowser = new WebBrowser();
         assertEquals(testTopPages,webBrowser.getTop3VisitedPages());
@@ -188,7 +188,7 @@ class WebBrowserTest {
     /*
     Test Top3 visited Pages when ony two different pages have been visited.
      */
-    void testTopPages2Pages(){
+    void testTopPages2Pages() {
         String testTopPages = "google.com - 2 visits\nfacebook.com - 2 visits";
         WebBrowser webBrowser = new WebBrowser();
         webBrowser.goTo("facebook.com");
@@ -200,7 +200,7 @@ class WebBrowserTest {
     /*
     Test Top3Pages, with same visits but first in history being on first position.
      */
-    void testTopPages3DifferentPages(){
+    void testTopPages3DifferentPages() {
         String testTopPages = "facebook.com - 4 visits\nneti.ee - 4 visits\nyoutube.com - 3 visits";
         WebBrowser webBrowser = new WebBrowser();
         webBrowser.goTo("facebook.com");
