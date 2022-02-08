@@ -27,9 +27,9 @@ class WebBrowserTest {
     Test going to 10000 pages then back once and then forward once.
      */
     void test10000PagesThenBackThenForward() {
-        int MAXPAGES = 10000;
+        int testablePages = 10000;
         WebBrowser webBrowser = new WebBrowser();
-        for (int i = 0; i < MAXPAGES; i++) {
+        for (int i = 0; i < testablePages; i++) {
             webBrowser.goTo("Page" + (i + 1));
         }
         webBrowser.back();
