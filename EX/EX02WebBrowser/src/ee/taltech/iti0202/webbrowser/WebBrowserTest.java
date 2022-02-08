@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class WebBrowserTest {
+    public static final int MAX_PAGES = 10000;
 
     @Test
     /*
@@ -27,9 +28,8 @@ class WebBrowserTest {
     Test going to 10000 pages then back once and then forward once.
      */
     void test10000PagesThenBackThenForward() {
-        int testablePages = 10000;
         WebBrowser webBrowser = new WebBrowser();
-        for (int i = 0; i < testablePages; i++) {
+        for (int i = 0; i < MAX_PAGES; i++) {
             webBrowser.goTo("Page" + (i + 1));
         }
         webBrowser.back();
@@ -42,11 +42,10 @@ class WebBrowserTest {
     Test if browser history adds all the pages.
      */
     void testHistory100Pages() {
-        int MAXPAGES = 10000;
         WebBrowser webBrowser = new WebBrowser();
         List<String> testHistory = new ArrayList<>();
         testHistory.add("google.com");
-        for (int i = 0; i < MAXPAGES; i++) {
+        for (int i = 0; i < MAX_PAGES; i++) {
             webBrowser.goTo("Page" + (i + 1));
             testHistory.add("Page" + (i + 1));
         }
@@ -79,15 +78,14 @@ class WebBrowserTest {
     Go 10000 unique Page, then pressing 10000 time back button and then 10000 times forward button.
      */
     void testGoTo10000PagesThenBack10000TimesThenForward10000Times() {
-        int MAXPAGES = 10000;
         WebBrowser webBrowser = new WebBrowser();
-        for (int i = 0; i < MAXPAGES; i++) {
+        for (int i = 0; i < MAX_PAGES; i++) {
             webBrowser.goTo("Page" + (i + 1));
         }
-        for (int i = 0; i < MAXPAGES; i++) {
+        for (int i = 0; i < MAX_PAGES; i++) {
             webBrowser.back();
         }
-        for (int i = 0; i < MAXPAGES; i++) {
+        for (int i = 0; i < MAX_PAGES; i++) {
             webBrowser.forward();
         }
         assertEquals("Page10000", webBrowser.getCurrentUrl());
