@@ -1,7 +1,7 @@
 package ee.taltech.iti0202.bookshelf;
 public class Book {
 
-    public static int availableId = 0;
+    public static int availableId = -1;
     public String title;
     public String author;
     public int yearOfPublishing;
@@ -19,8 +19,7 @@ public class Book {
         this.author = author;
         this.yearOfPublishing = yearOfPublishing;
         this.price = price;
-        this.bookId = availableId;
-        getAndIncrementNextId();
+        this.bookId = getAndIncrementNextId();
 
     }
 
