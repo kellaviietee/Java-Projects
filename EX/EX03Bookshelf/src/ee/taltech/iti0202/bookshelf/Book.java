@@ -49,7 +49,20 @@ public class Book {
     }
 
     public boolean buy(Person buyer) {
-        return false;
+        if(buyer == null){
+            Person currentOwner = getOwner();
+            currentOwner.sellBook(this);
+            return true;
+        }
+        else if(buyer == getOwner() || buyer.money < getPrice()){
+            return false;
+        }
+        else {
+            Person currentOwner = getOwner();
+            currentOwner.sellBook(this);
+            buyer.buyBook(this);
+            return true;
+        }
     }
 
 }
