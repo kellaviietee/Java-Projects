@@ -146,8 +146,7 @@ public class Book {
     public static boolean compareBooks(Book book1, Book book2){
         return Objects.equals(book1.getTitle(), book2.getTitle())
                 && Objects.equals(book1.getAuthor(), book2.getAuthor())
-                && book1.getYearOfPublishing() == book2.getYearOfPublishing()
-                && book1.getPrice() == book2.getPrice();
+                && book1.getYearOfPublishing() == book2.getYearOfPublishing();
     }
 
 }
