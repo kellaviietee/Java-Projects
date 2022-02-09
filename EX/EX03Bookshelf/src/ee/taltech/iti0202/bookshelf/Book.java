@@ -1,5 +1,6 @@
 package ee.taltech.iti0202.bookshelf;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,9 @@ public class Book {
         return newBook;
     }
     public static List<Book> getBooksByOwner(Person owner){
-
+        // Dummy book list of Books.
+        List<Book> dummyList= new ArrayList<Book>();
+        return dummyList;
     }
 
 
