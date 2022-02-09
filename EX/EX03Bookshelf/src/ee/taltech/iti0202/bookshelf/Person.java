@@ -7,11 +7,8 @@ public class Person {
     public String name;
     public int money;
 
-    public List<Book> getOwnedBooks() {
-        return ownedBooks;
-    }
+    public List<Book> books;
 
-    public List<Book> ownedBooks = new ArrayList<>();
 
     public Person(String name, int money) {
         this.name = name;
@@ -34,7 +31,7 @@ public class Person {
         } else {
             money -= book.getPrice();
             book.owner = this;
-            ownedBooks.add(book);
+            books.add(book);
             return true;
         }
     }
@@ -44,10 +41,13 @@ public class Person {
             return false;
         } else {
             money += book.getPrice();
-            ownedBooks.remove(book);
+            books.remove(book);
             book.owner = null;
             return true;
         }
 
+    }
+    public List<Book> getBooks() {
+        return books;
     }
 }
