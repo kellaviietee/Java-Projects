@@ -57,8 +57,10 @@ public class Book {
             return false;
         }
         else if (buyer.getMoney() >= this.price && buyer != this.getOwner()){
-            Person bookOwner = getOwner();
-            bookOwner.sellBook(this);
+            if(getOwner() != null) {
+                Person bookOwner = getOwner();
+                bookOwner.sellBook(this);
+            }
             buyer.buyBook(this);
             return true;
         }
