@@ -8,17 +8,17 @@ public class Book {
     int bookId;
     static int id = 0;
     public static int getAndIncrementNextId() {
-        return id + 1;
+        return id;
     }
 
     public Book(String title, String author, int yearOfPublishing, int price) {
         this.bookId = id;
+        id = id + 1;
         this.title = title;
         this.author = author;
         this.yearOfPublishing = yearOfPublishing;
         this.price = price;
         this.owner = null;
-        id = id + 1;
     }
 
     public String getTitle() {
