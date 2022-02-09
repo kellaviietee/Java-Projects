@@ -49,7 +49,10 @@ public class Book {
     }
 
     public boolean buy(Person buyer) {
-        if(buyer == null){
+        if (getOwner() == null){
+            return false;
+        }
+        else if(buyer == null){
             Person currentOwner = getOwner();
             currentOwner.sellBook(this);
             return true;
