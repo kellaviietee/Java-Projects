@@ -4,6 +4,10 @@ import java.util.*;
 
 public class Book {
 
+    public static List<Book> getBooks() {
+        return books;
+    }
+
     public static List<Book> books = new ArrayList<>();
     public static int availableId = -1;
     public String title;
@@ -143,4 +147,5 @@ public class Book {
                 && book1.getYearOfPublishing() == book2.getYearOfPublishing()
                 && book1.getPrice() == book2.getPrice();
     }
+
 }
