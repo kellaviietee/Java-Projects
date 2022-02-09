@@ -1,8 +1,6 @@
 package ee.taltech.iti0202.bookshelf;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Book {
 
@@ -44,6 +42,32 @@ public class Book {
         }
         books.add(testBook);
         return testBook;
+    }
+
+    public static List<Book> getBooksByOwner(Person owner){
+        return owner.getOwnedBooks();
+    }
+
+    public static boolean removeBook(Book book){
+        if(book == null || !books.contains(book)){
+            return false;
+        }
+        Person bookOwner = book.getOwner();
+        if (bookOwner != null){
+            bookOwner.sellBook(book);
+        }
+        books.remove(book);
+        return true;
+    }
+
+    public static List<Book> getBooksByAuthor(String author){
+        List<Book> authorBooks = new ArrayList<>();
+        for(Book book : books){
+            if(book.getAuthor().toLowerCase().equals(author.toLowerCase())){
+              authorBooks.add(book);
+            }
+        }
+        return authorBooks;
     }
 
     /*
