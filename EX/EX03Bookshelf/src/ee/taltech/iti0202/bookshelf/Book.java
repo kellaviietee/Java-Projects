@@ -16,7 +16,7 @@ public class Book {
     static List<Book> books = new ArrayList<>();
 
     public static int getAndIncrementNextId() {
-        return id;
+        return id + 1;
     }
     public static Book of(String title, String author, int yearOfPublishing, int price){
         for(Book book : books){
