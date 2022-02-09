@@ -45,8 +45,13 @@ public class Book {
     }
     public static List<Book> getBooksByOwner(Person owner){
         // Dummy book list of Books.
-        List<Book> dummyList= new ArrayList<Book>();
-        return dummyList;
+        List<Book> ownedBooks = new ArrayList<Book>();
+        for(Book book : books){
+            if(book.getOwner() == owner){
+                ownedBooks.add(book);
+            }
+        }
+        return ownedBooks;
     }
 
 
