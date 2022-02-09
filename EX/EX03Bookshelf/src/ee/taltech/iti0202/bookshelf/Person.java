@@ -1,12 +1,17 @@
 package ee.taltech.iti0202.bookshelf;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Person {
     String name;
     int money;
+    List<Book> ownedBooks;
     
     public Person(String name, int money) {
         this.name = name;
         this.money = money;
+        this.ownedBooks = new ArrayList<>();
     }
 
     public int getMoney() {
@@ -22,6 +27,7 @@ public class Person {
             if(getMoney() >= book.getPrice() && book.owner == null){
                 book.owner = this;
                 money -= book.getPrice();
+                ownedBooks.add(book);
                 return true;
             }
         }
@@ -33,9 +39,13 @@ public class Person {
             if(book.getOwner() == this){
                 money += book.getPrice();
                 book.owner = null;
+                ownedBooks.remove(book);
                 return true;
             }
         }
         return false;
+    }
+    public List<Book> getBooks(){
+        return ownedBooks;
     }
 }

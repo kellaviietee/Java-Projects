@@ -2,6 +2,7 @@ package ee.taltech.iti0202.bookshelf;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 public class Book {
@@ -12,7 +13,8 @@ public class Book {
     Person owner;
     int bookId;
     static int id = 0;
-    static List<Book> books;
+    static List<Book> books = new ArrayList<>();
+
     public static int getAndIncrementNextId() {
         return id;
     }
@@ -44,14 +46,33 @@ public class Book {
         return newBook;
     }
     public static List<Book> getBooksByOwner(Person owner){
-        // Dummy book list of Books.
-        List<Book> ownedBooks = new ArrayList<Book>();
-        for(Book book : books){
-            if(book.getOwner() == owner){
-                ownedBooks.add(book);
+        return owner.getBooks();
+    }
+    public static boolean removeBook(Book book){
+        if (book == null){
+            return false;
+        }
+        for(Book testBook : books){
+            if(Objects.equals(testBook.getTitle(), book.getTitle()) && Objects.equals(testBook.getAuthor(), book.getAuthor())
+            && testBook.getYearOfPublishing() == book.getYearOfPublishing() && testBook.getPrice() == book.getPrice()) {
+                if(book.getOwner() != null){
+                    Person owner = book.getOwner();
+                    owner.sellBook(book);
+                }
+                books.remove(book);
+                return true;
             }
         }
-        return ownedBooks;
+        return false;
+    }
+    public static List<Book> getBooksByAuthor(String author){
+        List<Book> booksByAuthor = new ArrayList<>();
+        for(Book book : books){
+            if(Objects.equals(book.getAuthor().toLowerCase(), author.toLowerCase())){
+                booksByAuthor.add(book);
+            }
+        }
+        return booksByAuthor;
     }
 
 
@@ -96,7 +117,9 @@ public class Book {
             return false;
         }
         Person currentOwner = getOwner();
-        currentOwner.sellBook(this);
+        if(currentOwner != null) {
+            currentOwner.sellBook(this);
+        }
         buyer.buyBook(this);
         return true;
     }
