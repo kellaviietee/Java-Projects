@@ -18,7 +18,17 @@ public class Person {
     }
 
     public boolean buyBook(Book book) {
-        return false;
+        if (book == null){
+            return false;
+        }
+        else if(book.price > getMoney() || book.getOwner() != null){
+            return false;
+        }
+        else{
+            money -= book.getPrice();
+            book.owner = this;
+            return true;
+        }
     }
 
     public boolean sellBook(Book book) {

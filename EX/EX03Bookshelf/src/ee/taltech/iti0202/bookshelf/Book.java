@@ -6,6 +6,7 @@ public class Book {
     public String author;
     public int yearOfPublishing;
     public int price;
+    public Person owner;
 
     public static int getAndIncrementNextId() {
         int currentId = availableId;
@@ -33,7 +34,7 @@ public class Book {
     }
 
     public Person getOwner() {
-        return null;
+        return owner;
     }
 
     public int getPrice() {
