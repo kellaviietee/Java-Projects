@@ -1,6 +1,12 @@
 package ee.taltech.iti0202.bookshelf;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class Book {
 
+    public static List<Book> books = new ArrayList<>();
     public static int availableId = -1;
     public String title;
     public String author;
@@ -8,6 +14,38 @@ public class Book {
     public int price;
     public Person owner;
     public int bookId;
+    /*
+    Create a Book instance.
+     */
+    public static Book of(String title, String author, int yearOfPublishing, int price){
+        Book testBook = new Book(title,author,yearOfPublishing,price);
+        for(Book book : books){
+            if(compareBooks(book,testBook)){
+                return book;
+            }
+        }
+        books.add(testBook);
+        return testBook;
+    }
+    /*
+    Create a simplified Book instance.
+    */
+    public static Book of(String title, int price){
+        if (books.size() == 0){
+            return null;
+        }
+        String previousAuthor = books.get(books.size()-1).getAuthor();
+        int previousYear = books.get(books.size()-1).getYearOfPublishing();
+        Book testBook = new Book(title,previousAuthor,previousYear,price);
+        for(Book book : books){
+            if(compareBooks(book,testBook)){
+                return book;
+            }
+        }
+        books.add(testBook);
+        return testBook;
+    }
+
     /*
     Get current available BookId and increment it for the next book.
      */
@@ -70,5 +108,15 @@ public class Book {
             return true;
         }
         return false;
+    }
+
+    /*
+    Check if two Book instances are the same.
+     */
+    public static boolean compareBooks(Book book1, Book book2){
+        return Objects.equals(book1.getTitle(), book2.getTitle())
+                && Objects.equals(book1.getAuthor(), book2.getAuthor())
+                && book1.getYearOfPublishing() == book2.getYearOfPublishing()
+                && book1.getPrice() == book2.getPrice();
     }
 }
