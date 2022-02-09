@@ -48,16 +48,17 @@ public class Book {
     }
 
     public boolean buy(Person buyer) {
-        if(buyer == null || this.getOwner() != null){
-            Person bookOwner = getOwner();
-            bookOwner.sellBook(this);
-            return true;
-        }
-        else if (buyer.getMoney() >= this.price && buyer != this.getOwner()){
+        if(buyer == null){
             if(this.getOwner() != null) {
                 Person bookOwner = getOwner();
                 bookOwner.sellBook(this);
+                return true;
             }
+            return false;
+        }
+        else if (buyer.getMoney() >= this.price && buyer != this.getOwner()){
+            Person bookOwner = getOwner();
+            bookOwner.sellBook(this);
             buyer.buyBook(this);
             return true;
         }
