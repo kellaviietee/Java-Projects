@@ -7,11 +7,11 @@ public class Book {
     public int yearOfPublishing;
     public int price;
     public Person owner;
+    public int bookId;
 
     public static int getAndIncrementNextId() {
-        int currentId = availableId;
         availableId += 1;
-        return currentId;
+        return availableId;
     }
 
     public Book(String title, String author, int yearOfPublishing, int price) {
@@ -19,6 +19,9 @@ public class Book {
         this.author = author;
         this.yearOfPublishing = yearOfPublishing;
         this.price = price;
+        this.bookId = availableId;
+        getAndIncrementNextId();
+
     }
 
     public String getTitle() {
@@ -42,7 +45,7 @@ public class Book {
     }
 
     public int getId() {
-        return availableId;
+        return bookId;
     }
 
     public boolean buy(Person buyer) {

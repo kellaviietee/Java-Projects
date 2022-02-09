@@ -32,6 +32,14 @@ public class Person {
     }
 
     public boolean sellBook(Book book) {
-        return false;
+        if(book == null || book.getOwner() != this) {
+            return false;
+        }
+        else{
+            money += book.getPrice();
+            book.owner = null;
+            return true;
+        }
+
     }
 }
