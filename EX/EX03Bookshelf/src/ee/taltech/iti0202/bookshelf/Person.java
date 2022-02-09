@@ -13,6 +13,7 @@ public class Person {
     public Person(String name, int money) {
         this.name = name;
         this.money = money;
+        this.books = new ArrayList<>();
     }
 
     public int getMoney() {

@@ -48,9 +48,7 @@ public class Book {
         return testBook;
     }
 
-    public static List<Book> getBooksByOwner(Person owner){
-        return owner.getOwnedBooks();
-    }
+
 
     public static boolean removeBook(Book book){
         if(book == null || !books.contains(book)){
@@ -62,6 +60,10 @@ public class Book {
         }
         books.remove(book);
         return true;
+    }
+
+    public static List<Book> getBooksByOwner(Person owner){
+        return owner.getBooks();
     }
 
     public static List<Book> getBooksByAuthor(String author){
