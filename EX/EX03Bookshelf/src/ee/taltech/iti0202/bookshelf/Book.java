@@ -8,12 +8,16 @@ public class Book {
     public int price;
     public Person owner;
     public int bookId;
-
+    /*
+    Get current available BookId and increment it for the next book.
+     */
     public static int getAndIncrementNextId() {
         availableId += 1;
         return availableId;
     }
-
+    /*
+    Book class constructor.
+     */
     public Book(String title, String author, int yearOfPublishing, int price) {
         this.title = title;
         this.author = author;
@@ -42,7 +46,9 @@ public class Book {
     public int getPrice() {
         return price;
     }
-
+    /*
+    Get the book id.
+     */
     public int getId() {
         return bookId;
     }
