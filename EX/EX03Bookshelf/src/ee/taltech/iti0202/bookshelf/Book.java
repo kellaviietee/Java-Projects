@@ -9,7 +9,7 @@ public class Book {
     }
 
     public static Map<String, List<Book>> booksByAuthor = new HashMap<>();
-    public static List<Book> books = new ArrayList<>(10000);
+    public static List<Book> books = new ArrayList<>();
     public static Book previousBook;
     public static int availableId = -1;
     public String title;
