@@ -9,7 +9,7 @@ public class Book {
     }
 
     public static Map<String, List<Book>> booksByAuthor = new HashMap<>();
-    public static List<Book> books = new ArrayList<>();
+    public static List<Book> books = new ArrayList<>(10000);
     public static Book previousBook;
     public static int availableId = -1;
     public String title;
@@ -75,6 +75,7 @@ public class Book {
     }
 
     public static boolean removeBook(Book book) {
+        books.removeAll(null);
         if (book == null || !books.contains(book)) {
             return false;
         }
