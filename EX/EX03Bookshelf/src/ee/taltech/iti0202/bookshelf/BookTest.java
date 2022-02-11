@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tester for Bookshelf.
+ */
 class BookTest {
     /**
      * Test if a single Book creation works.
