@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class BookTest {
     static final int TEST_YEAR = 2010;
     static final int TEST_PRICE = 20;
+    static final int FIRST_ID = 0;
 
     /**
      * Test if a single book creation works.
@@ -24,6 +25,13 @@ class BookTest {
         assertEquals(testAuthor, testBook.getAuthor());
         assertEquals(TEST_YEAR, testBook.getYearOfPublishing());
         assertEquals(TEST_PRICE, testBook.getPrice());
+    }
+    /**
+     * Test if the First ID is 0
+     */
+    @Test
+    void testFirstId(){
+        assertEquals(FIRST_ID,Book.availableId);
     }
 
 
