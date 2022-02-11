@@ -28,7 +28,7 @@ class BookTest {
     }
 
     /**
-     * Test if the First ID is 0
+     * Test if the First available ID is 0
      */
     @Test
     void testFirstId() {
