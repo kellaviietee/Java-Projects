@@ -35,7 +35,7 @@ public class Book {
      */
     public static Book of(String title, String author, int yearOfPublishing, int price) {
         Book testBook = new Book(title, author, yearOfPublishing, price);
-        if(books.contains(testBook)){
+        if (books.contains(testBook)) {
             return testBook;
         }
         books.add(testBook);
@@ -58,7 +58,7 @@ public class Book {
         String previousAuthor = previousBook.getAuthor();
         int previousYear = previousBook.getYearOfPublishing();
         Book testBook = new Book(title, previousAuthor, previousYear, price);
-        if(books.contains(testBook)){
+        if (books.contains(testBook)) {
             return testBook;
         }
         books.add(testBook);
