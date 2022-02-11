@@ -13,7 +13,7 @@ class BookTest {
     static final int TEST_PRICE = 20;
 
     /**
-     * Test if a single Book creation works.
+     * Test if a single book creation works.
      */
     @Test
     void createSingleBook() {
