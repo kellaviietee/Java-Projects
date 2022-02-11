@@ -7,7 +7,8 @@ public class Book {
     public static List<Book> getBooks() {
         return books;
     }
-    public static Map<String,List<Book>> booksByAuthor = new HashMap<>();
+
+    public static Map<String, List<Book>> booksByAuthor = new HashMap<>();
     public static List<Book> books = new ArrayList<>();
     public static int availableId = -1;
     public String title;
@@ -16,13 +17,14 @@ public class Book {
     public int price;
     public Person owner;
     public int bookId;
+
     /*
     Create a Book instance.
      */
-    public static Book of(String title, String author, int yearOfPublishing, int price){
-        Book testBook = new Book(title,author,yearOfPublishing,price);
-        for(Book book : books){
-            if(compareBooks(book,testBook)){
+    public static Book of(String title, String author, int yearOfPublishing, int price) {
+        Book testBook = new Book(title, author, yearOfPublishing, price);
+        for (Book book : books) {
+            if (compareBooks(book, testBook)) {
                 return book;
             }
         }
@@ -30,18 +32,19 @@ public class Book {
         addBookToAuthor(testBook);
         return testBook;
     }
+
     /*
     Create a simplified Book instance.
     */
-    public static Book of(String title, int price){
-        if (books.size() == 0){
+    public static Book of(String title, int price) {
+        if (books.size() == 0) {
             return null;
         }
-        String previousAuthor = books.get(books.size()-1).getAuthor();
-        int previousYear = books.get(books.size()-1).getYearOfPublishing();
-        Book testBook = new Book(title,previousAuthor,previousYear,price);
-        for(Book book : books){
-            if(compareBooks(book,testBook)){
+        String previousAuthor = books.get(books.size() - 1).getAuthor();
+        int previousYear = books.get(books.size() - 1).getYearOfPublishing();
+        Book testBook = new Book(title, previousAuthor, previousYear, price);
+        for (Book book : books) {
+            if (compareBooks(book, testBook)) {
                 return book;
             }
         }
@@ -50,49 +53,48 @@ public class Book {
         return testBook;
     }
 
-    public static void addBookToAuthor(Book book){
-        if(book != null) {
+    public static void addBookToAuthor(Book book) {
+        if (book != null) {
             String bookAuthor = book.getAuthor().toLowerCase();
-            if (booksByAuthor.containsKey(bookAuthor)){
+            if (booksByAuthor.containsKey(bookAuthor)) {
                 List<Book> authorBooks = booksByAuthor.get(bookAuthor);
-                if (!authorBooks.contains(book)){
+                if (!authorBooks.contains(book)) {
                     authorBooks.add(book);
-                    booksByAuthor.put(bookAuthor,authorBooks);
+                    booksByAuthor.put(bookAuthor, authorBooks);
                 }
             }
-            if(!booksByAuthor.containsKey(bookAuthor)){
+            if (!booksByAuthor.containsKey(bookAuthor)) {
                 List<Book> BookList = new ArrayList<>();
                 BookList.add(book);
-                booksByAuthor.put(bookAuthor,BookList);
+                booksByAuthor.put(bookAuthor, BookList);
             }
         }
     }
 
-    public static boolean removeBook(Book book){
-        if(book == null || !books.contains(book)){
+    public static boolean removeBook(Book book) {
+        if (book == null || !books.contains(book)) {
             return false;
         }
         Person bookOwner = book.getOwner();
-        if (bookOwner != null){
+        if (bookOwner != null) {
             bookOwner.sellBook(book);
         }
         books.remove(book);
-        List<Book> authorsBooks = booksByAuthor.get(book.getAuthor());
-        if(authorsBooks != null){
+        List<Book> authorsBooks = booksByAuthor.get(book.getAuthor().toLowerCase());
+        if (authorsBooks != null) {
             authorsBooks.remove(book);
         }
         return true;
     }
 
-    public static List<Book> getBooksByOwner(Person owner){
+    public static List<Book> getBooksByOwner(Person owner) {
         return owner.getBooks();
     }
 
-    public static List<Book> getBooksByAuthor(String author){
-        if(booksByAuthor.get(author.toLowerCase()) == null){
+    public static List<Book> getBooksByAuthor(String author) {
+        if (booksByAuthor.get(author.toLowerCase()) == null) {
             return new ArrayList<>();
-        }
-        else return booksByAuthor.get(author.toLowerCase());
+        } else return booksByAuthor.get(author.toLowerCase());
     }
 
     /*
@@ -102,6 +104,7 @@ public class Book {
         availableId += 1;
         return availableId;
     }
+
     /*
     Book class constructor.
      */
@@ -133,6 +136,7 @@ public class Book {
     public int getPrice() {
         return price;
     }
+
     /*
     Get the book id.
      */
@@ -162,7 +166,7 @@ public class Book {
     /*
     Check if two Book instances are the same.
      */
-    public static boolean compareBooks(Book book1, Book book2){
+    public static boolean compareBooks(Book book1, Book book2) {
         return Objects.equals(book1.getTitle(), book2.getTitle())
                 && Objects.equals(book1.getAuthor(), book2.getAuthor())
                 && book1.getYearOfPublishing() == book2.getYearOfPublishing();
