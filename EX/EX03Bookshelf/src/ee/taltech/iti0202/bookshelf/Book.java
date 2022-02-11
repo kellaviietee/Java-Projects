@@ -75,7 +75,6 @@ public class Book {
     }
 
     public static boolean removeBook(Book book) {
-        books.removeAll(null);
         if (book == null || !books.contains(book)) {
             return false;
         }
