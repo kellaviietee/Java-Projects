@@ -25,12 +25,13 @@ public class Book {
     public int bookId;
 
     /**
-    Create a Book instance.
-     @param title Title of the book.
-     @param author Author of the book.
-     @param yearOfPublishing When the book was published.
-     @param price Price of the book
-     @return return the added book or the book that is already on the bookshelf.
+     * Create a Book instance.
+     *
+     * @param title            Title of the book.
+     * @param author           Author of the book.
+     * @param yearOfPublishing When the book was published.
+     * @param price            Price of the book
+     * @return return the added book or the book that is already on the bookshelf.
      */
     public static Book of(String title, String author, int yearOfPublishing, int price) {
         Book testBook = new Book(title, author, yearOfPublishing, price);
@@ -46,11 +47,12 @@ public class Book {
     }
 
     /**
-    Create a simplified Book instance.
-     @param title Title of the book
-     @param price Price of the book
-     @return return the added book or the one already on the bookshelf.
-    */
+     * Create a simplified Book instance.
+     *
+     * @param title Title of the book
+     * @param price Price of the book
+     * @return return the added book or the one already on the bookshelf.
+     */
     public static Book of(String title, int price) {
         if (previousBook == null) {
             return null;
@@ -68,9 +70,11 @@ public class Book {
         previousBook = testBook;
         return testBook;
     }
+
     /**
-    Adda book to the Authors list.
-    @param book Is the book to add to the Authors list of books.
+     * Adda book to the Authors list.
+     *
+     * @param book Is the book to add to the Authors list of books.
      */
     public static void addBookToAuthor(Book book) {
         if (book != null) {
@@ -92,6 +96,7 @@ public class Book {
 
     /**
      * Remove the book from bookshelf.
+     *
      * @param book book to be removed
      * @return if the book was removed.
      */
@@ -113,6 +118,7 @@ public class Book {
 
     /**
      * Get Books the Person owns.
+     *
      * @param owner Person that has the books.
      * @return List of Books.
      */
@@ -122,6 +128,7 @@ public class Book {
 
     /**
      * Get All the books by a single Author.
+     *
      * @param author Authors name.
      * @return List of books.
      */
@@ -132,7 +139,7 @@ public class Book {
     }
 
     /**
-    Get current available BookId and increment it for the next book.
+     * Get current available BookId and increment it for the next book.
      */
     public static int getAndIncrementNextId() {
         availableId += 1;
@@ -141,10 +148,11 @@ public class Book {
 
     /**
      * Book class constructor.
-     * @param title Title of the book.
-     * @param author Author of the book.
+     *
+     * @param title            Title of the book.
+     * @param author           Author of the book.
      * @param yearOfPublishing When was the book published.
-     * @param price Price of the book.
+     * @param price            Price of the book.
      */
     public Book(String title, String author, int yearOfPublishing, int price) {
         this.title = title;
@@ -157,6 +165,7 @@ public class Book {
 
     /**
      * Get title of the book.
+     *
      * @return Title of the book.
      */
     public String getTitle() {
@@ -165,6 +174,7 @@ public class Book {
 
     /**
      * Author of the book.
+     *
      * @return Book Author.
      */
     public String getAuthor() {
@@ -173,6 +183,7 @@ public class Book {
 
     /**
      * Publishing year of the book.
+     *
      * @return Year when the book was published.
      */
     public int getYearOfPublishing() {
@@ -181,6 +192,7 @@ public class Book {
 
     /**
      * Current owner of the book.
+     *
      * @return Person currently owning the book.
      */
     public Person getOwner() {
@@ -189,6 +201,7 @@ public class Book {
 
     /**
      * Price of the book.
+     *
      * @return Books price.
      */
     public int getPrice() {
@@ -197,6 +210,7 @@ public class Book {
 
     /**
      * Get the ID of the book.
+     *
      * @return ID of the book.
      */
     public int getId() {
@@ -205,6 +219,7 @@ public class Book {
 
     /**
      * Person tries to buy a book.
+     *
      * @param buyer Person trying to buy the book.
      * @return If the transaction was successful.
      */
@@ -229,6 +244,7 @@ public class Book {
 
     /**
      * Checks if two Books are actually the same.
+     *
      * @param book1 First book.
      * @param book2 Second book.
      * @return If the two books are the same.

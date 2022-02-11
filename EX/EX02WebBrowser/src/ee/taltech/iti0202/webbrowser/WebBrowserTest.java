@@ -159,6 +159,7 @@ class WebBrowserTest {
         assertEquals(testBookmarks, webBrowser.getBookmarks());
 
     }
+
     @Test
     /*
     Test if adding the same bookmark twice does not add the same bookmark twice.
@@ -173,6 +174,7 @@ class WebBrowserTest {
         assertEquals(testBookmarks, webBrowser.getBookmarks());
 
     }
+
     @Test
     /*
     Test Top3 visited pages when user has not left the homepage.
@@ -182,6 +184,7 @@ class WebBrowserTest {
         WebBrowser webBrowser = new WebBrowser();
         assertEquals(testTopPages, webBrowser.getTop3VisitedPages());
     }
+
     @Test
     /*
     Test Top3 visited Pages when ony two different pages have been visited.
@@ -194,6 +197,7 @@ class WebBrowserTest {
         webBrowser.forward();
         assertEquals(testTopPages, webBrowser.getTop3VisitedPages());
     }
+
     @Test
     /*
     Test Top3Pages, with same visits but first in history being on first position.
@@ -214,6 +218,7 @@ class WebBrowserTest {
         webBrowser.goTo("facebook.com");
         assertEquals(testTopPages, webBrowser.getTop3VisitedPages());
     }
+
     @Test
     /*
     Test for 10000 Forward pressings.

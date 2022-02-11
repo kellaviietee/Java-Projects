@@ -26,13 +26,13 @@ class BookTest {
         assertEquals(TEST_YEAR, testBook.getYearOfPublishing());
         assertEquals(TEST_PRICE, testBook.getPrice());
     }
+
     /**
      * Test if the First ID is 0
      */
     @Test
-    void testFirstId(){
-        assertEquals(FIRST_ID,Book.availableId);
+    void testFirstId() {
+        assertEquals(FIRST_ID, Book.availableId);
     }
-
-
 }
+
