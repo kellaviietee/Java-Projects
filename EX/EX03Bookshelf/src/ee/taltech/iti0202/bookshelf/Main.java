@@ -3,15 +3,17 @@ package ee.taltech.iti0202.bookshelf;
 import java.util.List;
 
 public class Main {
-    
+/*
+Just Testing the second part.
+ */
     public static void main(String[] args) {
 // second part
         Book b0 = Book.of("Java EX00", 1);
         System.out.println(b0); // null
         Book b1 = Book.of("Java EX01", "Ago Luberg", 2018, 3);
-        Book b2 = Book.of("Java EX02",4);
+        Book b2 = Book.of("Java EX02", 4);
         System.out.println(b2.getAuthor()); // Ago Luberg
-        Book b3 = Book.of("Java EX03",7);
+        Book b3 = Book.of("Java EX03", 7);
         Book b4 = Book.of("Java EX01", 11);
         System.out.println(b1 == b4); // true
         Book harry1 = Book.of("Harry Potter: The Philosopher's Stone", "J. K. rowling", 1997, 1000);
@@ -20,13 +22,11 @@ public class Main {
         System.out.println(rowlingBooks.size()); // 2
         System.out.println(rowlingBooks.get(0).getTitle()); // Harry Potter: The Philosopher's Stone
         System.out.println(rowlingBooks.get(1).getAuthor()); // J. K. Rowling
-        for(Book book : Book.books)
-        {
+        for (Book book : Book.books) {
             System.out.println(book.getTitle());
         }
         Book.removeBook(harry2);
-        for(Book book : Book.books)
-        {
+        for (Book book : Book.books) {
             System.out.println(book.getTitle());
         }
 

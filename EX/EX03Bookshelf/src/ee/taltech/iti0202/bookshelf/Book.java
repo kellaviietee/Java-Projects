@@ -24,8 +24,13 @@ public class Book {
     public Person owner;
     public int bookId;
 
-    /*
+    /**
     Create a Book instance.
+     @param title Title of the book.
+     @param author Author of the book.
+     @param yearOfPublishing When the book was published.
+     @param price Price of the book
+     @return return the added book or the book that is already on the bookshelf.
      */
     public static Book of(String title, String author, int yearOfPublishing, int price) {
         Book testBook = new Book(title, author, yearOfPublishing, price);
@@ -40,8 +45,11 @@ public class Book {
         return testBook;
     }
 
-    /*
+    /**
     Create a simplified Book instance.
+     @param title Title of the book
+     @param price Price of the book
+     @return return the added book or the one already on the bookshelf.
     */
     public static Book of(String title, int price) {
         if (previousBook == null) {
@@ -60,7 +68,10 @@ public class Book {
         previousBook = testBook;
         return testBook;
     }
-
+    /**
+    Adda book to the Authors list.
+    @param book Is the book to add to the Authors list of books.
+     */
     public static void addBookToAuthor(Book book) {
         if (book != null) {
             String bookAuthor = book.getAuthor().toLowerCase();
@@ -72,13 +83,18 @@ public class Book {
                 }
             }
             if (!booksByAuthor.containsKey(bookAuthor)) {
-                List<Book> BookList = new ArrayList<>();
-                BookList.add(book);
-                booksByAuthor.put(bookAuthor, BookList);
+                List<Book> bookList = new ArrayList<>();
+                bookList.add(book);
+                booksByAuthor.put(bookAuthor, bookList);
             }
         }
     }
 
+    /**
+     * Remove the book from bookshelf.
+     * @param book book to be removed
+     * @return if the book was removed.
+     */
     public static boolean removeBook(Book book) {
         if (book == null || !books.contains(book)) {
             return false;
@@ -95,17 +111,27 @@ public class Book {
         return true;
     }
 
+    /**
+     * Get Books the Person owns.
+     * @param owner Person that has the books.
+     * @return List of Books.
+     */
     public static List<Book> getBooksByOwner(Person owner) {
         return owner.getBooks();
     }
 
+    /**
+     * Get All the books by a single Author.
+     * @param author Authors name.
+     * @return List of books.
+     */
     public static List<Book> getBooksByAuthor(String author) {
         if (booksByAuthor.get(author.toLowerCase()) == null) {
             return new ArrayList<>();
         } else return booksByAuthor.get(author.toLowerCase());
     }
 
-    /*
+    /**
     Get current available BookId and increment it for the next book.
      */
     public static int getAndIncrementNextId() {
@@ -113,8 +139,12 @@ public class Book {
         return availableId;
     }
 
-    /*
-    Book class constructor.
+    /**
+     * Book class constructor.
+     * @param title Title of the book.
+     * @param author Author of the book.
+     * @param yearOfPublishing When was the book published.
+     * @param price Price of the book.
      */
     public Book(String title, String author, int yearOfPublishing, int price) {
         this.title = title;
@@ -125,33 +155,59 @@ public class Book {
 
     }
 
+    /**
+     * Get title of the book.
+     * @return Title of the book.
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Author of the book.
+     * @return Book Author.
+     */
     public String getAuthor() {
         return author;
     }
 
+    /**
+     * Publishing year of the book.
+     * @return Year when the book was published.
+     */
     public int getYearOfPublishing() {
         return yearOfPublishing;
     }
 
+    /**
+     * Current owner of the book.
+     * @return Person currently owning the book.
+     */
     public Person getOwner() {
         return owner;
     }
 
+    /**
+     * Price of the book.
+     * @return Books price.
+     */
     public int getPrice() {
         return price;
     }
 
-    /*
-    Get the book id.
+    /**
+     * Get the ID of the book.
+     * @return ID of the book.
      */
     public int getId() {
         return bookId;
     }
 
+    /**
+     * Person tries to buy a book.
+     * @param buyer Person trying to buy the book.
+     * @return If the transaction was successful.
+     */
     public boolean buy(Person buyer) {
         if (buyer == null) {
             if (this.getOwner() != null) {
@@ -171,13 +227,16 @@ public class Book {
         return false;
     }
 
-    /*
-    Check if two Book instances are the same.
+    /**
+     * Checks if two Books are actually the same.
+     * @param book1 First book.
+     * @param book2 Second book.
+     * @return If the two books are the same.
      */
     public static boolean compareBooks(Book book1, Book book2) {
         return Objects.equals(book1.getTitle(), book2.getTitle())
                 && Objects.equals(book1.getAuthor(), book2.getAuthor())
                 && book1.getYearOfPublishing() == book2.getYearOfPublishing();
     }
-
 }
+
