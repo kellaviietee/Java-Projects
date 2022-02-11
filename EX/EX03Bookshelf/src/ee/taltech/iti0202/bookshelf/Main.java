@@ -16,14 +16,21 @@ public class Main {
         System.out.println(b1 == b4); // true
         Book harry1 = Book.of("Harry Potter: The Philosopher's Stone", "J. K. rowling", 1997, 1000);
         Book harry2 = Book.of("Harry Potter: The Chamber of Secrets", "J. K. Rowling", 1998, 1000);
-        Book.addBookToAuthor(harry1);
-        Book.addBookToAuthor(harry2);
-        System.out.println(Book.booksByAuthor);
         List<Book> rowlingBooks = Book.getBooksByAuthor("j. k. rowling");
         System.out.println(rowlingBooks.size()); // 2
         System.out.println(rowlingBooks.get(0).getTitle()); // Harry Potter: The Philosopher's Stone
         System.out.println(rowlingBooks.get(1).getAuthor()); // J. K. Rowling
+        for(Book book : Book.books)
+        {
+            System.out.println(book.getTitle());
+        }
+        Book.removeBook(harry2);
+        for(Book book : Book.books)
+        {
+            System.out.println(book.getTitle());
+        }
 
+        /*
         Person bonusPerson = new Person("Joonas Boonus", 10000);
         b1.buy(bonusPerson);
         bonusPerson.buyBook(harry1);
@@ -39,5 +46,6 @@ public class Main {
         System.out.println(personBooks.size()); // 1
         System.out.println(personBooks.contains(b1)); // false
         System.out.println(bonusPerson.getMoney()); // 9000
+         */
     }
 }

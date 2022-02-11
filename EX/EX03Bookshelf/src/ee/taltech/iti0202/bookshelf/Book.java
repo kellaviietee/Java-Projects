@@ -10,6 +10,7 @@ public class Book {
 
     public static Map<String, List<Book>> booksByAuthor = new HashMap<>();
     public static List<Book> books = new ArrayList<>();
+    public static Book previousBook;
     public static int availableId = -1;
     public String title;
     public String author;
@@ -30,6 +31,7 @@ public class Book {
         }
         books.add(testBook);
         addBookToAuthor(testBook);
+        previousBook = testBook;
         return testBook;
     }
 
@@ -37,11 +39,11 @@ public class Book {
     Create a simplified Book instance.
     */
     public static Book of(String title, int price) {
-        if (books.size() == 0) {
+        if (previousBook == null) {
             return null;
         }
-        String previousAuthor = books.get(books.size() - 1).getAuthor();
-        int previousYear = books.get(books.size() - 1).getYearOfPublishing();
+        String previousAuthor = previousBook.getAuthor();
+        int previousYear = previousBook.getYearOfPublishing();
         Book testBook = new Book(title, previousAuthor, previousYear, price);
         for (Book book : books) {
             if (compareBooks(book, testBook)) {
@@ -50,6 +52,7 @@ public class Book {
         }
         books.add(testBook);
         addBookToAuthor(testBook);
+        previousBook = testBook;
         return testBook;
     }
 
