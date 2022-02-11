@@ -52,11 +52,12 @@ public class Book {
 
     public static void addBookToAuthor(Book book){
         if(book != null) {
-            String bookAuthor = book.getAuthor();
+            String bookAuthor = book.getAuthor().toLowerCase();
             if (booksByAuthor.containsKey(bookAuthor)){
-                List<Book> AuthorBooks = booksByAuthor.get(bookAuthor);
-                if (!AuthorBooks.contains(book)){
-                    AuthorBooks.add(book);
+                List<Book> authorBooks = booksByAuthor.get(bookAuthor);
+                if (!authorBooks.contains(book)){
+                    authorBooks.add(book);
+                    booksByAuthor.put(bookAuthor,authorBooks);
                 }
             }
             if(!booksByAuthor.containsKey(bookAuthor)){
@@ -76,6 +77,10 @@ public class Book {
             bookOwner.sellBook(book);
         }
         books.remove(book);
+        List<Book> authorsBooks = booksByAuthor.get(book.getAuthor());
+        if(authorsBooks != null){
+            authorsBooks.remove(book);
+        }
         return true;
     }
 
