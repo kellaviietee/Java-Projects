@@ -13,11 +13,12 @@ public class Main {
         System.out.println(b2.getAuthor()); // Ago Luberg
         Book b3 = Book.of("Java EX03",7);
         Book b4 = Book.of("Java EX01", 11);
-        System.out.println(b1.getPrice());
-        System.out.println(b4.getPrice());
         System.out.println(b1 == b4); // true
         Book harry1 = Book.of("Harry Potter: The Philosopher's Stone", "J. K. rowling", 1997, 1000);
         Book harry2 = Book.of("Harry Potter: The Chamber of Secrets", "J. K. Rowling", 1998, 1000);
+        Book.addBookToAuthor(harry1);
+        Book.addBookToAuthor(harry2);
+        System.out.println(Book.booksByAuthor);
         List<Book> rowlingBooks = Book.getBooksByAuthor("j. k. rowling");
         System.out.println(rowlingBooks.size()); // 2
         System.out.println(rowlingBooks.get(0).getTitle()); // Harry Potter: The Philosopher's Stone

@@ -7,7 +7,7 @@ public class Book {
     public static List<Book> getBooks() {
         return books;
     }
-
+    public static Map<String,List<Book>> booksByAuthor = new HashMap<>();
     public static List<Book> books = new ArrayList<>();
     public static int availableId = -1;
     public String title;
@@ -48,7 +48,22 @@ public class Book {
         return testBook;
     }
 
-
+    public static void addBookToAuthor(Book book){
+        if(book != null) {
+            String bookAuthor = book.getAuthor();
+            if (booksByAuthor.containsKey(bookAuthor)){
+                List<Book> AuthorBooks = booksByAuthor.get(bookAuthor);
+                if (!AuthorBooks.contains(book)){
+                    AuthorBooks.add(book);
+                }
+            }
+            if(!booksByAuthor.containsKey(bookAuthor)){
+                List<Book> BookList = new ArrayList<>();
+                BookList.add(book);
+                booksByAuthor.put(bookAuthor,BookList);
+            }
+        }
+    }
 
     public static boolean removeBook(Book book){
         if(book == null || !books.contains(book)){
@@ -67,13 +82,7 @@ public class Book {
     }
 
     public static List<Book> getBooksByAuthor(String author){
-        List<Book> authorBooks = new ArrayList<>();
-        for(Book book : books){
-            if(book.getAuthor().toLowerCase().equals(author.toLowerCase())){
-              authorBooks.add(book);
-            }
-        }
-        return authorBooks;
+        return booksByAuthor.get(author);
     }
 
     /*
