@@ -89,7 +89,10 @@ public class Book {
     }
 
     public static List<Book> getBooksByAuthor(String author){
-        return booksByAuthor.get(author);
+        if(booksByAuthor.get(author) == null){
+            return new ArrayList<>();
+        }
+        else return booksByAuthor.get(author);
     }
 
     /*
