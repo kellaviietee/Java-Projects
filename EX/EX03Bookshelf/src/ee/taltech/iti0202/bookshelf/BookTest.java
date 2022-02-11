@@ -18,7 +18,7 @@ class BookTest {
     @Test
     void createSingleBook() {
         Book testBook = new Book("Apteeker Melchior ja Oleviste mõistatus",
-                "Indrek Hargla", 2010, 20);
+                "Indrek Hargla", TEST_YEAR, TEST_PRICE);
         String testTitle = "Apteeker Melchior ja Oleviste mõistatus", testAuthor = "Indrek Hargla";
         assertEquals(testTitle, testBook.getTitle());
         assertEquals(testAuthor, testBook.getAuthor());
