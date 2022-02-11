@@ -3,6 +3,7 @@ package ee.taltech.iti0202.bookshelf;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 /**
@@ -12,6 +13,8 @@ class BookTest {
     static final int TEST_YEAR = 2010;
     static final int TEST_PRICE = 20;
     static final int FIRST_ID = 0;
+    static final int SECOND_ID = 1;
+    static final int NO_MONEY = 0;
 
     /**
      * Test if a single book creation works.
@@ -33,6 +36,36 @@ class BookTest {
     @Test
     void testFirstId() {
         assertEquals(FIRST_ID, Book.availableId);
+    }
+
+    /**
+     * Test available ID after one Book
+     */
+    @Test
+    void testIdAfterBook(){
+        Book testBook = new Book("Apteeker Melchior ja Oleviste mõistatus",
+                "Indrek Hargla", TEST_YEAR, TEST_PRICE);
+        assertEquals(SECOND_ID,Book.availableId);
+    }
+    /**
+     * Test Person buying null book.
+     */
+    @Test
+    void TestPersonBuyNullBook(){
+        Person testPerson = new Person("Lauri",100);
+        assertFalse(testPerson.buyBook(null));
+
+    }
+
+    /**
+     * Test Person buying book with no money.
+     */
+    @Test
+    void TestPersonBuyBookNoMoney(){
+        Book testBook = new Book("Apteeker Melchior ja Oleviste mõistatus",
+                "Indrek Hargla", TEST_YEAR, TEST_PRICE);
+        Person testPerson = new Person("Lauri",NO_MONEY);
+        assertEquals(false,testPerson.buyBook(testBook));
     }
 }
 
