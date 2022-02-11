@@ -35,10 +35,8 @@ public class Book {
      */
     public static Book of(String title, String author, int yearOfPublishing, int price) {
         Book testBook = new Book(title, author, yearOfPublishing, price);
-        for (Book book : books) {
-            if (compareBooks(book, testBook)) {
-                return book;
-            }
+        if(books.contains(testBook)){
+            return testBook;
         }
         books.add(testBook);
         addBookToAuthor(testBook);
@@ -60,10 +58,8 @@ public class Book {
         String previousAuthor = previousBook.getAuthor();
         int previousYear = previousBook.getYearOfPublishing();
         Book testBook = new Book(title, previousAuthor, previousYear, price);
-        for (Book book : books) {
-            if (compareBooks(book, testBook)) {
-                return book;
-            }
+        if(books.contains(testBook)){
+            return testBook;
         }
         books.add(testBook);
         addBookToAuthor(testBook);
@@ -242,17 +238,17 @@ public class Book {
         return false;
     }
 
-    /**
-     * Checks if two Books are actually the same.
-     *
-     * @param book1 First book.
-     * @param book2 Second book.
-     * @return If the two books are the same.
-     */
-    public static boolean compareBooks(Book book1, Book book2) {
-        return Objects.equals(book1.getTitle(), book2.getTitle())
-                && Objects.equals(book1.getAuthor(), book2.getAuthor())
-                && book1.getYearOfPublishing() == book2.getYearOfPublishing();
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return yearOfPublishing == book.yearOfPublishing && title.equals(book.title) && author.equals(book.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, author, yearOfPublishing);
     }
 }
 
