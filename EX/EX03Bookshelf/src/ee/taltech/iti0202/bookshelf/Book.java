@@ -27,6 +27,7 @@ public class Book {
             }
         }
         books.add(testBook);
+        addBookToAuthor(testBook);
         return testBook;
     }
     /*
@@ -45,6 +46,7 @@ public class Book {
             }
         }
         books.add(testBook);
+        addBookToAuthor(testBook);
         return testBook;
     }
 
