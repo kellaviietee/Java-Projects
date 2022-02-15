@@ -16,7 +16,7 @@ public class Book {
     public static Map<String, List<Book>> booksByAuthor = new HashMap<>();
     public static List<Book> books = new ArrayList<>();
     public static Book previousBook;
-    public static int availableId = -1;
+    public static int availableId = -2;
     public String title;
     public String author;
     public int yearOfPublishing;
