@@ -35,7 +35,7 @@ class BookTest {
      */
     @Test
     void testFirstId() {
-        assertEquals(FIRST_ID, Book.availableId);
+        assertEquals(FIRST_ID, Book.availableId - 1);
     }
 
     /**
@@ -45,7 +45,7 @@ class BookTest {
     void testIdAfterBook(){
         Book testBook = new Book("Apteeker Melchior ja Oleviste mõistatus",
                 "Indrek Hargla", TEST_YEAR, TEST_PRICE);
-        assertEquals(SECOND_ID,Book.availableId);
+        assertEquals(SECOND_ID,Book.availableId - 1);
     }
     /**
      * Test Person buying null book.
