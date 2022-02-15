@@ -208,12 +208,12 @@ class BookTest {
      */
     @Test
     void testBooksGetter() {
-        Book FirstBook = Book.of("Apteeker Melchior ja Oleviste mõistatus",
+        Book firstBook = Book.of("Apteeker Melchior ja Oleviste mõistatus",
                 "Indrek Hargla", 2010, SECOND_TEST_PRICE);
-        Book SecondBook = Book.of("Apteeker Melchior ja Rataskaevu viirastus", TEST_PRICE);
+        Book secondBook = Book.of("Apteeker Melchior ja Rataskaevu viirastus", TEST_PRICE);
         List<Book> testList = new ArrayList<>();
-        testList.add(FirstBook);
-        testList.add(SecondBook);
+        testList.add(firstBook);
+        testList.add(secondBook);
         assertEquals(testList, Book.getBooks());
         assertEquals(testList, Book.getBooksByAuthor("Indrek Hargla"));
     }
@@ -233,8 +233,8 @@ class BookTest {
      */
     @Test
     void testBookRemovingExistingBook() {
-        Book FirstBook = Book.of("Apteeker Melchior ja Oleviste mõistatus",
+        Book firstBook = Book.of("Apteeker Melchior ja Oleviste mõistatus",
                 "Indrek Hargla", TEST_YEAR, SECOND_TEST_PRICE);
-        assertTrue(Book.removeBook(FirstBook));
+        assertTrue(Book.removeBook(firstBook));
     }
 }
