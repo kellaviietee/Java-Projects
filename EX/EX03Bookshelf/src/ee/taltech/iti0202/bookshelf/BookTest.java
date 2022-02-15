@@ -5,7 +5,10 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 
 /**
@@ -71,7 +74,7 @@ class BookTest {
         Book testBook = new Book("Apteeker Melchior ja Pirita kägistaja",
                 "Indrek Hargla", TEST_YEAR, TEST_PRICE);
         Person testPerson = new Person("Lauri", NO_MONEY);
-        assertEquals(false, testPerson.buyBook(testBook));
+        assertFalse(testPerson.buyBook(testBook));
     }
 
     /**
@@ -82,7 +85,7 @@ class BookTest {
         Book testBook = new Book("Apteeker Melchior ja Oleviste mõistatus",
                 "Indrek Hargla", TEST_YEAR, TEST_PRICE);
         Person testPerson = new Person("Lauri", ENOUGH_MONEY);
-        assertEquals(true, testPerson.buyBook(testBook));
+        assertTrue(testPerson.buyBook(testBook));
     }
 
     /**
@@ -137,8 +140,7 @@ class BookTest {
     void testBookBuyBuyerNoMoney() {
         Book testBook = new Book("Apteeker Melchior ja Oleviste mõistatus",
                 "Indrek Hargla", TEST_YEAR, TEST_PRICE);
-        Person testPerson = new Person("Lauri", ENOUGH_MONEY);
-        testBook.owner = testPerson;
+        testBook.owner = new Person("Lauri", ENOUGH_MONEY);
         Person testPerson2 = new Person("Madis", NO_MONEY);
         assertFalse(testBook.buy(testPerson2));
     }
@@ -163,8 +165,7 @@ class BookTest {
     void testBookBuyAllCorrect() {
         Book testBook = new Book("Apteeker Melchior ja Oleviste mõistatus",
                 "Indrek Hargla", TEST_YEAR, TEST_PRICE);
-        Person testPerson = new Person("Lauri", ENOUGH_MONEY);
-        testBook.owner = testPerson;
+        testBook.owner = new Person("Lauri", ENOUGH_MONEY);
         Person testPerson2 = new Person("Madis", ENOUGH_MONEY);
         assertTrue(testBook.buy(testPerson2));
 
@@ -223,7 +224,7 @@ class BookTest {
     @Test
     void testBookRemovingNotExistingBook() {
         Book nonRemovableBook = new Book("Apteeker Melchior ja Gotlandi kurat",
-                "Indrek Hargla", 2017, SECOND_TEST_PRICE);
+                "Indrek Hargla", TEST_YEAR, SECOND_TEST_PRICE);
         assertFalse(Book.removeBook(nonRemovableBook));
     }
 
@@ -233,7 +234,7 @@ class BookTest {
     @Test
     void testBookRemovingExistingBook() {
         Book FirstBook = Book.of("Apteeker Melchior ja Oleviste mõistatus",
-                "Indrek Hargla", 2010, SECOND_TEST_PRICE);
+                "Indrek Hargla", TEST_YEAR, SECOND_TEST_PRICE);
         assertTrue(Book.removeBook(FirstBook));
     }
 }
