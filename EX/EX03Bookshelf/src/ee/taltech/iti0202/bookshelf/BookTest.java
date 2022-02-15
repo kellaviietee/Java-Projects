@@ -209,7 +209,7 @@ class BookTest {
     @Test
     void testBooksGetter() {
         Book firstBook = Book.of("Apteeker Melchior ja Oleviste mõistatus",
-                "Indrek Hargla", 2010, SECOND_TEST_PRICE);
+                "Indrek Hargla", TEST_YEAR, SECOND_TEST_PRICE);
         Book secondBook = Book.of("Apteeker Melchior ja Rataskaevu viirastus", TEST_PRICE);
         List<Book> testList = new ArrayList<>();
         testList.add(firstBook);
