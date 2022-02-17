@@ -11,7 +11,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 
 class SocialNetworkTest {
     private static final int TEST_AGE1 = 32;
@@ -182,6 +184,4 @@ class SocialNetworkTest {
         assertEquals(testFeed, socialNetwork.getFeedForUser(thirdUser));
 
     }
-
-
 }
