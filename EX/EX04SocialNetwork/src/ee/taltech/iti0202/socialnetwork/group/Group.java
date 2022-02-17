@@ -39,6 +39,10 @@ public class Group {
         return owner;
     }
 
+    /**
+     * Add user to the Group.
+     * @param user New user to be added.
+     */
     public void addUser(User user) {
         participants.add(user);
 
@@ -48,6 +52,10 @@ public class Group {
         return participants;
     }
 
+    /**
+     * Publish a message to all the groups members.
+     * @param message Message to be delivered to all.
+     */
     public void publishMessage(Message message) {
         User messageAuthor = message.getAuthor();
         if (participants.contains(messageAuthor)) {
@@ -62,8 +70,8 @@ public class Group {
 
     @Override
     public String toString() {
-        return "Group{" +
-                "name='" + name + '\'' +
-                '}';
+        return "Group{"
+                + "name='" + name + '\''
+                + '}';
     }
 }
