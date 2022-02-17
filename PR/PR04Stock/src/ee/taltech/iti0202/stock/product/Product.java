@@ -8,7 +8,7 @@ public class Product {
     int productId;
 
     public static void nextId(){
-        currentId+= 1;
+        currentId += 1;
     }
     /**
      * Create a new product with the given name and price.
@@ -20,7 +20,7 @@ public class Product {
      * @throws StockException NEGATIVE_PRICE
      */
     public Product(String name, int price) throws StockException {
-        if(price < 0){
+        if (price < 0) {
             throw new StockException(StockException.Reason.NEGATIVE_PRICE);
         }
         this.name = name;
@@ -43,7 +43,7 @@ public class Product {
 
     /**
      * Returns id of the product.
-     * 
+     *
      * @return id of the product.
      */
     public int getId() {
@@ -52,7 +52,7 @@ public class Product {
 
     /**
      * Returns the name of the product.
-     * 
+     *
      * @return the name of the product.
      */
     public String getName() {
@@ -61,7 +61,7 @@ public class Product {
 
     /**
      * Returns the price of the product.
-     * 
+     *
      * @return the price of the product.
      */
     public int getPrice() {
