@@ -10,15 +10,28 @@
     public class SocialNetwork {
         private Set<Group> groups = new HashSet<>();
 
+        /**
+         * Register a new group to the social network.
+         * @param group Group to be added.
+         */
         public void registerGroup(Group group) {
             groups.add(group);
 
         }
 
+        /**
+         * Get all the groups on the social network.
+         * @return Set of the groups.
+         */
         public Set<Group> getGroups() {
             return groups;
         }
 
+        /**
+         * Get all the messages for the user from different groups.
+         * @param user User who gets the messages.
+         * @return Set of messages for the user.
+         */
         public Feed getFeedForUser(User user) {
             Set<Message> messages = new HashSet<>();
             Set<Group> allGroups = getGroups();
