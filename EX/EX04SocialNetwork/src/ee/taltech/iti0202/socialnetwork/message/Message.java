@@ -7,33 +7,38 @@ public class Message {
     private final String message;
     private final User author;
 
-
-    public Message(String title, String message, User author){
+    /**
+     * Constructor for Message class.
+     * @param title Title of the message.
+     * @param message Content of the message.
+     * @param author Author of the message.
+     */
+    public Message(String title, String message, User author) {
         this.title = title;
         this.message = message;
         this.author = author;
 
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return title;
 
     }
 
-    public String getMessage(){
+    public String getMessage() {
         return message;
 
     }
 
-    public User getAuthor(){
+    public User getAuthor() {
         return author;
 
     }
 
     @Override
     public String toString() {
-        return "Message{" +
-                "title='" + title + '\'' +
-                '}';
+        return "Message{"
+                + "title='" + title + '\''
+                + '}';
     }
 }
