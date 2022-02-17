@@ -53,13 +53,11 @@ public class Stock {
      */
 
     public void addProduct(Product product) throws StockException {
-        if (stock.contains(product)){
+        if (stock.contains(product)) {
             throw new StockException(StockException.Reason.STOCK_ALREADY_CONTAINS_PRODUCT);
-        }
-        else if (isFull()) {
+        } else if (isFull()) {
             throw new StockException(StockException.Reason.STOCK_IS_FULL);
-        }
-        else {
+        } else {
             stock.add(product);
         }
     }
