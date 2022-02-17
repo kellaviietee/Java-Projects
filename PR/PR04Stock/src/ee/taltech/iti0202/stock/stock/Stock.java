@@ -2,10 +2,8 @@ package ee.taltech.iti0202.stock.stock;
 import ee.taltech.iti0202.stock.exceptions.StockException;
 import ee.taltech.iti0202.stock.product.Product;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * The stock class.
@@ -35,6 +33,7 @@ public class Stock {
     public Stock(String name, int maxCapacity) {
         this.name = name;
         this.maxCapacity = maxCapacity;
+        this.stock = new ArrayList<>();
 
     }
 
@@ -77,10 +76,11 @@ public class Stock {
                 allProducts.add(product);
             }
         }
-        allProducts.sort((Product p1, Product p2)-> {
-            return Integer.compare(p1.getPrice(), p2.getPrice());
-        });
-        return Optional.empty();
+        if (allProducts.size()==0){
+            return Optional.empty();
+        }
+        allProducts.sort(Comparator.comparingInt(Product::getPrice).thenComparingInt(Product::getId));
+        return Optional.of(allProducts.get(0));
     }
 
     /**
@@ -96,7 +96,14 @@ public class Stock {
      */
 
     public Optional<Product> removeProduct(String name) {
-        return Optional.empty();
+        Optional<Product> removableProduct = getProduct(name);
+        if(removableProduct.isEmpty()){
+            return Optional.empty();
+        }
+        else{
+            stock.remove(removableProduct);
+            return removableProduct;
+        }
     }
 
     /**
@@ -105,7 +112,7 @@ public class Stock {
      * @return List
      */
     public List<Product> getProducts() {
-        return null;
+        return stock;
     }
 
     /**
@@ -117,7 +124,12 @@ public class Stock {
      * @return List
      */
     public List<Product> getProducts(String name) {
-        return null;
+        List<Product> filteredProducts = stock.stream()
+                .filter(Product -> Objects.equals(Product.getName(), name))
+                .sorted(Comparator.comparingInt(Product::getPrice).thenComparingInt(Product::getId))
+                .toList();
+        return filteredProducts;
+
     }
 
     /**
@@ -126,7 +138,9 @@ public class Stock {
      * @return Total price.
      */
     public int getTotalPrice() {
-        return -1;
+        return stock.stream()
+                .map(Product::getPrice)
+                .reduce(0,Integer::sum);
     }
 
     /**
