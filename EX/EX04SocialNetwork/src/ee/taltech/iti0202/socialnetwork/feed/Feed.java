@@ -9,6 +9,11 @@ public class Feed {
     private final User user;
     private final Set<Message> messages;
 
+    /**
+     * Users social network feed class constructor.
+     * @param user User who's feed is it.
+     * @param messages Messages on that feed.
+     */
     public Feed(User user, Set<Message> messages){
         this.user = user;
         this.messages = messages;
@@ -24,9 +29,8 @@ public class Feed {
 
     @Override
     public String toString() {
-        return "Feed{" +
-                "user=" + user +
-                ", messages=" + messages +
-                '}';
+        return "Feed{"
+                + "user=" + user
+                + ", messages=" + messages + '}';
     }
 }
