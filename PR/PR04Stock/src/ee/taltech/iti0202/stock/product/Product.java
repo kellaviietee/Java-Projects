@@ -2,13 +2,13 @@ package ee.taltech.iti0202.stock.product;
 import ee.taltech.iti0202.stock.exceptions.StockException;
 
 public class Product {
-    private static int current_id = 1;
+    private static int currentId = 1;
     String name;
     int price;
     int productId;
 
     public static void nextId(){
-        current_id+= 1;
+        currentId+= 1;
     }
     /**
      * Create a new product with the given name and price.
@@ -25,7 +25,7 @@ public class Product {
         }
         this.name = name;
         this.price = price;
-        this.productId = current_id;
+        this.productId = currentId;
         nextId();
     }
 
@@ -37,8 +37,8 @@ public class Product {
      * @return The next id.
      */
     public static int getNextId() {
-        current_id += 1;
-        return current_id;
+        currentId += 1;
+        return currentId;
     }
 
     /**
