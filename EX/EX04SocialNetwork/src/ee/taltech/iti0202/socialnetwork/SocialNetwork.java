@@ -8,7 +8,7 @@
     import java.util.Set;
 
     public class SocialNetwork {
-        private static final Set<Group> groups = new HashSet<>();
+        private Set<Group> groups = new HashSet<>();
 
         public void registerGroup(Group group) {
             groups.add(group);
