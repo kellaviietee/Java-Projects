@@ -2,8 +2,12 @@ package ee.taltech.iti0202.stock.stock;
 import ee.taltech.iti0202.stock.exceptions.StockException;
 import ee.taltech.iti0202.stock.product.Product;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Comparator;
+
 
 /**
  * The stock class.
@@ -22,7 +26,7 @@ import java.util.stream.Collectors;
 public class Stock {
     String name;
     int maxCapacity;
-    List<Product>stock;
+    List<Product> stock;
 
     /**
      * Create a new stock with the given name and the max capacity for the products.
@@ -76,7 +80,7 @@ public class Stock {
                 allProducts.add(product);
             }
         }
-        if (allProducts.size()==0){
+        if (allProducts.size()==0) {
             return Optional.empty();
         }
         allProducts.sort(Comparator.comparingInt(Product::getPrice).thenComparingInt(Product::getId));
@@ -126,11 +130,10 @@ public class Stock {
      * @return List
      */
     public List<Product> getProducts(String name) {
-        List<Product> filteredProducts = stock.stream()
+        return stock.stream()
                 .filter(Product -> Objects.equals(Product.getName(), name))
                 .sorted(Comparator.comparingInt(Product::getPrice).thenComparingInt(Product::getId))
                 .toList();
-        return filteredProducts;
 
     }
 
