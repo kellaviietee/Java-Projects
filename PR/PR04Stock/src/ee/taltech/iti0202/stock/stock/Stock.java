@@ -73,12 +73,12 @@ public class Stock {
      */
     public Optional<Product> getProduct(String name) {
         List<Product>  allProducts = new ArrayList<>();
-        for (Product product : stock){
+        for (Product product : stock) {
             if (Objects.equals(product.getName(), name)) {
                 allProducts.add(product);
             }
         }
-        if (allProducts.size()==0) {
+        if (allProducts.size() == 0) {
             return Optional.empty();
         }
         allProducts.sort(Comparator.comparingInt(Product::getPrice).thenComparingInt(Product::getId));
@@ -90,7 +90,7 @@ public class Stock {
      * if stock has a given product.
      *
      * Use getProduct() method to get the product.
-     * 
+     *
      * If there is nothing to remove, return Optional.empty()
      *
      * @param name Name of the product to be removed
@@ -99,13 +99,11 @@ public class Stock {
 
     public Optional<Product> removeProduct(String name) {
         Optional<Product> removableProduct = getProduct(name);
-        if (removableProduct.isEmpty()){
+        if (removableProduct.isEmpty()) {
             return Optional.empty();
-        }
-        else {
+        } else {
             Product actualProduct = removableProduct.get();
             stock.remove(actualProduct);
-
         }
         return removableProduct;
     }
@@ -143,7 +141,7 @@ public class Stock {
     public int getTotalPrice() {
         return stock.stream()
                 .map(Product::getPrice)
-                .reduce(0,Integer::sum);
+                .reduce(0, Integer::sum);
     }
 
     /**
