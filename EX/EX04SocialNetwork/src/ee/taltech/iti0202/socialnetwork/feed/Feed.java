@@ -14,16 +14,16 @@ public class Feed {
      * @param user User who's feed is it.
      * @param messages Messages on that feed.
      */
-    public Feed(User user, Set<Message> messages){
+    public Feed(User user, Set<Message> messages) {
         this.user = user;
         this.messages = messages;
     }
 
-    public User getUser(){
+    public User getUser() {
         return user;
     }
 
-    public Set<Message> getMessages(){
+    public Set<Message> getMessages() {
         return messages;
     }
 
