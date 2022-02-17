@@ -13,6 +13,11 @@ public class Group {
     private Set<User> participants;
     private List<Message> groupMessages;
 
+    /**
+     * Constructor for Group class.
+     * @param name Name of the group.
+     * @param owner Owner of the group.
+     */
     public Group(String name, User owner) {
         this.name = name;
         this.owner = owner;
