@@ -100,10 +100,12 @@ public class Stock {
         if(removableProduct.isEmpty()){
             return Optional.empty();
         }
-        else{
-            stock.remove(removableProduct);
-            return removableProduct;
+        else {
+            Product actualProduct = removableProduct.get();
+            stock.remove(actualProduct);
+
         }
+        return removableProduct;
     }
 
     /**
