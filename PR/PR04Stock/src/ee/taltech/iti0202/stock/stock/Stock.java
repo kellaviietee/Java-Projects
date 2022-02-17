@@ -30,7 +30,7 @@ public class Stock {
 
     /**
      * Create a new stock with the given name and the max capacity for the products.
-     * 
+     *
      * @param name the name of the stock.
      * @param maxCapacity max amount of products allowed in the stock.
      */
@@ -53,13 +53,13 @@ public class Stock {
      */
 
     public void addProduct(Product product) throws StockException {
-        if(stock.contains(product)){
+        if (stock.contains(product)){
             throw new StockException(StockException.Reason.STOCK_ALREADY_CONTAINS_PRODUCT);
         }
-        else if(isFull()) {
+        else if (isFull()) {
             throw new StockException(StockException.Reason.STOCK_IS_FULL);
         }
-        else{
+        else {
             stock.add(product);
         }
     }
@@ -75,8 +75,8 @@ public class Stock {
      */
     public Optional<Product> getProduct(String name) {
         List<Product>  allProducts = new ArrayList<>();
-        for(Product product : stock){
-            if(Objects.equals(product.getName(), name)){
+        for (Product product : stock){
+            if (Objects.equals(product.getName(), name)) {
                 allProducts.add(product);
             }
         }
@@ -101,7 +101,7 @@ public class Stock {
 
     public Optional<Product> removeProduct(String name) {
         Optional<Product> removableProduct = getProduct(name);
-        if(removableProduct.isEmpty()){
+        if (removableProduct.isEmpty()){
             return Optional.empty();
         }
         else {
