@@ -2,8 +2,8 @@ package ee.taltech.iti0202.socialnetwork.user;
 
 
 public class User {
-    String name;
-    Integer age;
+    private final String name;
+    private final Integer age;
 
     public User(String name) {
         this.name = name;
