@@ -5,7 +5,7 @@ import ee.taltech.iti0202.socialnetwork.user.User;
 public class Message {
     private final String title;
     private final String message;
-    User author;
+    private final User author;
 
 
     public Message(String title, String message, User author){
