@@ -3,6 +3,7 @@ package ee.taltech.iti0202.socialnetwork.feed;
 import ee.taltech.iti0202.socialnetwork.message.Message;
 import ee.taltech.iti0202.socialnetwork.user.User;
 
+import java.util.Objects;
 import java.util.Set;
 
 public class Feed {
@@ -32,5 +33,18 @@ public class Feed {
         return "Feed{"
                 + "user=" + user
                 + ", messages=" + messages + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Feed feed = (Feed) o;
+        return user.equals(feed.user) && Objects.equals(messages, feed.messages);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(user, messages);
     }
 }
