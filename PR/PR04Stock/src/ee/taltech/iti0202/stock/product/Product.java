@@ -7,7 +7,10 @@ public class Product {
     int price;
     int productId;
 
-    public static void nextId(){
+    /**
+     * Increases the ID number for the next product.
+     */
+    public static void nextId() {
         currentId += 1;
     }
     /**
@@ -71,9 +74,9 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", productId=" + productId +
-                '}';
+                "name='" + name + '\''
+                + ", price=" + price
+                + ", productId=" + productId
+                + '}';
     }
 }
