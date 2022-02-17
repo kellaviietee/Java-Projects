@@ -35,8 +35,8 @@
         public Feed getFeedForUser(User user) {
             Set<Message> messages = new HashSet<>();
             Set<Group> allGroups = getGroups();
-            for(Group group:allGroups){
-                if(group.getParticipants().contains(user)){
+            for (Group group:allGroups) {
+                if (group.getParticipants().contains(user)) {
                     messages.addAll(group.getMessages());
                 }
             }
