@@ -56,7 +56,7 @@ public class KittenStatistics {
 
     public Optional<Kitten> findFirstKittenWithGivenName(String givenName) {
         return kittens.stream()
-                .filter(kitten -> kitten.getName().equals(givenName))
+                .filter(kitten -> kitten.getName() == givenName)
                 .findFirst();
 
     }
