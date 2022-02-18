@@ -33,7 +33,9 @@ public class KittenStatistics {
 
     public List<Kitten> findYoungestKittens() {
         Integer youngestAge = kittens.stream()
-                .mapToInt(Kitten::getAge).min().getAsInt();
+                .mapToInt(Kitten::getAge)
+                .min()
+                .getAsInt();
         return kittens.stream()
                 .filter(kitten -> kitten.getAge() == youngestAge)
                 .collect(Collectors.toList());
@@ -54,8 +56,8 @@ public class KittenStatistics {
 
     public Optional<Kitten> findFirstKittenWithGivenName(String givenName) {
         return kittens.stream()
-                .filter(kitten -> kitten.getName().equals(givenName))
-                .findFirst();
+                .findFirst()
+                .filter(kitten -> kitten.getName().equals(givenName));
     }
 
     public List<Kitten> kittensSortedByAgeYoungerFirst() {
