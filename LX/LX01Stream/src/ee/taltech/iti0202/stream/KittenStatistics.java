@@ -32,10 +32,11 @@ public class KittenStatistics {
     }
 
     public List<Kitten> findYoungestKittens() {
+        Integer youngestAge = kittens.stream()
+                .mapToInt(Kitten::getAge).min().getAsInt();
         return kittens.stream()
-                .min(Comparator.comparing(Kitten::getAge))
-                .stream().findAny()
-                .stream().collect(Collectors.toList());
+                .filter(kitten -> kitten.getAge() == youngestAge)
+                .collect(Collectors.toList());
     }
 
     public List<Kitten> findKittensAccordingToGender(Kitten.Gender gender) {
