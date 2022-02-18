@@ -13,9 +13,14 @@ public class KittenStatistics {
         this.kittens = kittens;
     }
 
+    /**
+     * Find arithmetic age of all the kittens.
+     * @return Average age.
+     */
     public OptionalDouble findKittensAverageAge() {
-        if (kittens.size() == 0){return OptionalDouble.empty();}
-        else{
+        if (kittens.size() == 0) {
+            return OptionalDouble.empty();
+        } else {
             return kittens.stream()
                     .map(Kitten::getAge).toList()
                     .stream()
@@ -25,8 +30,9 @@ public class KittenStatistics {
     }
 
     public Optional<Kitten> findOldestKitten() {
-        if(kittens.size() ==0){return Optional.empty();}
-        else{
+        if (kittens.size() == 0) {
+            return Optional.empty();
+        } else {
             return kittens.stream().max(Comparator.comparing(Kitten::getAge));
         }
     }
@@ -73,5 +79,5 @@ public class KittenStatistics {
                 .sorted(Comparator.comparing(Kitten::getAge).reversed())
                 .collect(Collectors.toList());
     }
-    
+
 }

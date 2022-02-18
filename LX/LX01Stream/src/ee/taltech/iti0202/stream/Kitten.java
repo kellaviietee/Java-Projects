@@ -6,6 +6,12 @@ public class Kitten {
     private int age;
     public enum Gender { MALE, FEMALE }
 
+    /**
+     * Kitten class constructor.
+     * @param name Kitten's name.
+     * @param gender Kitten's gender.
+     * @param age Kitten's age.
+     */
     public Kitten(String name, Gender gender, int age) {
         this.name = name;
         this.gender = gender;
