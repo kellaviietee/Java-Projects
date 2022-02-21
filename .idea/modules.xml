@@ -8,10 +8,12 @@
       <module fileurl="file://$PROJECT_DIR$/EX/EX03Bookshelf/EX03Bookshelf.iml" filepath="$PROJECT_DIR$/EX/EX03Bookshelf/EX03Bookshelf.iml" />
       <module fileurl="file://$PROJECT_DIR$/EX/EX04SocialNetwork/EX04SocialNetwork.iml" filepath="$PROJECT_DIR$/EX/EX04SocialNetwork/EX04SocialNetwork.iml" />
       <module fileurl="file://$PROJECT_DIR$/LX/LX01Stream/LX01Stream.iml" filepath="$PROJECT_DIR$/LX/LX01Stream/LX01Stream.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LX/LX02PersonStatistics/LX02PersonStatistics.iml" filepath="$PROJECT_DIR$/LX/LX02PersonStatistics/LX02PersonStatistics.iml" />
       <module fileurl="file://$PROJECT_DIR$/PR/PR01Introduction/PR01Introduction.iml" filepath="$PROJECT_DIR$/PR/PR01Introduction/PR01Introduction.iml" />
       <module fileurl="file://$PROJECT_DIR$/PR/PR02DataStructures/PR02DataStructures.iml" filepath="$PROJECT_DIR$/PR/PR02DataStructures/PR02DataStructures.iml" />
       <module fileurl="file://$PROJECT_DIR$/PR/PR03Ring/PR03Ring.iml" filepath="$PROJECT_DIR$/PR/PR03Ring/PR03Ring.iml" />
       <module fileurl="file://$PROJECT_DIR$/PR/PR04Stock/PR04Stock.iml" filepath="$PROJECT_DIR$/PR/PR04Stock/PR04Stock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TK/TK0/TK0.iml" filepath="$PROJECT_DIR$/TK/TK0/TK0.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/iti0202-2022.iml" filepath="$PROJECT_DIR$/.idea/iti0202-2022.iml" />
     </modules>
   </component>
