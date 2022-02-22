@@ -8,13 +8,13 @@ public class Cat {
     private int age;
     private String color;
 
-    public Cat(String name, int age, String color){
+    public Cat(String name, int age, String color) {
         this.name = name;
         this.age = age;
         this.color = color;
     }
 
-    public Cat(String name){
+    public Cat(String name) {
         this.name = name;
         this.age = 0;
         this.color = "none";
@@ -34,10 +34,9 @@ public class Cat {
 
     @Override
     public String toString() {
-        if(!Objects.equals(color, "none")) {
+        if (!Objects.equals(color, "none")) {
             return color + " " + name + " (" + age + ")";
-        }
-        else{
+        } else {
             return name;
         }
     }
@@ -55,3 +54,4 @@ public class Cat {
         return Objects.hash(name, age, color);
     }
 }
+

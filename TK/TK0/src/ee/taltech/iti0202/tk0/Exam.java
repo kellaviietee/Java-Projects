@@ -19,12 +19,12 @@ public class Exam {
      */
     public static List<Integer> evenOdd(List<Integer> nums) {
         List<Integer> evenOdd = new ArrayList<>();
-        for(Integer num:nums){
-            if(num % 2 != 0){
+        for (Integer num:nums) {
+            if (num % 2 != 0) {
                 System.out.println(num);
                 evenOdd.add(num);
             }
-            else{
+            else {
                 evenOdd.add(0,num);
             }
         }
@@ -42,13 +42,13 @@ public class Exam {
      */
     public static int loneSum(int a, int b, int c) {
         int sum = 0;
-        if(a != b && a!=c){
+        if (a != b && a!=c) {
             sum += a;
         }
-        if (b!= c && b!=a){
+        if (b!= c && b!=a) {
             sum +=b;
         }
-        if (c !=a && c!= b){
+        if (c !=a && c!= b) {
             sum += c;
         }
         return sum;
@@ -68,7 +68,7 @@ public class Exam {
         String ingredient;
         int firstBread = str.indexOf("bread");
         int lastBread = str.lastIndexOf("bread");
-        if(firstBread == -1 || firstBread == lastBread){
+        if (firstBread == -1 || firstBread == lastBread) {
             return "";
         }
         return str.substring(firstBread+ 5,lastBread);
@@ -86,7 +86,7 @@ public class Exam {
      * topping({"pancake": "syrup"}) → {"bread": "butter", "pancake": "syrup"}
      */
     public static Map<String, String> topping(Map<String, String> map) {
-        if(map.containsKey("ice cream")){
+        if (map.containsKey("ice cream")) {
             map.replace("ice cream","cherry");
         }
         map.put("bread","butter");
@@ -95,7 +95,7 @@ public class Exam {
 
 
 
-    public static void main(String[]args){
+    public static void main(String[]args) {
         Map<String,String> map = new HashMap<>();
         map.put("pancake","syrup");
         System.out.println(topping(map));
