@@ -1,6 +1,7 @@
 package ee.taltech.iti0202.tk0;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 public class Exam {
@@ -85,12 +86,18 @@ public class Exam {
      * topping({"pancake": "syrup"}) → {"bread": "butter", "pancake": "syrup"}
      */
     public static Map<String, String> topping(Map<String, String> map) {
-        return null;
+        if(map.containsKey("ice cream")){
+            map.replace("ice cream","cherry");
+        }
+        map.put("bread","butter");
+        return map;
     }
 
 
 
     public static void main(String[]args){
-        System.out.println(getSandwich("xxbreadyy"));
+        Map<String,String> map = new HashMap<>();
+        map.put("pancake","syrup");
+        System.out.println(topping(map));
     }
 }
