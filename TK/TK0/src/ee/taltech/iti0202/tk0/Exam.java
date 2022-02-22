@@ -45,9 +45,9 @@ public class Exam {
             sum += a;
         }
         if (b != c && b != a) {
-            sum +=b;
+            sum += b;
         }
-        if (c !=a && c != b) {
+        if (c != a && c != b) {
             sum += c;
         }
         return sum;
@@ -69,7 +69,7 @@ public class Exam {
         if (firstBread == -1 || firstBread == lastBread) {
             return "";
         }
-        return str.substring(firstBread+ 5, lastBread);
+        return str.substring(firstBread + 5, lastBread);
     }
 
 
@@ -94,7 +94,7 @@ public class Exam {
 
 
     public static void main(String[]args) {
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
         map.put("pancake", "syrup");
         System.out.println(topping(map));
     }

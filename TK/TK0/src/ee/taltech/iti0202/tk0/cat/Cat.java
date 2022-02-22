@@ -8,12 +8,22 @@ public class Cat {
     private int age;
     private String color;
 
+    /**
+     * Cat constructor.
+     * @param name Cat's name.
+     * @param age Cat's age.
+     * @param color Cat's color.
+     */
     public Cat(String name, int age, String color) {
         this.name = name;
         this.age = age;
         this.color = color;
     }
 
+    /**
+     * Simpler constructor for a Cat.
+     * @param name Cat's name.
+     */
     public Cat(String name) {
         this.name = name;
         this.age = 0;
