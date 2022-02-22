@@ -17,7 +17,7 @@ public class Cat {
     public Cat(String name){
         this.name = name;
         this.age = 0;
-        this.color = "All cat's colors are beautiful....meow";
+        this.color = "none";
     }
 
     public String getName() {
@@ -34,7 +34,12 @@ public class Cat {
 
     @Override
     public String toString() {
-        return color + " " + name + " (" + age +")";
+        if(!Objects.equals(color, "None")) {
+            return color + " " + name + " (" + age + ")";
+        }
+        else{
+            return name;
+        }
     }
 
     @Override
