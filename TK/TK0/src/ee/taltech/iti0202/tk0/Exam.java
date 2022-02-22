@@ -64,7 +64,13 @@ public class Exam {
      * getSandwich("xxbreadyy") → ""
      */
     public static String getSandwich(String str) {
-        return "";
+        String ingredient;
+        int firstBread = str.indexOf("bread");
+        int lastBread = str.lastIndexOf("bread");
+        if(firstBread == -1 || firstBread == lastBread){
+            return "";
+        }
+        return str.substring(firstBread+ 5,lastBread);
     }
 
 
@@ -83,4 +89,8 @@ public class Exam {
     }
 
 
+
+    public static void main(String[]args){
+        System.out.println(getSandwich("xxbreadyy"));
+    }
 }
