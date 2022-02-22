@@ -1,4 +1,4 @@
-package ee.taltech.iti0202.tk0;
+package ee.taltech.iti0202.tk0.cat;
 
 import java.util.Objects;
 
