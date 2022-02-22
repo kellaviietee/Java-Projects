@@ -34,7 +34,7 @@ public class Cat {
 
     @Override
     public String toString() {
-        if(!Objects.equals(color, "None")) {
+        if(!Objects.equals(color, "none")) {
             return color + " " + name + " (" + age + ")";
         }
         else{
