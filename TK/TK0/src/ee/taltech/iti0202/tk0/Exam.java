@@ -23,8 +23,7 @@ public class Exam {
             if (num % 2 != 0) {
                 System.out.println(num);
                 evenOdd.add(num);
-            }
-            else {
+            } else {
                 evenOdd.add(0,num);
             }
         }
@@ -87,9 +86,9 @@ public class Exam {
      */
     public static Map<String, String> topping(Map<String, String> map) {
         if (map.containsKey("ice cream")) {
-            map.replace("ice cream","cherry");
+            map.replace("ice cream", "cherry");
         }
-        map.put("bread","butter");
+        map.put("bread", "butter");
         return map;
     }
 
@@ -97,7 +96,7 @@ public class Exam {
 
     public static void main(String[]args) {
         Map<String,String> map = new HashMap<>();
-        map.put("pancake","syrup");
+        map.put("pancake", "syrup");
         System.out.println(topping(map));
     }
 }
