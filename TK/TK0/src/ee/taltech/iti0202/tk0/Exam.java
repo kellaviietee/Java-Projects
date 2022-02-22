@@ -24,7 +24,7 @@ public class Exam {
                 System.out.println(num);
                 evenOdd.add(num);
             } else {
-                evenOdd.add(0,num);
+                evenOdd.add(0, num);
             }
         }
         return evenOdd;
@@ -41,13 +41,13 @@ public class Exam {
      */
     public static int loneSum(int a, int b, int c) {
         int sum = 0;
-        if (a != b && a!=c) {
+        if (a != b && a != c) {
             sum += a;
         }
-        if (b!= c && b!=a) {
+        if (b != c && b != a) {
             sum +=b;
         }
-        if (c !=a && c!= b) {
+        if (c !=a && c != b) {
             sum += c;
         }
         return sum;
@@ -64,13 +64,12 @@ public class Exam {
      * getSandwich("xxbreadyy") → ""
      */
     public static String getSandwich(String str) {
-        String ingredient;
         int firstBread = str.indexOf("bread");
         int lastBread = str.lastIndexOf("bread");
         if (firstBread == -1 || firstBread == lastBread) {
             return "";
         }
-        return str.substring(firstBread+ 5,lastBread);
+        return str.substring(firstBread+ 5, lastBread);
     }
 
 
