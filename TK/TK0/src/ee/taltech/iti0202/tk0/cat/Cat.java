@@ -34,7 +34,7 @@ public class Cat {
 
     @Override
     public String toString() {
-        return color + " " + name + " " + age;
+        return color + " " + name + " (" + age +")";
     }
 
     @Override
