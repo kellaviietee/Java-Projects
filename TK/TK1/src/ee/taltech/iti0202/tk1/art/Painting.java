@@ -17,6 +17,10 @@ public class Painting {
         this.author = author;
     }
 
+    /**
+     * Alternative constructor.
+     * @param title Title of the painting.
+     */
     public Painting(String title) {
         this.title = title;
         this.author = "";
