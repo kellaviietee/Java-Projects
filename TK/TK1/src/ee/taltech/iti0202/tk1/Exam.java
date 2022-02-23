@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Exam {
+    public static final int BLACKJACK = 21;
 
 
     /**
@@ -24,8 +25,8 @@ public class Exam {
         nums.remove(max);
         nums.remove(min);
         Integer centeredSum = 0;
-        for (Integer num : nums){
-            centeredSum+= num;
+        for (Integer num : nums) {
+            centeredSum += num;
         }
         return centeredSum / nums.size();
 
@@ -44,9 +45,9 @@ public class Exam {
         if (a > 21 && b > 21) {
             return 0;
         }
-        else if (a > 21){
+        else if (a > BLACKJACK) {
             return b;
-        } else if (b > 21) {
+        } else if (b > BLACKJACK) {
             return a;
         }
         else return Math.max(a, b);
