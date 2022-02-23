@@ -6,18 +6,29 @@ import java.util.List;
 public class Collector {
     List<Painting> paintingList = new ArrayList<>();
 
-    public boolean addPainting(Painting painting){
+    /**
+     * Add a painting to collectors list.
+     * @param painting Painting to be added.
+     * @return if the painting was added.
+     */
+    public boolean addPainting(Painting painting) {
         if (paintingList.contains(painting)) {
             return false;
-        }
-        else{
+        } else {
             paintingList.add(painting);
             return true;
         }
     }
-    public boolean sellPainting(Painting painting, Collector fellowCollector){
-        if(paintingList.contains(painting) && !fellowCollector.equals(this)
-        && fellowCollector.addPainting(painting)){
+
+    /**
+     * Collector tries to sell a painting to another collector.
+     * @param painting Painting to be sold.
+     * @param fellowCollector Another collector.
+     * @return if transaction was successful.
+     */
+    public boolean sellPainting(Painting painting, Collector fellowCollector) {
+        if (paintingList.contains(painting) && !fellowCollector.equals(this)
+        && fellowCollector.addPainting(painting)) {
             paintingList.remove(painting);
             return true;
         } else {
