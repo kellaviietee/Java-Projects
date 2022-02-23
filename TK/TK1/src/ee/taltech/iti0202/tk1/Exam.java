@@ -42,15 +42,13 @@ public class Exam {
      * blackjack(19, 22) → 19
      */
     public static int blackjack(int a, int b) {
-        if (a > 21 && b > 21) {
+        if (a > BLACKJACK && b > BLACKJACK) {
             return 0;
-        }
-        else if (a > BLACKJACK) {
+        } else if (a > BLACKJACK) {
             return b;
         } else if (b > BLACKJACK) {
             return a;
-        }
-        else return Math.max(a, b);
+        } else return Math.max(a, b);
     }
 
 
@@ -64,7 +62,7 @@ public class Exam {
      repeatEnd("Hello", 1) → "o"
      */
     public static String repeatEnd(String str, int n) {
-        String substr = str.substring(str.length()-n);
+        String substr = str.substring(str.length() - n);
         return substr.repeat(Math.max(0, n));
     }
 
