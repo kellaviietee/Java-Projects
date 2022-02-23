@@ -7,14 +7,17 @@ public class Painting {
     private  String title;
     private String author;
 
-    public Painting(String title, String author){
-
+    /**
+     * Painting constructor.
+     * @param title Title of the painting.
+     * @param author Authors name.
+     */
+    public Painting(String title, String author) {
         this.title = title;
         this.author = author;
     }
 
-    public Painting(String title){
-
+    public Painting(String title) {
         this.title = title;
         this.author = "";
     }
@@ -27,7 +30,7 @@ public class Painting {
         return author;
     }
 
-    public void setTitle(String author){
+    public void setTitle(String author) {
         this.author = author;
     }
 
