@@ -1,5 +1,7 @@
 package ee.taltech.iti0202.tk1.art;
 
+import java.util.Objects;
+
 public class Painting {
 
     private  String title;
@@ -40,5 +42,18 @@ public class Painting {
         } else {
             return "This is a painting named " + title + " and made by an unknown artist.";
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Painting painting = (Painting) o;
+        return title.equals(painting.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title);
     }
 }
