@@ -1,7 +1,6 @@
 package ee.taltech.iti0202.tk1;
 
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -23,17 +22,14 @@ public class Exam {
     public static int centeredAverage(List<Integer> nums) {
         Integer max = Collections.max(nums);
         Integer min = Collections.min(nums);
-        int maxLocation = nums.indexOf(max);
-        int minLocation = nums.indexOf(min);
-        nums.remove(maxLocation);
-        nums.remove(minLocation);
+        nums.remove(max);
+        nums.remove(min);
         Integer centeredSum = 0;
         for (Integer num : nums) {
             centeredSum += num;
         }
         System.out.println(nums);
         return centeredSum / nums.size();
-
     }
 
 
@@ -86,16 +82,5 @@ public class Exam {
             }
         }
         return map;
-    }
-    public static void main(String[]args){
-        List<Integer> nums = new ArrayList<>();
-        nums.add(1);
-        nums.add(1);
-        nums.add(5);
-        nums.add(5);
-        nums.add(10);
-        nums.add(8);
-        nums.add(7);
-        System.out.println(centeredAverage(nums));
     }
 }
