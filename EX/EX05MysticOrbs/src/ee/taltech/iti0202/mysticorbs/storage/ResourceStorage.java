@@ -38,14 +38,14 @@ public class ResourceStorage {
     }
 
     public boolean takeResource(String resource, int amount) {
-        if(hasEnoughResource(resource,amount)){
+        if (hasEnoughResource(resource,amount)) {
             String norm_resource = resource.toLowerCase();
             Integer currentAmount = resources.get(norm_resource);
             Integer newAmount = currentAmount - amount;
             resources.replace(norm_resource,newAmount);
             return true;
         }
-        else{
+        else {
             return false;
         }
 

@@ -10,7 +10,7 @@ public class Orb {
 
     public void charge(String resource, int amount){
         if (!resource.equalsIgnoreCase("dust")) {
-            energy += resource.length() * amount;
+            energy += resource.trim().length() * amount;
         }
     }
 

@@ -16,33 +16,29 @@ public class MagicOven extends Oven implements Fixable {
 
     @Override
     public boolean isBroken() {
-        return createdOrbsAmount > (timesFixed + 1) * 5;
+        return createdOrbsAmount >= (timesFixed + 1) * 5;
     }
 
     @Override
     public Optional<Orb> craftOrb() {
         if (isBroken()) {
             return Optional.empty();
-        } else if (createdOrbsAmount % 2 == 0) {
-            if (resourceStorage.takeResource("gold", 1)
-                    && resourceStorage.takeResource("dust", 3)) {
-                Orb craftedOrb = new Orb(name);
-                craftedOrb.charge("gold",1);
-                craftedOrb.charge("dust",3);
-                return Optional.of(craftedOrb);
-            } else {
-                return Optional.empty();
-            }
+        } else if (!resourceStorage.hasEnoughResource("gold",1)
+                || !resourceStorage.hasEnoughResource("dust",3)) {
+            return Optional.empty();
         } else {
-            if (resourceStorage.takeResource("gold", 1)
-                    && resourceStorage.takeResource("dust", 3)) {
-                Orb craftedOrb = new MagicOrb(name);
-                craftedOrb.charge("gold",1);
-                craftedOrb.charge("dust",3);
-                return Optional.of(craftedOrb);
+            resourceStorage.takeResource("gold",1);
+            resourceStorage.takeResource("dust",3);
+            Orb craftedOrb;
+            if (createdOrbsAmount % 2 == 0) {
+                craftedOrb = new Orb(name);
             } else {
-                return Optional.empty();
+                craftedOrb = new MagicOrb(name);
             }
+            craftedOrb.charge("gold",1);
+            craftedOrb.charge("dust",3);
+            createdOrbsAmount += 1;
+            return Optional.of(craftedOrb);
         }
     }
 

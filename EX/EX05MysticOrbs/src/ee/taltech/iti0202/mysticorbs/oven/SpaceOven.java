@@ -30,12 +30,14 @@ public class SpaceOven extends Oven implements Fixable{
         else if (resourceStorage.takeResource("meteorite stone", 1)
                 && resourceStorage.takeResource("star fragment", 15)) {
             Orb craftedOrb = new SpaceOrb(name);
+            createdOrbsAmount += 1;
             return Optional.of(craftedOrb);
         } else if (resourceStorage.takeResource("pearl", 1)
                 && resourceStorage.takeResource("silver", 1)) {
             Orb craftedOrb = new Orb(name);
             craftedOrb.charge("pearl",1);
             craftedOrb.charge("silver",1);
+            createdOrbsAmount += 1;
             return Optional.of(craftedOrb);
         }
         else{
