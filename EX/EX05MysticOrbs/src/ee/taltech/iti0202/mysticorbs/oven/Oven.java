@@ -5,7 +5,7 @@ import ee.taltech.iti0202.mysticorbs.storage.ResourceStorage;
 
 import java.util.Optional;
 
-public class Oven {
+public class Oven implements Comparable<Oven> {
 
     protected final String name;
     protected final ResourceStorage resourceStorage;
@@ -46,6 +46,27 @@ public class Oven {
         }
         else{
             return Optional.empty();
+        }
+    }
+
+    @Override
+    public int compareTo(Oven o) {
+        if (!this.isBroken() && o.isBroken()) {
+            return 1;
+        } else if (this.isBroken() && !o.isBroken()) {
+            return - 1;
+        } else {
+            if ((this instanceof SpaceOven)  && !(o instanceof SpaceOven)) {
+                return 1;
+            } else if ((this instanceof MagicOven)  && (o instanceof SpaceOven)) {
+                return - 1;
+            } else if ((this instanceof MagicOven)  && (o != null)) {
+                return 1;
+            } else if (o instanceof SpaceOven || o instanceof MagicOven) {
+                return - 1;
+            } else {
+                if((this.getClass() == MagicOven.class) && (o.getClass() == MagicOven.class))
+            }
         }
     }
 }

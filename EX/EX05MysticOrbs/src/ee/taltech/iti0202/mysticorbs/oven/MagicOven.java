@@ -16,7 +16,7 @@ public class MagicOven extends Oven implements Fixable {
 
     @Override
     public boolean isBroken() {
-        return createdOrbsAmount > 5;
+        return createdOrbsAmount > (timesFixed + 1) * 5;
     }
 
     @Override
@@ -56,7 +56,6 @@ public class MagicOven extends Oven implements Fixable {
             || !resourceStorage.takeResource("freezing powder",(timesFixed + 1) * 100)){
         throw new CannotFixException(this, CannotFixException.Reason.NOT_ENOUGH_RESOURCES);
         } else{
-            createdOrbsAmount = 0;
             timesFixed += 1;
         }
     }
