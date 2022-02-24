@@ -11,7 +11,7 @@ public class SpaceOrb extends Orb{
 
     @Override
     public String toString() {
-        return " SpaceOrb by " + creator;
+        return "SpaceOrb by " + creator;
     }
 
     public boolean absorb(Orb orb){
