@@ -37,7 +37,7 @@ public class OrbFactory {
         return ovens;
     }
 
-    public int produceOrbs() throws CannotFixException {
+    public int produceOrbs() {
         List<Orb> craftedOrbs = new ArrayList<>();
         for(Oven oven:ovens){
             if(oven.isBroken()){
@@ -57,7 +57,7 @@ public class OrbFactory {
         orbs.addAll(craftedOrbs);
         return craftedOrbs.size();
     }
-    public int produceOrbs(int cycles) throws CannotFixException {
+    public int produceOrbs(int cycles) {
         int orbNum = 0;
         for(int i = 0; i < cycles; i++){
             int addedOrbs = produceOrbs();
