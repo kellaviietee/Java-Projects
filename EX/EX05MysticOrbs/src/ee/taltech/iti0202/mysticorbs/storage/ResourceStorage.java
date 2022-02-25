@@ -11,7 +11,7 @@ public class ResourceStorage {
     }
 
     public void addResource(String resource, int amount) {
-        String norm_resource = resource.toLowerCase();
+        String norm_resource = resource.toLowerCase().trim();
         if (resources.containsKey(norm_resource)) {
             Integer currentValue = resources.get(norm_resource);
             Integer newValue = currentValue + Integer.max(0, amount);
