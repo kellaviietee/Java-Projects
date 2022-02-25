@@ -76,6 +76,7 @@ public class OrbFactory {
         for (Oven oven:notFixableOvens) {
             ovens.remove(oven);
         }
+        notFixableOvens.clear();
     }
     public void optimizeOvensOrder() {
         ovens.sort(Oven::compareTo);
