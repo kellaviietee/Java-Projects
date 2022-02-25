@@ -48,6 +48,8 @@ public class OrbFactory {
                             notFixableOvens.add(oven);
                         }
                     }
+                } else if (oven.getClass() == Oven.class) {
+                    notFixableOvens.add(oven);
                 }
             }
             Optional<Orb> craftedOrb = oven.craftOrb();
