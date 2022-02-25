@@ -34,20 +34,19 @@ public class Oven implements Comparable<Oven> {
     }
 
     public Optional<Orb> craftOrb() {
-        if(isBroken()){
+        if (isBroken()) {
             return Optional.empty();
         }
-        if(resourceStorage.hasEnoughResource("pearl",1)
-                && resourceStorage.hasEnoughResource("silver",1)) {
-            resourceStorage.takeResource("pearl",1);
-            resourceStorage.takeResource("silver",1);
+        if (resourceStorage.hasEnoughResource("pearl", 1)
+                && resourceStorage.hasEnoughResource("silver", 1)) {
+            resourceStorage.takeResource("pearl", 1);
+            resourceStorage.takeResource("silver", 1);
             Orb craftedOrb = new Orb(name);
-            craftedOrb.charge("pearl",1);
-            craftedOrb.charge("silver",1);
+            craftedOrb.charge("pearl", 1);
+            craftedOrb.charge("silver", 1);
             createdOrbsAmount += 1;
             return Optional.of(craftedOrb);
-        }
-        else{
+        } else {
             return Optional.empty();
         }
     }
@@ -57,33 +56,35 @@ public class Oven implements Comparable<Oven> {
         if (!this.isBroken() && o.isBroken()) {
             return 1;
         } else if (this.isBroken() && !o.isBroken()) {
-            return - 1;
-        } else {
-            if ((this instanceof SpaceOven)  && !(o instanceof SpaceOven)) {
+            return -1;
+        }
+        else if (this.isBroken() == o.isBroken()) {
+            if (this.getClass() == SpaceOven.class && o.getClass() != SpaceOven.class) {
                 return 1;
-            } else if ((this instanceof MagicOven)  && (o instanceof SpaceOven)) {
+            } else if (this.getClass() == MagicOven.class && o.getClass() == SpaceOven.class) {
                 return - 1;
-            } else if ((this instanceof MagicOven)  && (o != null)) {
+            } else if (this.getClass() == MagicOven.class && o.getClass() == Oven.class) {
                 return 1;
-            } else if (o instanceof SpaceOven || o instanceof MagicOven) {
-                return - 1;
-            } else {
-                if(this.createdOrbsAmount % 2 == 0 && o.getCreatedOrbsAmount() % 2 != 0) {
-                    return - 1;
-                }
-                else if(this.createdOrbsAmount % 2 != 0 && o.getCreatedOrbsAmount() % 2 == 0) {
-                    return 1;
-                } else if (this.createdOrbsAmount == o.createdOrbsAmount){
-                    if (this.getClass() == InfinityMagicOven.class && o.getClass() != InfinityMagicOven.class){
+            } else if (this. getClass() == Oven.class && o.getClass() != Oven. class) {
+                return -1;
+            } else if (this instanceof MagicOven && o instanceof MagicOven) {
+                    if (this.createdOrbsAmount % 2 == 1 && o.createdOrbsAmount % 2 == 0) {
                         return 1;
-                    } else if (this.getClass() != InfinityMagicOven.class && o.getClass() == InfinityMagicOven.class) {
+                    } else if (this.createdOrbsAmount % 2 == 0 && o.createdOrbsAmount % 2 == 1) {
                         return -1;
-                    } else {
-                        return this.name.compareTo(o.name);
+                    } else if (this.createdOrbsAmount == o.createdOrbsAmount) {
+                        if (this.getClass() == MagicOven.class && o.getClass() == InfinityMagicOven.class) {
+                            return -1;
+                        } else if (this.getClass() == InfinityMagicOven.class && o.getClass() == MagicOven.class) {
+                            return 1;
                     }
                 }
+            } else if (this.createdOrbsAmount < o.createdOrbsAmount) {
+                return 1;
+            } else if (this. createdOrbsAmount > o.createdOrbsAmount) {
+                return -1;
             }
         }
-        return 0;
+        return this.name.compareTo(o.name);
     }
 }
