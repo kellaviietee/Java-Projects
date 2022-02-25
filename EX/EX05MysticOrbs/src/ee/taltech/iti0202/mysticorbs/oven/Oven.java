@@ -10,7 +10,13 @@ public class Oven implements Comparable<Oven> {
     protected final String name;
     protected final ResourceStorage resourceStorage;
     protected int createdOrbsAmount = 0;
+    private static final int MAXIMUM_ORBS = 15;
 
+    /**
+     * Oven constructor.
+     * @param name Name of the oven.
+     * @param resourceStorage Resource storage.
+     */
     public Oven(String name, ResourceStorage resourceStorage) {
 
         this.name = name;
@@ -30,9 +36,13 @@ public class Oven implements Comparable<Oven> {
     }
 
     public boolean isBroken() {
-        return createdOrbsAmount >= 15;
+        return createdOrbsAmount >= MAXIMUM_ORBS;
     }
 
+    /**
+     * Craft an Orb if possible.
+     * @return Orb if possible or an empty optional.
+     */
     public Optional<Orb> craftOrb() {
         if (isBroken()) {
             return Optional.empty();
@@ -57,15 +67,14 @@ public class Oven implements Comparable<Oven> {
             return 1;
         } else if (this.isBroken() && !o.isBroken()) {
             return -1;
-        }
-        else if (this.isBroken() == o.isBroken()) {
+        } else if (this.isBroken() == o.isBroken()) {
             if (this.getClass() == SpaceOven.class && o.getClass() != SpaceOven.class) {
                 return 1;
             } else if (this.getClass() == MagicOven.class && o.getClass() == SpaceOven.class) {
-                return - 1;
+                return -1;
             } else if (this.getClass() == MagicOven.class && o.getClass() == Oven.class) {
                 return 1;
-            } else if (this. getClass() == Oven.class && o.getClass() != Oven. class) {
+            } else if (this.getClass() == Oven.class && o.getClass() != Oven.class) {
                 return -1;
             } else if (this instanceof MagicOven && o instanceof MagicOven) {
                     if (this.createdOrbsAmount % 2 == 1 && o.createdOrbsAmount % 2 == 0) {
@@ -81,7 +90,7 @@ public class Oven implements Comparable<Oven> {
                 }
             } else if (this.createdOrbsAmount < o.createdOrbsAmount) {
                 return 1;
-            } else if (this. createdOrbsAmount > o.createdOrbsAmount) {
+            } else if (this.createdOrbsAmount > o.createdOrbsAmount) {
                 return -1;
             }
         }
