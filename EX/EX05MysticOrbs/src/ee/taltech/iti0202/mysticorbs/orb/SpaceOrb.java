@@ -1,12 +1,16 @@
 package ee.taltech.iti0202.mysticorbs.orb;
 
-public class SpaceOrb extends Orb{
+public class SpaceOrb extends Orb {
+    /**
+     * Spaceorb constructor.
+     * @param creator Name of the oven this SpaceOrb came out of.
+     */
     public SpaceOrb(String creator) {
         super(creator);
         this.energy = 100;
     }
     @Override
-    public void charge(String resource, int amount){
+    public void charge(String resource, int amount) {
     }
 
     @Override
@@ -14,8 +18,8 @@ public class SpaceOrb extends Orb{
         return "SpaceOrb by " + creator;
     }
 
-    public boolean absorb(Orb orb){
-        if(energy > orb.getEnergy()){
+    public boolean absorb(Orb orb) {
+        if (energy > orb.getEnergy()) {
             energy += orb.getEnergy();
             orb.removeEnergy(orb.getEnergy());
             return true;
