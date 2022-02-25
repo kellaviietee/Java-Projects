@@ -12,6 +12,11 @@ public class MagicOven extends Oven implements Fixable {
     private static final int CLAY_NEEDED_FIX = 25;
     private static final int  POWDER_NEEDED_FIX = 100;
 
+    /**
+     * Magic Oven Consgructor.
+     * @param name Name of the Oven.
+     * @param resourceStorage Storage where oven gets its resources.
+     */
     public MagicOven(String name, ResourceStorage resourceStorage) {
         super(name, resourceStorage);
     }
@@ -25,20 +30,20 @@ public class MagicOven extends Oven implements Fixable {
     public Optional<Orb> craftOrb() {
         if (isBroken()) {
             return Optional.empty();
-        } else if (!resourceStorage.hasEnoughResource("gold",1)
-                || !resourceStorage.hasEnoughResource("dust",3)) {
+        } else if (!resourceStorage.hasEnoughResource("gold", 1)
+                || !resourceStorage.hasEnoughResource("dust", 3)) {
             return Optional.empty();
         } else {
-            resourceStorage.takeResource("gold",1);
-            resourceStorage.takeResource("dust",3);
+            resourceStorage.takeResource("gold", 1);
+            resourceStorage.takeResource("dust", 3);
             Orb craftedOrb;
             if (createdOrbsAmount % 2 == 0) {
                 craftedOrb = new Orb(name);
             } else {
                 craftedOrb = new MagicOrb(name);
             }
-            craftedOrb.charge("gold",1);
-            craftedOrb.charge("dust",3);
+            craftedOrb.charge("gold", 1);
+            craftedOrb.charge("dust", 3);
             createdOrbsAmount += 1;
             return Optional.of(craftedOrb);
         }
@@ -48,10 +53,10 @@ public class MagicOven extends Oven implements Fixable {
     public void fix() throws CannotFixException {
         if (timesFixed >= 10) {
             throw new CannotFixException(this, CannotFixException.Reason.FIXED_MAXIMUM_TIMES);
-        }else if (!isBroken()) {
+        } else if (!isBroken()) {
             throw new CannotFixException(this, CannotFixException.Reason.IS_NOT_BROKEN);
-        } else if (!resourceStorage.takeResource("clay",(timesFixed + 1) * CLAY_NEEDED_FIX)
-            || !resourceStorage.takeResource("freezing powder",(timesFixed + 1) * POWDER_NEEDED_FIX)) {
+        } else if (!resourceStorage.takeResource("clay", (timesFixed + 1) * CLAY_NEEDED_FIX)
+            || !resourceStorage.takeResource("freezing powder", (timesFixed + 1) * POWDER_NEEDED_FIX)) {
         throw new CannotFixException(this, CannotFixException.Reason.NOT_ENOUGH_RESOURCES);
         } else {
             timesFixed += 1;
