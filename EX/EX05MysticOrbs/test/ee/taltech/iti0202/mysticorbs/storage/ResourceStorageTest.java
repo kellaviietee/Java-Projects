@@ -95,7 +95,6 @@ public class ResourceStorageTest {
         resourceStorage.takeResource("steel", 1);
         resourceStorage.takeResource("water", 65);
         resourceStorage.takeResource("water", 1);
-
         assertTrue(resourceStorage.isEmpty());
     }
 

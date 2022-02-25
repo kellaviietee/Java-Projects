@@ -18,31 +18,38 @@ public class SpaceOven extends Oven implements Fixable{
         if(timesFixed >= 5){
             return false;
         } else {
-        return createdOrbsAmount > (timesFixed + 1) * 25;
+        return createdOrbsAmount >= (timesFixed + 1) * 25;
     }
     }
 
     @Override
     public Optional<Orb> craftOrb() {
         if (isBroken()) {
-            return Optional.empty();
+            return getOrb();
+        } else if (resourceStorage.hasEnoughResource("meteorite stone", 1)
+                    && resourceStorage.hasEnoughResource("star fragment", 15)) {
+                resourceStorage.takeResource("meteorite stone", 1);
+                resourceStorage.takeResource("star fragment", 15);
+                Orb craftedOrb = new SpaceOrb(name);
+                createdOrbsAmount += 1;
+                return Optional.of(craftedOrb);
+            } else {
+            return getOrb();
         }
-        else if (resourceStorage.takeResource("meteorite stone", 1)
-                && resourceStorage.takeResource("star fragment", 15)) {
-            Orb craftedOrb = new SpaceOrb(name);
-            createdOrbsAmount += 1;
-            return Optional.of(craftedOrb);
-        } else if (resourceStorage.takeResource("pearl", 1)
-                && resourceStorage.takeResource("silver", 1)) {
+        }
+
+    private Optional<Orb> getOrb() {
+        if (resourceStorage.hasEnoughResource("pearl", 1)
+                && resourceStorage.hasEnoughResource("silver", 1)) {
+            resourceStorage.takeResource("pearl", 1);
+            resourceStorage.takeResource("silver", 1);
             Orb craftedOrb = new Orb(name);
-            craftedOrb.charge("pearl",1);
-            craftedOrb.charge("silver",1);
+            craftedOrb.charge("pearl", 1);
+            craftedOrb.charge("silver", 1);
             createdOrbsAmount += 1;
             return Optional.of(craftedOrb);
         }
-        else{
-            return Optional.empty();
-        }
+        return Optional.empty();
     }
 
     @Override

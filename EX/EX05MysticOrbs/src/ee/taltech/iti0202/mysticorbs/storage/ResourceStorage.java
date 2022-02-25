@@ -14,18 +14,18 @@ public class ResourceStorage {
         String norm_resource = resource.toLowerCase();
         if (resources.containsKey(norm_resource)) {
             Integer currentValue = resources.get(norm_resource);
-            Integer newValue = currentValue + amount;
+            Integer newValue = currentValue + Integer.max(0, amount);
             resources.replace(norm_resource, newValue);
         } else {
             if(!norm_resource.equals("")) {
-                resources.put(norm_resource, amount);
+                resources.put(norm_resource, Integer.max(0, amount));
             }
         }
     }
 
     public int getResourceAmount(String resource) {
         String norm_resource = resource.toLowerCase();
-        return resources.get(norm_resource);
+        return resources.getOrDefault(norm_resource, 0);
     }
 
     public boolean hasEnoughResource(String resource, int amount) {
@@ -41,8 +41,12 @@ public class ResourceStorage {
         if (hasEnoughResource(resource,amount)) {
             String norm_resource = resource.toLowerCase();
             Integer currentAmount = resources.get(norm_resource);
-            Integer newAmount = currentAmount - amount;
+            int newAmount = currentAmount - amount;
+            if (newAmount != 0){
             resources.replace(norm_resource,newAmount);
+            } else {
+                resources.remove(norm_resource);
+            }
             return true;
         }
         else {
