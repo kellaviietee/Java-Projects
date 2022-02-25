@@ -9,6 +9,10 @@ import java.util.Optional;
 
 public class SpaceOven extends Oven implements Fixable{
     private int timesFixed = 0;
+    private static final int LIQUID_SILVER_FIX = 40;
+    private static final int STAR_ESSENCE_FIX = 10;
+    private static final int STAR_FRAGMENT_CREATE = 15;
+    private static final int RESOURCES_NEEDED = 25;
     public SpaceOven(String name, ResourceStorage resourceStorage) {
         super(name, resourceStorage);
     }
@@ -18,7 +22,7 @@ public class SpaceOven extends Oven implements Fixable{
         if(timesFixed >= 5){
             return false;
         } else {
-        return createdOrbsAmount >= (timesFixed + 1) * 25;
+        return createdOrbsAmount >= (timesFixed + 1) * RESOURCES_NEEDED;
     }
     }
 
@@ -27,9 +31,9 @@ public class SpaceOven extends Oven implements Fixable{
         if (isBroken()) {
             return getOrb();
         } else if (resourceStorage.hasEnoughResource("meteorite stone", 1)
-                    && resourceStorage.hasEnoughResource("star fragment", 15)) {
+                    && resourceStorage.hasEnoughResource("star fragment", STAR_FRAGMENT_CREATE)) {
                 resourceStorage.takeResource("meteorite stone", 1);
-                resourceStorage.takeResource("star fragment", 15);
+                resourceStorage.takeResource("star fragment", STAR_FRAGMENT_CREATE);
                 Orb craftedOrb = new SpaceOrb(name);
                 createdOrbsAmount += 1;
                 return Optional.of(craftedOrb);
@@ -56,13 +60,13 @@ public class SpaceOven extends Oven implements Fixable{
     public void fix() throws CannotFixException {
         if (!isBroken()) {
             throw new CannotFixException(this, CannotFixException.Reason.IS_NOT_BROKEN);
-        } else if (resourceStorage.hasEnoughResource("liquid silver", 40)
-                || resourceStorage.hasEnoughResource("star essence", 10)) {
-            if (resourceStorage.hasEnoughResource("liquid silver", 40)) {
-                resourceStorage.takeResource("liquid silver", 40);
+        } else if (resourceStorage.hasEnoughResource("liquid silver", LIQUID_SILVER_FIX)
+                || resourceStorage.hasEnoughResource("star essence", STAR_ESSENCE_FIX)) {
+            if (resourceStorage.hasEnoughResource("liquid silver", LIQUID_SILVER_FIX)) {
+                resourceStorage.takeResource("liquid silver", LIQUID_SILVER_FIX);
                 timesFixed += 1;
-            } else if (resourceStorage.hasEnoughResource("star essence", 10)) {
-                resourceStorage.takeResource("star essence", 10);
+            } else if (resourceStorage.hasEnoughResource("star essence", STAR_ESSENCE_FIX)) {
+                resourceStorage.takeResource("star essence", STAR_ESSENCE_FIX);
                 timesFixed += 1;
             }
         } else {
