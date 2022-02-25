@@ -9,6 +9,8 @@ import java.util.Optional;
 
 public class MagicOven extends Oven implements Fixable {
     private int timesFixed = 0;
+    private static final int CLAY_NEEDED_FIX = 25;
+    private static final int  POWDER_NEEDED_FIX = 100;
 
     public MagicOven(String name, ResourceStorage resourceStorage) {
         super(name, resourceStorage);
@@ -48,10 +50,10 @@ public class MagicOven extends Oven implements Fixable {
             throw new CannotFixException(this, CannotFixException.Reason.FIXED_MAXIMUM_TIMES);
         }else if (!isBroken()) {
             throw new CannotFixException(this, CannotFixException.Reason.IS_NOT_BROKEN);
-        } else if (!resourceStorage.takeResource("clay",(timesFixed + 1) * 25)
-            || !resourceStorage.takeResource("freezing powder",(timesFixed + 1) * 100)){
+        } else if (!resourceStorage.takeResource("clay",(timesFixed + 1) * CLAY_NEEDED_FIX)
+            || !resourceStorage.takeResource("freezing powder",(timesFixed + 1) * POWDER_NEEDED_FIX)) {
         throw new CannotFixException(this, CannotFixException.Reason.NOT_ENOUGH_RESOURCES);
-        } else{
+        } else {
             timesFixed += 1;
         }
     }
