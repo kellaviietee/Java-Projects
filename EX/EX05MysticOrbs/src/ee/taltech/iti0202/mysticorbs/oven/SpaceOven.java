@@ -7,19 +7,25 @@ import ee.taltech.iti0202.mysticorbs.storage.ResourceStorage;
 
 import java.util.Optional;
 
-public class SpaceOven extends Oven implements Fixable{
+public class SpaceOven extends Oven implements Fixable {
     private int timesFixed = 0;
     private static final int LIQUID_SILVER_FIX = 40;
     private static final int STAR_ESSENCE_FIX = 10;
     private static final int STAR_FRAGMENT_CREATE = 15;
     private static final int RESOURCES_NEEDED = 25;
+
+    /**
+     * SpaceOven Constructor.
+     * @param name Name of the SpaceOven.
+     * @param resourceStorage Storage of the SpaceOven.
+     */
     public SpaceOven(String name, ResourceStorage resourceStorage) {
         super(name, resourceStorage);
     }
 
     @Override
     public boolean isBroken() {
-        if(timesFixed >= 5){
+        if (timesFixed >= 5) {
             return false;
         } else {
         return createdOrbsAmount >= (timesFixed + 1) * RESOURCES_NEEDED;
