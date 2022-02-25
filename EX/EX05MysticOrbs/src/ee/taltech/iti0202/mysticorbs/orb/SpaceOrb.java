@@ -18,13 +18,17 @@ public class SpaceOrb extends Orb {
         return "SpaceOrb by " + creator;
     }
 
+    /**
+     * Absorb energy of another Orb if the other orb has less energy.
+     * @param orb The other orb to be compared to.
+     * @return if the absorption was successful.
+     */
     public boolean absorb(Orb orb) {
         if (energy > orb.getEnergy()) {
             energy += orb.getEnergy();
             orb.removeEnergy(orb.getEnergy());
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
