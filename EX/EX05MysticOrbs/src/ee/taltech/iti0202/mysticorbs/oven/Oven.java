@@ -77,7 +77,7 @@ public class Oven implements Comparable<Oven> {
                     if (this.getClass() == InfinityMagicOven.class && o.getClass() != InfinityMagicOven.class){
                         return 1;
                     } else if (this.getClass() != InfinityMagicOven.class && o.getClass() == InfinityMagicOven.class) {
-                        return - 1;
+                        return -1;
                     } else {
                         return this.name.compareTo(o.name);
                     }
