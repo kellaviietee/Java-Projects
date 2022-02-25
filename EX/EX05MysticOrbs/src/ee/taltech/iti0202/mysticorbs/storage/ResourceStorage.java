@@ -10,48 +10,51 @@ public class ResourceStorage {
         return resources.isEmpty();
     }
 
+    /**
+     * Add a resource to be used to create orbs.
+     * @param resource resource name.
+     * @param amount how much of it will be added.
+     */
     public void addResource(String resource, int amount) {
-        String norm_resource = resource.toLowerCase().trim();
-        if (resources.containsKey(norm_resource)) {
-            Integer currentValue = resources.get(norm_resource);
+        String normResource = resource.toLowerCase().trim();
+        if (resources.containsKey(normResource)) {
+            Integer currentValue = resources.get(normResource);
             Integer newValue = currentValue + Integer.max(0, amount);
-            resources.replace(norm_resource, newValue);
+            resources.replace(normResource, newValue);
         } else {
-            if(!norm_resource.equals("")) {
-                resources.put(norm_resource, Integer.max(0, amount));
+            if (!normResource.equals("")) {
+                resources.put(normResource, Integer.max(0, amount));
             }
         }
     }
 
     public int getResourceAmount(String resource) {
-        String norm_resource = resource.toLowerCase();
-        return resources.getOrDefault(norm_resource, 0);
+        String normResource = resource.toLowerCase();
+        return resources.getOrDefault(normResource, 0);
     }
 
     public boolean hasEnoughResource(String resource, int amount) {
-        String norm_resource = resource.toLowerCase();
+        String normResource = resource.toLowerCase();
         if (amount < 1) {
             return false;
-        } else if (!resources.containsKey(norm_resource)) {
+        } else if (!resources.containsKey(normResource)) {
             return false;
-        } else return amount <= resources.get(norm_resource);
+        } else return amount <= resources.get(normResource);
     }
 
     public boolean takeResource(String resource, int amount) {
         if (hasEnoughResource(resource,amount)) {
-            String norm_resource = resource.toLowerCase();
-            Integer currentAmount = resources.get(norm_resource);
+            String normResource = resource.toLowerCase();
+            Integer currentAmount = resources.get(normResource);
             int newAmount = currentAmount - amount;
-            if (newAmount != 0){
-            resources.replace(norm_resource,newAmount);
+            if (newAmount != 0) {
+            resources.replace(normResource,newAmount);
             } else {
-                resources.remove(norm_resource);
+                resources.remove(normResource);
             }
             return true;
-        }
-        else {
+        } else {
             return false;
         }
-
     }
 }
