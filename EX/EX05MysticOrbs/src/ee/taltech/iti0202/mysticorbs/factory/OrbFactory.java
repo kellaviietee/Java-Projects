@@ -62,13 +62,13 @@ public class OrbFactory {
                         ((Fixable) oven).fix();
                     } catch (CannotFixException ex) {
                         if (ex.getReason() == CannotFixException.Reason.FIXED_MAXIMUM_TIMES) {
-                            if(!notFixableOvens.contains(oven)) {
+                            if (!notFixableOvens.contains(oven)) {
                                 notFixableOvens.add(oven);
                             }
                         }
                     }
                 } else if (oven.getClass() == Oven.class) {
-                    if(!notFixableOvens.contains(oven)) {
+                    if (!notFixableOvens.contains(oven)) {
                         notFixableOvens.add(oven);
                     }
                 }
