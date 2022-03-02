@@ -31,11 +31,14 @@ public class AnimalShelter {
         Set<Animal> shelterAnimals = new LinkedHashSet<>();
         List<Animal> providerAnimals = animalProvider.provide(animalType);
         while (!providerAnimals.isEmpty() && shelterAnimals.size() <= count) {
-            shelterAnimals.addAll(providerAnimals.stream()
+            List<Animal> filteredAnimals = providerAnimals.stream()
                     .filter(animal -> Objects.equals(animal.getColor(), color))
-                    .distinct()
-                    .limit(count - shelterAnimals.size())
-                    .toList());
+                    .toList();
+            for(Animal animal : filteredAnimals) {
+                if (shelterAnimals.size() <= count) {
+                    shelterAnimals.add(animal);
+                }
+            }
             providerAnimals = animalProvider.provide(animalType);
         }
         return new ArrayList<>(shelterAnimals);
