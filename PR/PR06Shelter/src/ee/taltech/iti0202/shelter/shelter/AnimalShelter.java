@@ -7,6 +7,11 @@ import java.util.stream.Collectors;
 
 public class AnimalShelter {
     AnimalProvider animalProvider;
+
+    /**
+     * AnimalShelter constructor.
+     * @param animalProvider Provides buggy list of animals.
+     */
     public AnimalShelter(AnimalProvider animalProvider) {
         this.animalProvider = animalProvider;
     }
@@ -35,7 +40,7 @@ public class AnimalShelter {
                     .filter(animal -> Objects.equals(animal.getColor(), color))
                     .distinct()
                     .toList();
-            for(Animal animal : filteredAnimals) {
+            for (Animal animal : filteredAnimals) {
                 if (shelterAnimals.size() < count) {
                     shelterAnimals.add(animal);
                 }
