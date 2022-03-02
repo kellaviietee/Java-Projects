@@ -33,7 +33,7 @@ public class AnimalShelter {
         while (!providerAnimals.isEmpty() && shelterAnimals.size() <= count) {
             shelterAnimals.addAll(providerAnimals.stream()
                     .filter(animal -> Objects.equals(animal.getColor(), color))
-                    .limit(count)
+                    .limit(count - shelterAnimals.size())
                     .toList());
             providerAnimals = animalProvider.provide(animalType);
         }
