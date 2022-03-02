@@ -35,7 +35,7 @@ public class AnimalShelter {
                     .filter(animal -> Objects.equals(animal.getColor(), color))
                     .toList();
             for(Animal animal : filteredAnimals) {
-                if (shelterAnimals.size() < count) {
+                if (shelterAnimals.size() < count - 1) {
                     shelterAnimals.add(animal);
                 }
             }
