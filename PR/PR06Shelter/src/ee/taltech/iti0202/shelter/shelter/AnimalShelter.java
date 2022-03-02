@@ -32,7 +32,10 @@ public class AnimalShelter {
         List<Animal> providerAnimals = animalProvider.provide(animalType);
         while (!providerAnimals.isEmpty() && shelterAnimals.size() <= count) {
             shelterAnimals.addAll(providerAnimals.stream()
-                    .filter(animal -> Objects.equals(animal.getColor(), color)).toList());
+                    .filter(animal -> Objects.equals(animal.getColor(), color))
+                    .limit(count)
+                    .toList());
+            providerAnimals = animalProvider.provide(animalType);
         }
         return new ArrayList<>(shelterAnimals);
     }
