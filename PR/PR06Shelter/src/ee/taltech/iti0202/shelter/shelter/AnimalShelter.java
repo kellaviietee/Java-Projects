@@ -30,12 +30,12 @@ public class AnimalShelter {
     public List<Animal> getAnimals(Animal.Type animalType, String color, int count) {
         Set<Animal> shelterAnimals = new LinkedHashSet<>();
         List<Animal> providerAnimals = animalProvider.provide(animalType);
-        while (!providerAnimals.isEmpty() && shelterAnimals.size() <= count) {
+        while (!providerAnimals.isEmpty() && shelterAnimals.size() < count) {
             List<Animal> filteredAnimals = providerAnimals.stream()
                     .filter(animal -> Objects.equals(animal.getColor(), color))
                     .toList();
             for(Animal animal : filteredAnimals) {
-                if (shelterAnimals.size() <= count) {
+                if (shelterAnimals.size() < count) {
                     shelterAnimals.add(animal);
                 }
             }
