@@ -42,6 +42,7 @@ public class AnimalShelter {
         while (!providerAnimals.isEmpty() && shelterAnimals.size() < count) {
             List<Animal> filteredAnimals = providerAnimals.stream()
                     .filter(animal -> Objects.equals(animal.getColor(), color))
+                    .distinct()
                     .toList();
             for (Animal animal : filteredAnimals) {
                 if (shelterAnimals.size() < count) {
