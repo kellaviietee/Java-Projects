@@ -2,8 +2,8 @@ package ee.taltech.iti0202.files.morse;
 import java.util.*;
 
 public class MorseTranslator {
-     private final Map<String, String> morseCodes = new HashMap<>();
-     private final Map<String, String> reverseMorseCodes = new HashMap<>();
+    private final Map<String, String> morseCodes = new HashMap<>();
+    private final Map<String, String> reverseMorseCodes = new HashMap<>();
 
     public Map<String, String> addMorseCodes(List<String> lines) {
         for (String line : lines) {
@@ -35,8 +35,8 @@ public class MorseTranslator {
         String[] splitLine = line.trim().split(" ");
         for (String word : splitLine) {
             StringBuilder wordInMorse = new StringBuilder();
-            String [] wordLetters = word.split("");
-            for (String letter: wordLetters) {
+            String[] wordLetters = word.split("");
+            for (String letter : wordLetters) {
                 if (!morseCodes.containsKey(letter.toLowerCase())) {
                     System.out.println(letter);
                 }
@@ -48,30 +48,15 @@ public class MorseTranslator {
     }
 
     private String translateLineFromMorse(String line) {
-        String[] splitline = line.split("\s{2,}");
-        List<String> wordList = new ArrayList<>();
-        for (String morseWord :splitline) {
-            StringBuilder actualWord = new StringBuilder();
-            String[] morseLetters = morseWord.split("");
-            StringBuilder convertedLetter = new StringBuilder();
-            for (String letter : morseLetters) {
-                if(letter.equals(".") || letter.equals("-")) {
-                    convertedLetter.append(letter);
-                }
-                else {
-                    if (!reverseMorseCodes.containsKey(convertedLetter.toString())) {
-                        actualWord.append(" ");
-                    } else {
-                        actualWord.append(reverseMorseCodes.get(convertedLetter.toString()));
-                        convertedLetter = new StringBuilder();
-                    }
-                }
+        String[] words = line.split(" ");
+        System.out.println(Arrays.toString(words));
+        StringBuilder sentence = new StringBuilder();
+        for (String letter : words) {
+            if (letter.startsWith("\t")) {
+                sentence.append("\t");
             }
-            if (!convertedLetter.isEmpty()) {
-                actualWord.append(reverseMorseCodes.get(convertedLetter.toString()));
-            }
-            wordList.add(actualWord.toString());
+            sentence.append(reverseMorseCodes.get(letter.trim()));
         }
-        return String.join("",wordList);
+        return sentence.toString();
     }
 }
