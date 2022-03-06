@@ -2,8 +2,8 @@ package ee.taltech.iti0202.files.morse;
 import java.util.*;
 
 public class MorseTranslator {
-    static private final Map<String, String> morseCodes = new HashMap<>();
-    static private final Map<String, String> reverseMorseCodes = new HashMap<>();
+     private final Map<String, String> morseCodes = new HashMap<>();
+     private final Map<String, String> reverseMorseCodes = new HashMap<>();
 
     public Map<String, String> addMorseCodes(List<String> lines) {
         for (String line : lines) {
@@ -32,15 +32,19 @@ public class MorseTranslator {
 
     private String translateLineToMorse(String line) {
         StringBuilder lineInMorse = new StringBuilder();
-        String[] splitLine = line.trim().split("");
-        for (String character : splitLine) {
-            if (character.equals(" ")) {
-                lineInMorse.append("\t");
-            } else {
-                lineInMorse.append(morseCodes.get(character.toLowerCase())).append(" ");
+        String[] splitLine = line.trim().split(" ");
+        for (String word : splitLine) {
+            StringBuilder wordInMorse = new StringBuilder();
+            String [] wordLetters = word.split("");
+            for (String letter: wordLetters) {
+                if (!morseCodes.containsKey(letter.toLowerCase())) {
+                    System.out.println(letter);
+                }
+                wordInMorse.append(morseCodes.get(letter.toLowerCase())).append(" ");
             }
+            lineInMorse.append(wordInMorse).append("\t");
         }
-        return lineInMorse.toString();
+        return lineInMorse.toString().trim();
     }
 
     private String translateLineFromMorse(String line) {
@@ -55,19 +59,24 @@ public class MorseTranslator {
                     convertedLetter.append(letter);
                 }
                 else {
-                    actualWord.append(reverseMorseCodes.get(convertedLetter.toString()));
-                    convertedLetter = new StringBuilder();
+                    if (!reverseMorseCodes.containsKey(convertedLetter.toString())) {
+                        actualWord.append(" ");
+                    } else {
+                        actualWord.append(reverseMorseCodes.get(convertedLetter.toString()));
+                        convertedLetter = new StringBuilder();
+                    }
                 }
             }
             if (!convertedLetter.isEmpty()) {
                 actualWord.append(reverseMorseCodes.get(convertedLetter.toString()));
             }
-            wordList.add(actualWord.toString() + " ");
+            wordList.add(actualWord + " ");
         }
         StringBuilder finalList = new StringBuilder();
         for (String word : wordList) {
             finalList.append(word).append(" ");
         }
+        System.out.println(finalList);
         return finalList.toString().trim();
     }
 }
