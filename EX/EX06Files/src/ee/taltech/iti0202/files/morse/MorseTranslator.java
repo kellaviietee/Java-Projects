@@ -52,7 +52,7 @@ public class MorseTranslator {
         System.out.println(Arrays.toString(words));
         StringBuilder sentence = new StringBuilder();
         for (String letter : words) {
-            if (letter.startsWith("\t") || letter.startsWith(" ")) {
+            if (letter.startsWith("\t") || letter.startsWith("\s")) {
                 sentence.append(" ");
             }
             sentence.append(reverseMorseCodes.get(letter.trim()));
