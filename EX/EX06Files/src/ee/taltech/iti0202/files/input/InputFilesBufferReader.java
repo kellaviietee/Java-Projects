@@ -10,6 +10,10 @@ public class InputFilesBufferReader implements InputFilesReader {
 
     @Override
     public List<String> readTextFromFile(String filename) {
+        if (filename == null) {
+            IOException e = new IOException();
+            throw new FileReaderException("No such file",e);
+        }
         List<String> dummyList;
         Path path = Paths.get(filename);
         try {
