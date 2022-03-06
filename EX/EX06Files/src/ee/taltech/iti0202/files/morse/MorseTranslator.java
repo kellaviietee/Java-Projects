@@ -72,6 +72,6 @@ public class MorseTranslator {
             }
             wordList.add(actualWord.toString());
         }
-        return String.join("\n",wordList);
+        return String.join("",wordList);
     }
 }
