@@ -70,13 +70,8 @@ public class MorseTranslator {
             if (!convertedLetter.isEmpty()) {
                 actualWord.append(reverseMorseCodes.get(convertedLetter.toString()));
             }
-            wordList.add(actualWord + " ");
+            wordList.add(actualWord.toString());
         }
-        StringBuilder finalList = new StringBuilder();
-        for (String word : wordList) {
-            finalList.append(word).append(" ");
-        }
-        System.out.println(finalList);
-        return finalList.toString().trim();
+        return String.join("\n",wordList);
     }
 }
