@@ -60,14 +60,14 @@ public class MorseTranslator {
                 }
             }
             if (!convertedLetter.isEmpty()) {
-                actualWord.append(reverseMorseCodes.get(convertedLetter.toString())).append(" ");
+                actualWord.append(reverseMorseCodes.get(convertedLetter.toString()));
             }
-            wordList.add(actualWord.toString());
+            wordList.add(actualWord.toString() + " ");
         }
         StringBuilder finalList = new StringBuilder();
         for (String word : wordList) {
             finalList.append(word).append(" ");
         }
-        return finalList.toString();
+        return finalList.toString().trim();
     }
 }
