@@ -61,6 +61,7 @@ public class MorseTranslator {
             }
             if (!convertedLetter.isEmpty()) {
                 actualWord.append(reverseMorseCodes.get(convertedLetter.toString()));
+                convertedLetter = new StringBuilder();
             }
             wordList.add(actualWord.toString());
         }
