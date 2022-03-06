@@ -52,7 +52,7 @@ public class MorseTranslator {
                 currentCharacter.append(morseCharacter);
             } else {
                 if (!currentCharacter.isEmpty()) {
-                    words.append(reverseMorseCodes.get(currentCharacter.toString() + " "));
+                    words.append(reverseMorseCodes.get(currentCharacter.toString()) + " ");
                     currentCharacter = new StringBuilder();
                 }
                 if (morseCharacter.equals("\\")) {
@@ -61,7 +61,7 @@ public class MorseTranslator {
             }
         }
         if (!currentCharacter.isEmpty()) {
-            words.append(reverseMorseCodes.get(currentCharacter.toString() + " "));
+            words.append(reverseMorseCodes.get(currentCharacter.toString())).append(" ");
 
         }
         return words.toString();
