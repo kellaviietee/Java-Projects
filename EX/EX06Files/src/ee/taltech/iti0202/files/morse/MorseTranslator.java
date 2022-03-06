@@ -53,7 +53,7 @@ public class MorseTranslator {
         StringBuilder sentence = new StringBuilder();
         for (String letter : words) {
             if (letter.startsWith("\t")) {
-                sentence.append("\t");
+                sentence.append(" ");
             }
             sentence.append(reverseMorseCodes.get(letter.trim()));
         }
