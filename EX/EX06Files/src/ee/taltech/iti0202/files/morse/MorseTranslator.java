@@ -60,6 +60,6 @@ public class MorseTranslator {
                 testCharacter.append(morseCharacter);
             }
         }
-        return words.toString();
+        return words.toString().trim();
     }
 }

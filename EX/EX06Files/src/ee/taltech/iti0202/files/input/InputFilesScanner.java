@@ -13,11 +13,12 @@ public class InputFilesScanner implements InputFilesReader {
         List<String> allLines = new ArrayList<>();
         try (Scanner scanner = new Scanner(Paths.get(filename))) {
             while (scanner.hasNextLine()) {
-                allLines.add(scanner.nextLine() + "\n");
+                allLines.add(scanner.nextLine());
             }
         } catch (IOException e) {
             throw new FileReaderException("No such File", e);
         }
+        System.out.println(allLines);
         return allLines;
     }
 }
