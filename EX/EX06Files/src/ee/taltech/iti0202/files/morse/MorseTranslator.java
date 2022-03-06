@@ -2,8 +2,8 @@ package ee.taltech.iti0202.files.morse;
 import java.util.*;
 
 public class MorseTranslator {
-    Map<String, String> morseCodes = new HashMap<>();
-    Map<String, String> reverseMorseCodes = new HashMap<>();
+    static private final Map<String, String> morseCodes = new HashMap<>();
+    static private final Map<String, String> reverseMorseCodes = new HashMap<>();
 
     public Map<String, String> addMorseCodes(List<String> lines) {
         for (String line : lines) {
@@ -44,26 +44,30 @@ public class MorseTranslator {
     }
 
     private String translateLineFromMorse(String line) {
-        StringBuilder words = new StringBuilder();
-        String[] splitLine = line.split("");
-        StringBuilder currentCharacter = new StringBuilder();
-        for (String morseCharacter : splitLine) {
-            if (morseCharacter.equals(".") || morseCharacter.equals("-")) {
-                currentCharacter.append(morseCharacter);
-            } else {
-                if (!currentCharacter.isEmpty()) {
-                    words.append(reverseMorseCodes.get(currentCharacter.toString()));
-                    currentCharacter = new StringBuilder();
+        String[] splitline = line.split("\s{2,}");
+        List<String> wordList = new ArrayList<>();
+        for (String morseWord :splitline) {
+            StringBuilder actualWord = new StringBuilder();
+            String[] morseLetters = morseWord.split("");
+            StringBuilder convertedLetter = new StringBuilder();
+            for (String letter : morseLetters) {
+                if(letter.equals(".") || letter.equals("-")) {
+                    convertedLetter.append(letter);
                 }
-                if (morseCharacter.equals("\\")) {
-                    words.append(" ");
+                else {
+                    actualWord.append(reverseMorseCodes.get(convertedLetter.toString()));
+                    convertedLetter = new StringBuilder();
                 }
             }
+            if (!convertedLetter.isEmpty()) {
+                actualWord.append(reverseMorseCodes.get(convertedLetter.toString()));
+            }
+            wordList.add(actualWord.toString());
         }
-        if (!currentCharacter.isEmpty()) {
-            words.append(reverseMorseCodes.get(currentCharacter.toString()));
-
+        StringBuilder finalList = new StringBuilder();
+        for (String word : wordList) {
+            finalList.append(word).append(" ");
         }
-        return words.toString();
+        return finalList.toString().trim();
     }
 }
