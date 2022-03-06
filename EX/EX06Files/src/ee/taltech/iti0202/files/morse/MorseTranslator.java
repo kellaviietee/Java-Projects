@@ -60,7 +60,7 @@ public class MorseTranslator {
                 }
             }
             if (!convertedLetter.isEmpty()) {
-                actualWord.append(reverseMorseCodes.get(convertedLetter.toString()));
+                actualWord.append(reverseMorseCodes.get(convertedLetter.toString())).append(" ");
             }
             wordList.add(actualWord.toString());
         }
@@ -68,6 +68,6 @@ public class MorseTranslator {
         for (String word : wordList) {
             finalList.append(word).append(" ");
         }
-        return finalList.toString().trim();
+        return finalList.toString();
     }
 }
