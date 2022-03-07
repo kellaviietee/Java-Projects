@@ -76,16 +76,16 @@ class FilesTest {
      */
     @Test
     public void testMorseTranslatorToMorse() {
-        List<String> letters = new ArrayList<String>(Arrays.asList("a","b","c","d","e","f","g","h","i","j","k","l",
-                "m","n","o","p","r","s","t","u","v","w","ä","ö","ü","x","y","z","0","1","2","3","4","5","6","7","8"
-        ,"9","&","'","@",")","(",":",",","=","!",".","-","+","?","/"));
+        List<String> letters = new ArrayList<String>(Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"
+                ,"l", "m", "n", "o", "p", "r", "s", "t", "u", "v", "w", "ä", "ö", "ü", "x", "y", "z", "0", "1", "2", "3"
+                , "4", "5", "6", "7", "8", "9", "&", "'", "@", ")", "(", ":", ",", "=", "!", ".", "-", "+", "?", "/"));
         MorseTranslator translator = new MorseTranslator();
         InputFilesScanner reader = new InputFilesScanner();
         List<String> morseCodes = reader.readTextFromFile("morse.txt");
         assertTrue(translator.addMorseCodes(morseCodes).keySet().containsAll(letters));
         List<String> testMorse = reader.readTextFromFile("morseInput.txt");
         List<String> actualMorse = translator.translateLinesToMorse(reader.readTextFromFile("input.txt"));
-        assertEquals(testMorse,actualMorse);
+        assertEquals(testMorse, actualMorse);
     }
 
     /**
@@ -100,7 +100,7 @@ class FilesTest {
         translator.addMorseCodes(morseCodes);
         List<String> testText = reader.readTextFromFile("input.txt");
         List<String> actualText = translator.translateLinesFromMorse(reader.readTextFromFile("morseInput.txt"));
-        assertEquals(testText,actualText);
+        assertEquals(testText, actualText);
     }
 
 }

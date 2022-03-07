@@ -57,7 +57,6 @@ public class MorseTranslator {
         StringBuilder lineInMorse = new StringBuilder();
         String[] splitLine = line.trim().split(" ");
         for (String sentence : splitLine) {
-            StringBuilder SentenceInMorse = new StringBuilder();
             String[] words = sentence.split(" ");
             for (String word : words) {
                 StringBuilder morseWord = new StringBuilder();
