@@ -111,5 +111,4 @@ class FilesTest {
         List<String> actualText = translator.translateLinesFromMorse(reader.readTextFromFile("morseInput.txt"));
         assertEquals(testText, actualText);
     }
-
 }

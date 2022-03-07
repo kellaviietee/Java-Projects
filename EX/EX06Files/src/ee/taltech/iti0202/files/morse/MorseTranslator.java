@@ -62,7 +62,7 @@ public class MorseTranslator {
                 StringBuilder morseWord = new StringBuilder();
                 String[] letters = word.split("");
                 for (int i = 0; i < letters.length; i++) {
-                    morseWord.append(morseCodes.get(letters[i]));
+                    morseWord.append(morseCodes.get(letters[i].toLowerCase()));
                     if (i < letters.length - 1) {
                         morseWord.append(" ");
                     }
