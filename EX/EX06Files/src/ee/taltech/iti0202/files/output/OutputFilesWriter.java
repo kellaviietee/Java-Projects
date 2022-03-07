@@ -8,11 +8,17 @@ import java.util.List;
 
 public class OutputFilesWriter {
 
+    /**
+     * Write lines to a txt file
+     * @param lines Lines to be written
+     * @param filename name of the file.
+     * @return if writing was successful.
+     */
     public boolean writeLinesToFile(List<String> lines, String filename) {
         Path path = Paths.get(filename);
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
-            for(String line : lines) {
-                writer.write(line +"\n");
+            for (String line : lines) {
+                writer.write(line + "\n");
             }
         } catch (IOException e) {
             return false;
