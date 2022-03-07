@@ -14,4 +14,9 @@ public class FileReaderException extends RuntimeException {
         this.message = message;
         this.reason = reason;
     }
+
+    @Override
+    public String getMessage() {
+        return message;
+    }
 }

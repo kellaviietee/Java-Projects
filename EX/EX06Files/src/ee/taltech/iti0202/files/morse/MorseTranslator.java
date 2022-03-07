@@ -12,6 +12,7 @@ public class MorseTranslator {
 
     /**
      * Add morse code decipher to the class.
+     *
      * @param lines Lines of morse codes.
      * @return Morse code deciphering algorithm.
      */
@@ -26,6 +27,7 @@ public class MorseTranslator {
 
     /**
      * Translate regular text into a Morse code.
+     *
      * @param lines Normal text to be converted.
      * @return text converted to Morse.
      */
@@ -39,6 +41,7 @@ public class MorseTranslator {
 
     /**
      * Translates a Morse code to normal text
+     *
      * @param lines all the lines to be translated.
      * @return normal text.
      */
@@ -53,29 +56,37 @@ public class MorseTranslator {
     private String translateLineToMorse(String line) {
         StringBuilder lineInMorse = new StringBuilder();
         String[] splitLine = line.trim().split(" ");
-        for (String word : splitLine) {
-            StringBuilder wordInMorse = new StringBuilder();
-            String[] wordLetters = word.split("");
-            for (String letter : wordLetters) {
-                if (!morseCodes.containsKey(letter.toLowerCase())) {
-                    System.out.println(letter);
+        for (String sentence : splitLine) {
+            StringBuilder SentenceInMorse = new StringBuilder();
+            String[] words = sentence.split(" ");
+            for (String word : words) {
+                StringBuilder morseWord = new StringBuilder();
+                String[] letters = word.split("");
+                for (int i = 0; i < letters.length; i++) {
+                    morseWord.append(morseCodes.get(letters[i]));
+                    if (i < letters.length - 1) {
+                        morseWord.append(" ");
+                    }
                 }
-                wordInMorse.append(morseCodes.get(letter.toLowerCase())).append(" ");
+                morseWord.append("\t");
+                lineInMorse.append(morseWord);
             }
-            lineInMorse.append(wordInMorse).append("\t");
         }
         return lineInMorse.toString().trim();
     }
 
     private String translateLineFromMorse(String line) {
-        String[] words = line.split(" ");
+        String[] words = line.split("\s{2,}");
         StringBuilder sentence = new StringBuilder();
-        for (String letter : words) {
-            if (letter.startsWith("\t") || letter.startsWith("\s")) {
-                sentence.append(" ");
+        for (String word : words) {
+            String[] letters = word.split(" ");
+            for (String letter : letters) {
+                if (reverseMorseCodes.containsKey(letter.toLowerCase())) {
+                    sentence.append(reverseMorseCodes.get(letter.toLowerCase()));
+                }
             }
-            sentence.append(reverseMorseCodes.get(letter.trim()));
+            sentence.append(" ");
         }
-        return sentence.toString();
+        return sentence.toString().trim();
     }
 }
