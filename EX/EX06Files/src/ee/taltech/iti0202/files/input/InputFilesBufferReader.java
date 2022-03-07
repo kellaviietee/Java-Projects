@@ -8,7 +8,7 @@ import java.util.List;
 public class InputFilesBufferReader implements InputFilesReader {
 
     @Override
-    public List<String> readTextFromFile(String filename) throws FileReaderException {
+    public List<String> readTextFromFile(String filename) throws IOException {
         List<String> dummyList;
         Path path = Paths.get(filename);
         try {

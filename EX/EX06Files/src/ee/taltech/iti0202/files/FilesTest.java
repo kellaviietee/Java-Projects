@@ -11,6 +11,7 @@ import ee.taltech.iti0202.files.output.OutputFilesWriter;
 import org.junit.jupiter.api.Test;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,7 +26,7 @@ class FilesTest {
      * Test BufferReader ability to read a text as well as the exception it should throw.
      */
     @Test
-    public void testBufferReader() {
+    public void testBufferReader() throws IOException {
         InputFilesReader bufferReader = new InputFilesBufferReader();
         List<String> text = bufferReader.readTextFromFile("input.txt");
         List<String> testText = new ArrayList<>();
@@ -40,7 +41,7 @@ class FilesTest {
      * Test FilesLine ability to read a text as well as the exception it should throw.
      */
     @Test
-    public void testFilesLines() {
+    public void testFilesLines() throws IOException {
         InputFilesReader filesLines = new InputFilesLines();
         List<String> text = filesLines.readTextFromFile("input.txt");
         List<String> testText = new ArrayList<>();
@@ -55,7 +56,7 @@ class FilesTest {
      * Test FileScanner ability to read a text as well as the exception it should throw.
      */
     @Test
-    public void testFilesScanner() {
+    public void testFilesScanner() throws IOException {
         InputFilesReader filesScanner = new InputFilesScanner();
         List<String> text = filesScanner.readTextFromFile("input.txt");
         List<String> testText = new ArrayList<>();
@@ -70,7 +71,7 @@ class FilesTest {
      * Test File writer.
      */
     @Test
-    public void testOutputWriter() {
+    public void testOutputWriter() throws IOException {
         List<String> testText = new ArrayList<>();
         testText.add("lorem ipsum dolor sit amet, consectetur adipiscing elit,");
         OutputFilesWriter writer = new OutputFilesWriter();
@@ -84,7 +85,7 @@ class FilesTest {
      * Test Morse translator morse abilities.
      */
     @Test
-    public void testMorseTranslatorToMorse() {
+    public void testMorseTranslatorToMorse() throws IOException {
         List<String> letters = new ArrayList<String>(Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
                 "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "v", "w", "ä", "ö", "ü", "x", "y", "z", "0", "1", "2",
                 "3", "4", "5", "6", "7", "8", "9", "&", "'", "@", ")", "(", ":", ",", "=", "!", ".", "-", "+", "?",
@@ -102,7 +103,7 @@ class FilesTest {
      * Test Morse translator regular text abilities.
      */
     @Test
-    public void testMorseTranslatorFromMorse() {
+    public void testMorseTranslatorFromMorse() throws IOException {
         MorseTranslator translator = new MorseTranslator();
         InputFilesScanner reader = new InputFilesScanner();
         List<String> morseCodes = reader.readTextFromFile("morse.txt");

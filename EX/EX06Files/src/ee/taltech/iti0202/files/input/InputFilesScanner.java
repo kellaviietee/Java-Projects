@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class InputFilesScanner implements InputFilesReader {
 
     @Override
-    public List<String> readTextFromFile(String filename) throws FileReaderException {
+    public List<String> readTextFromFile(String filename) throws IOException {
         List<String> allLines = new ArrayList<>();
         try (Scanner scanner = new Scanner(Paths.get(filename))) {
             while (scanner.hasNextLine()) {

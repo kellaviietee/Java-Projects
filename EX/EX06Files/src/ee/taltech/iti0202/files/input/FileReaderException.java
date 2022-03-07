@@ -1,5 +1,7 @@
 package ee.taltech.iti0202.files.input;
 
+import java.io.IOException;
+
 public class FileReaderException extends RuntimeException {
 
     private final String message;
@@ -10,7 +12,7 @@ public class FileReaderException extends RuntimeException {
      * @param message Message to go with FileReader.
      * @param reason Type of exception.
      */
-    public FileReaderException(String message, Throwable reason) {
+    public FileReaderException(String message, Throwable reason) throws IOException {
         this.message = message;
         this.reason = reason;
 

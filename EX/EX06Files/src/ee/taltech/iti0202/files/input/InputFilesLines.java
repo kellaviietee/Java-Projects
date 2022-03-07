@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 public class InputFilesLines implements InputFilesReader {
 
     @Override
-    public List<String> readTextFromFile(String filename) {
+    public List<String> readTextFromFile(String filename) throws IOException {
         List<String> dummyList = new ArrayList<>();
         try (Stream<String> stream = Files.lines(Paths.get(filename))) {
             stream.forEach(dummyList::add);
