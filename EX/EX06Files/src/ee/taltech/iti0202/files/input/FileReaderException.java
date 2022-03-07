@@ -13,6 +13,7 @@ public class FileReaderException extends RuntimeException {
     public FileReaderException(String message, Throwable reason) {
         this.message = message;
         this.reason = reason;
+
     }
 
     @Override

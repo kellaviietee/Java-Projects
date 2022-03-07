@@ -1,5 +1,5 @@
 package ee.taltech.iti0202.files.input;
-
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,7 +9,7 @@ import java.util.List;
 public class InputFilesBufferReader implements InputFilesReader {
 
     @Override
-    public List<String> readTextFromFile(String filename) {
+    public List<String> readTextFromFile(String filename) throws FileReaderException {
         List<String> dummyList;
         Path path = Paths.get(filename);
         try {
