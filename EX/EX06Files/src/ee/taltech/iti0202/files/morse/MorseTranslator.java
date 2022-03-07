@@ -1,10 +1,20 @@
 package ee.taltech.iti0202.files.morse;
-import java.util.*;
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MorseTranslator {
     private final Map<String, String> morseCodes = new HashMap<>();
     private final Map<String, String> reverseMorseCodes = new HashMap<>();
 
+    /**
+     * Add morse code decipher to the class.
+     * @param lines Lines of morse codes.
+     * @return Morse code deciphering algorithm.
+     */
     public Map<String, String> addMorseCodes(List<String> lines) {
         for (String line : lines) {
             String[] splitLine = line.split(" ");
@@ -14,6 +24,11 @@ public class MorseTranslator {
         return morseCodes;
     }
 
+    /**
+     * Translate regular text into a Morse code.
+     * @param lines Normal text to be converted.
+     * @return text converted to Morse.
+     */
     public List<String> translateLinesToMorse(List<String> lines) {
         List<String> linesInMorse = new ArrayList<>();
         for (String line : lines) {
@@ -22,6 +37,11 @@ public class MorseTranslator {
         return linesInMorse;
     }
 
+    /**
+     * Translates a Morse code to normal text
+     * @param lines all the lines to be translated.
+     * @return normal text.
+     */
     public List<String> translateLinesFromMorse(List<String> lines) {
         List<String> dummyList = new ArrayList<>();
         for (String line : lines) {
@@ -49,7 +69,6 @@ public class MorseTranslator {
 
     private String translateLineFromMorse(String line) {
         String[] words = line.split(" ");
-        System.out.println(Arrays.toString(words));
         StringBuilder sentence = new StringBuilder();
         for (String letter : words) {
             if (letter.startsWith("\t") || letter.startsWith("\s")) {
