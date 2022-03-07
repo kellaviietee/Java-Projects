@@ -1,14 +1,23 @@
 package ee.taltech.iti0202.files;
 
-import ee.taltech.iti0202.files.input.*;
+
+import ee.taltech.iti0202.files.input.FileReaderException;
+import ee.taltech.iti0202.files.input.InputFilesBufferReader;
+import ee.taltech.iti0202.files.input.InputFilesScanner;
+import ee.taltech.iti0202.files.input.InputFilesLines;
+import ee.taltech.iti0202.files.input.InputFilesReader;
 import ee.taltech.iti0202.files.morse.MorseTranslator;
 import ee.taltech.iti0202.files.output.OutputFilesWriter;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class FilesTest {
 
@@ -65,10 +74,10 @@ class FilesTest {
         List<String> testText = new ArrayList<>();
         testText.add("lorem ipsum dolor sit amet, consectetur adipiscing elit,");
         OutputFilesWriter writer = new OutputFilesWriter();
-        writer.writeLinesToFile(testText,"test.txt");
+        writer.writeLinesToFile(testText, "test.txt");
         InputFilesReader reader = new InputFilesScanner();
         List<String> outputText = reader.readTextFromFile("test.txt");
-        assertEquals(testText,outputText);
+        assertEquals(testText, outputText);
     }
 
     /**
@@ -94,7 +103,6 @@ class FilesTest {
      */
     @Test
     public void testMorseTranslatorFromMorse() {
-
         MorseTranslator translator = new MorseTranslator();
         InputFilesScanner reader = new InputFilesScanner();
         List<String> morseCodes = reader.readTextFromFile("morse.txt");
