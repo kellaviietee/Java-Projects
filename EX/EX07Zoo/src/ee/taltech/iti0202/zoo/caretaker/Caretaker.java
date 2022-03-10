@@ -3,10 +3,9 @@ package ee.taltech.iti0202.zoo.caretaker;
 import ee.taltech.iti0202.zoo.animal.Animal;
 import ee.taltech.iti0202.zoo.animal.AnimalType;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
+
 import java.util.List;
-import java.util.Set;
+
 
 public class Caretaker {
 

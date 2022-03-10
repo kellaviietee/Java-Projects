@@ -1,8 +1,8 @@
 package ee.taltech.iti0202.zoo.animal;
 
-import java.util.random.RandomGenerator;
 
 public class Monkey extends Animal {
+    public static double PROBABILITY = 0.5;
     public Monkey(String name, String noise, int hungerDays) {
         super(name, noise, hungerDays, AnimalType.MAMMAL);
     }
@@ -13,7 +13,7 @@ public class Monkey extends Animal {
             return "BANANA";
         } else {
             double randomNumber = Math.random();
-            if (randomNumber > 0.5) {
+            if (randomNumber > PROBABILITY) {
                 return "uuh";
             } else {
                 return "ääh";

@@ -74,7 +74,7 @@ public class Zoo {
                 .get();
     }
 
-    public void nextDay(){
+    public void nextDay() {
         for (Animal animal : animalsInZoo) {
             animal.dayAdvanced();
         }

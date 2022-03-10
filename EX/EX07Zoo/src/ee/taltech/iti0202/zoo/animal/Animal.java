@@ -22,8 +22,7 @@ public class Animal {
     public String getNoise() {
         if (isAnimalHungry()) {
             return "";
-        }
-        else {
+        } else {
             return noise;
         }
     }
@@ -32,7 +31,7 @@ public class Animal {
         return animalType;
     }
 
-    public boolean isAnimalHungry () {
+    public boolean isAnimalHungry() {
         return daysWithoutFood > hungerDays;
     }
 
