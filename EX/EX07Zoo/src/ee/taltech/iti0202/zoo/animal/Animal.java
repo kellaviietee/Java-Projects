@@ -1,18 +1,18 @@
 package ee.taltech.iti0202.zoo.animal;
 
 public class Animal {
-    protected final String name;
+    protected String name;
     protected String noise;
-    protected final int hungerDays;
+    protected int hungerDays;
+    protected AnimalType animalType;
     protected int daysWithoutFood = 0;
 
-    public enum animalType {
-        MAMMAL, BIRD, FISH, REPTILE, AMPHIBIAN
-    }
-    public Animal(String name, String noise, int hungerDays) {
+
+    public Animal(String name, String noise, int hungerDays, AnimalType animalType) {
         this.name = name;
         this.noise = noise;
         this.hungerDays = hungerDays;
+        this.animalType = animalType;
     }
 
     public String getName() {
@@ -28,6 +28,10 @@ public class Animal {
         }
     }
 
+    public AnimalType getAnimalType() {
+        return animalType;
+    }
+
     public boolean isAnimalHungry () {
         return daysWithoutFood > hungerDays;
     }
@@ -36,5 +40,12 @@ public class Animal {
         daysWithoutFood = 0;
     }
 
+    public void dayAdvanced() {
+        daysWithoutFood += 1;
+    }
 
+    @Override
+    public String toString() {
+        return name + " " + animalType.name() +  ":" + getNoise();
+    }
 }
