@@ -1,6 +1,12 @@
 package ee.taltech.iti0202.zoo;
 
-import ee.taltech.iti0202.zoo.animal.*;
+
+import ee.taltech.iti0202.zoo.animal.Animal;
+import ee.taltech.iti0202.zoo.animal.AnimalType;
+import ee.taltech.iti0202.zoo.animal.Lamb;
+import ee.taltech.iti0202.zoo.animal.Monkey;
+import ee.taltech.iti0202.zoo.animal.Turtle;
+
 import ee.taltech.iti0202.zoo.caretaker.Caretaker;
 import org.junit.jupiter.api.Test;
 
@@ -8,12 +14,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 class ZooTest {
-    static private final int TEST_HUNGER_DAYS = 6;
-    static private final int TEST_HUNGER_DAYS_1 = 20;
-    static private final int TEST_HUNGER_DAYS_2 = 21;
+    static public final int TEST_HUNGER_DAYS = 6;
+    static public final int TEST_HUNGER_DAYS_1 = 20;
+    static public final int TEST_HUNGER_DAYS_2 = 21;
 
     Animal animal1 = new Animal("Eedi", "phrphr", 4, AnimalType.MAMMAL);
     Animal animal2 = new Animal("Žanna", "hiss", TEST_HUNGER_DAYS_2, AnimalType.MAMMAL);
@@ -107,7 +115,6 @@ class ZooTest {
         caretaker1.addAnimalsToFeed(testZoo.hungryAnimals());
         List<Animal> newHungryAnimals = new ArrayList<>(Arrays.asList(animal4, animal7));
         assertEquals(newHungryAnimals, testZoo.hungryAnimals());
-
     }
 
     /**
@@ -148,11 +155,6 @@ class ZooTest {
             testZoo.nextDay();
         }
         Caretaker mostEfficientCaretaker = caretaker1;
-
         assertEquals(mostEfficientCaretaker, testZoo.mostEffectiveCaretaker());
-
     }
-
-
-
 }
