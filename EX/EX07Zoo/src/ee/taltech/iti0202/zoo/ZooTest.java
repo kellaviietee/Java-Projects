@@ -19,9 +19,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 class ZooTest {
-    static public final int TEST_HUNGER_DAYS = 6;
-    static public final int TEST_HUNGER_DAYS_1 = 20;
-    static public final int TEST_HUNGER_DAYS_2 = 21;
+    static protected final int TEST_HUNGER_DAYS = 6;
+    static protected final int TEST_HUNGER_DAYS_1 = 20;
+    static protected final int TEST_HUNGER_DAYS_2 = 21;
 
     Animal animal1 = new Animal("Eedi", "phrphr", 4, AnimalType.MAMMAL);
     Animal animal2 = new Animal("Žanna", "hiss", TEST_HUNGER_DAYS_2, AnimalType.MAMMAL);
