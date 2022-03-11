@@ -1,8 +1,8 @@
 package ee.taltech.iti0202.zoo.animal;
 
 public class Lamb extends Animal {
-    public Lamb(String name, int hungerDays) {
-        super(name, "Mää", hungerDays, AnimalType.MAMMAL);
+    public Lamb(String name) {
+        super(name, "Mää", 0, AnimalType.MAMMAL);
     }
 
     @Override
