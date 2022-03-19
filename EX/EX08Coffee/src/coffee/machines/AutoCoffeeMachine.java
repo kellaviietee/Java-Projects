@@ -8,42 +8,35 @@ import coffee.exceptions.WaterTankException;
 import coffee.trashcontainer.TrashContainer;
 import coffee.watertank.WaterTank;
 
-public class CoffeeMachine {
-    protected MachineType machineType;
-    protected TrashContainer trashContainer;
-    protected WaterTank waterTank;
-    protected final float CUP_SIZE = 0.3f;
+import java.util.List;
 
-    public CoffeeMachine(TrashContainer trashContainer, WaterTank waterTank) {
-        this.trashContainer = trashContainer;
-        this.waterTank = waterTank;
-        this.machineType = MachineType.REGULAR;
+public class AutoCoffeeMachine extends CoffeeMachine{
+    private final List<DrinkType> drinkList;
+
+
+    public AutoCoffeeMachine(TrashContainer trashContainer, WaterTank waterTank, List<DrinkType> drinkList) {
+        super(trashContainer, waterTank);
+        this.machineType = MachineType.AUTOMATIC;
+        this.drinkList = drinkList;
     }
 
+    public List<DrinkType> getDrinkList() {
+        return drinkList;
+    }
+
+    @Override
     public Drink start(DrinkType drinkType) throws WaterTankException, TrashContainerException, DrinkTypeException {
         if (!waterTank.hasEnoughWater(CUP_SIZE)) {
             throw new WaterTankException();
         } else if(trashContainer.isContainerFull()) {
             throw new TrashContainerException();
-        } else if (!drinkType.equals(DrinkType.COFFEE)) {
+        } else if (!drinkList.contains(drinkType)) {
             throw new DrinkTypeException();
         }
         else {
             waterTank.giveWater(CUP_SIZE);
             trashContainer.addTrash();
-            return new Drink(DrinkType.COFFEE);
+            return new Drink(drinkType);
         }
-    }
-
-    public MachineType getMachineType() {
-        return machineType;
-    }
-
-    public TrashContainer getTrashContainer() {
-        return trashContainer;
-    }
-
-    public WaterTank getWaterTank() {
-        return waterTank;
     }
 }
