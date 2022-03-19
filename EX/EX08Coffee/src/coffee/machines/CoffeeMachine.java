@@ -12,7 +12,7 @@ public class CoffeeMachine {
     protected MachineType machineType;
     protected TrashContainer trashContainer;
     protected WaterTank waterTank;
-    protected final float CUP_SIZE = 0.3f;
+    protected static final float CUP_SIZE = 0.3f;
 
     public CoffeeMachine(TrashContainer trashContainer, WaterTank waterTank) {
         this.trashContainer = trashContainer;
@@ -23,12 +23,11 @@ public class CoffeeMachine {
     public Drink start(DrinkType drinkType) throws WaterTankException, TrashContainerException, DrinkTypeException {
         if (!waterTank.hasEnoughWater(CUP_SIZE)) {
             throw new WaterTankException();
-        } else if(trashContainer.isContainerFull()) {
+        } else if (trashContainer.isContainerFull()) {
             throw new TrashContainerException();
         } else if (!drinkType.equals(DrinkType.COFFEE)) {
             throw new DrinkTypeException();
-        }
-        else {
+        } else {
             waterTank.giveWater(CUP_SIZE);
             trashContainer.addTrash();
             return new Drink(DrinkType.COFFEE);

@@ -10,7 +10,7 @@ import coffee.watertank.WaterTank;
 
 import java.util.List;
 
-public class AutoCoffeeMachine extends CoffeeMachine{
+public class AutoCoffeeMachine extends CoffeeMachine {
     private final List<DrinkType> drinkList;
 
 
@@ -28,12 +28,11 @@ public class AutoCoffeeMachine extends CoffeeMachine{
     public Drink start(DrinkType drinkType) throws WaterTankException, TrashContainerException, DrinkTypeException {
         if (!waterTank.hasEnoughWater(CUP_SIZE)) {
             throw new WaterTankException();
-        } else if(trashContainer.isContainerFull()) {
+        } else if (trashContainer.isContainerFull()) {
             throw new TrashContainerException();
         } else if (!drinkList.contains(drinkType)) {
             throw new DrinkTypeException();
-        }
-        else {
+        } else {
             waterTank.giveWater(CUP_SIZE);
             trashContainer.addTrash();
             return new Drink(drinkType);

@@ -11,10 +11,6 @@ public class WaterTank {
         this.currentWaterAmount = capacity;
     }
 
-    public WaterTank() {
-        this(1.2f);
-    }
-
     public void giveWater(float amount) {
         currentWaterAmount -= amount;
     }

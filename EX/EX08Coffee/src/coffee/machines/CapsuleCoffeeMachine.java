@@ -12,7 +12,7 @@ import coffee.watertank.WaterTank;
 
 import java.util.Optional;
 
-public class CapsuleCoffeeMachine extends CoffeeMachine{
+public class CapsuleCoffeeMachine extends CoffeeMachine {
     private Optional<Capsule> capsule = Optional.empty();
 
     public CapsuleCoffeeMachine(TrashContainer trashContainer, WaterTank waterTank) {
@@ -40,14 +40,12 @@ public class CapsuleCoffeeMachine extends CoffeeMachine{
             throw new TrashContainerException();
         } else if (capsule.isPresent() && !capsule.get().isEmpty() && !capsule.get().getDrinkType().equals(drinkType)) {
             throw new DrinkTypeException();
-        }
-        else {
+        } else {
             waterTank.giveWater(CUP_SIZE);
             trashContainer.addTrash();
-            if (capsule.isEmpty() ||capsule.get().isEmpty()) {
+            if (capsule.isEmpty() || capsule.get().isEmpty()) {
                 return new Drink(DrinkType.WATER);
-            }
-            else {
+            } else {
                 removeCapsule();
                 return new Drink(drinkType);
             }

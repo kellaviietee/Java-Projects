@@ -4,7 +4,7 @@ import coffee.machines.CoffeeMachine;
 import coffee.trashcontainer.TrashContainer;
 import coffee.watertank.WaterTank;
 
-public abstract class MachineBuilder<T extends CoffeeMachine, B extends MachineBuilder<T,B>> {
+public abstract class MachineBuilder<T extends CoffeeMachine, B extends MachineBuilder<T, B>> {
     private static final float TANK_SIZE = 1.5f;
     private static final int CAPACITY = 5;
     protected WaterTank waterTank = new WaterTank(TANK_SIZE);
@@ -18,5 +18,5 @@ public abstract class MachineBuilder<T extends CoffeeMachine, B extends MachineB
         this.trashContainer = trashContainer;
         return (B) this;
     }
-    public abstract T build ();
+    public abstract T build();
 }

@@ -8,11 +8,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AutoCoffeeMachineBuilder extends MachineBuilder<AutoCoffeeMachine, AutoCoffeeMachineBuilder> {
-    private List<DrinkType> drinkTypeList = new ArrayList<>(Arrays.asList(DrinkType.COFFEE,DrinkType.COCOA,
-            DrinkType.CAPPUCCINO,DrinkType.TEA));
+    private List<DrinkType> drinkTypeList = new ArrayList<>(Arrays.asList(DrinkType.COFFEE, DrinkType.COCOA,
+            DrinkType.CAPPUCCINO, DrinkType.TEA));
 
 
-    public AutoCoffeeMachineBuilder withDrinkList (List<DrinkType> drinkList) {
+    public AutoCoffeeMachineBuilder withDrinkList(List<DrinkType> drinkList) {
         this.drinkTypeList = drinkList;
         return this;
     }
