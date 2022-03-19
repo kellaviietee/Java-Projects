@@ -1,20 +1,20 @@
 package coffee;
 
-import coffee.machine.CoffeeMachine;
-import coffee.machine.CoffeeMachineBuilder;
-import coffee.machine.MachineType;
+import coffee.exceptions.TrashContainerException;
+import coffee.exceptions.WaterTankException;
+import coffee.machines.CoffeeMachine;
+import coffee.machines.MachineType;
 import coffee.trashcontainer.TrashContainer;
-import coffee.waterReservoir.WaterReservoir;
-
-import java.util.logging.Logger;
-
+import coffee.watertank.WaterTank;
 
 public class Main {
-    public static void main(String[]args){
-        CoffeeMachine firstTest = new CoffeeMachineBuilder()
-                .withMachineType(MachineType.AUTOMATIC)
-                .withTrashContainer(new TrashContainer())
-                .withWaterReservoir(new WaterReservoir(100))
-                .createCoffeeMachine();
+    public static void main(String[]args) throws TrashContainerException, WaterTankException {
+        WaterTank testWaterTank = new WaterTank();
+        TrashContainer trashContainer = new TrashContainer();
+        CoffeeMachine coffeeMachine = new CoffeeMachine(trashContainer, testWaterTank);
+        for(int i = 0; i < 15; i++) {
+            System.out.println(i);
+            coffeeMachine.start();
+        }
     }
 }

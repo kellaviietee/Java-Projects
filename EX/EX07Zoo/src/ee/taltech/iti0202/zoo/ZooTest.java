@@ -1,11 +1,7 @@
 package ee.taltech.iti0202.zoo;
 
 
-import ee.taltech.iti0202.zoo.animal.Animal;
-import ee.taltech.iti0202.zoo.animal.AnimalType;
-import ee.taltech.iti0202.zoo.animal.Lamb;
-import ee.taltech.iti0202.zoo.animal.Monkey;
-import ee.taltech.iti0202.zoo.animal.Turtle;
+import ee.taltech.iti0202.zoo.animal.*;
 
 import ee.taltech.iti0202.zoo.caretaker.Caretaker;
 import org.junit.jupiter.api.Test;
@@ -23,15 +19,15 @@ class ZooTest {
     static  final int TEST_HUNGER_DAYS_1 = 20;
     static  final int TEST_HUNGER_DAYS_2 = 21;
 
-    Animal animal1 = new Animal("Eedi", "phrphr", 4, AnimalType.MAMMAL);
-    Animal animal2 = new Animal("Žanna", "hiss", TEST_HUNGER_DAYS_2, AnimalType.MAMMAL);
-    Animal animal3 = new Animal("Vaak", "kraak", 2, AnimalType.BIRD);
-    Animal animal4 = new Animal("Kora", "mullmull", TEST_HUNGER_DAYS, AnimalType.FISH);
+    Animal animal1 = new AnimalBuilder().setName("Eedi").setNoise("phrphr").setHungerDays(4).setAnimalType(AnimalType.MAMMAL).createAnimal();
+    Animal animal2 = new AnimalBuilder().setName("Žanna").setNoise("hiss").setHungerDays(TEST_HUNGER_DAYS_2).setAnimalType(AnimalType.MAMMAL).createAnimal();
+    Animal animal3 = new AnimalBuilder().setName("Vaak").setNoise("kraak").setHungerDays(2).setAnimalType(AnimalType.BIRD).createAnimal();
+    Animal animal4 = new AnimalBuilder().setName("Kora").setNoise("mullmull").setHungerDays(TEST_HUNGER_DAYS).setAnimalType(AnimalType.FISH).createAnimal();
     Animal animal5 = new Monkey("Patu", 5);
     Animal animal6 = new Lamb("Lambi");
     Animal animal7 = new Turtle("Qua", 3);
-    Animal animal8 = new Animal("Xenia", "hiss", TEST_HUNGER_DAYS_1, AnimalType.AMPHIBIAN);
-    Animal animal9 = new Animal("Villi", "viuh", 3, AnimalType.BIRD);
+    Animal animal8 = new AnimalBuilder().setName("Xenia").setNoise("hiss").setHungerDays(TEST_HUNGER_DAYS_1).setAnimalType(AnimalType.AMPHIBIAN).createAnimal();
+    Animal animal9 = new AnimalBuilder().setName("Villi").setNoise("viuh").setHungerDays(3).setAnimalType(AnimalType.BIRD).createAnimal();
 
     Caretaker caretaker1 = new Caretaker("Aadam", new ArrayList<AnimalType>(Arrays.asList(AnimalType.MAMMAL,
             AnimalType.BIRD)));

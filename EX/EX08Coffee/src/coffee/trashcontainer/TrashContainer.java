@@ -1,22 +1,27 @@
 package coffee.trashcontainer;
 
 public class TrashContainer {
-    private int capacity = 5;
-    private int currentTrashAmount = 0;
+    private final  int capacity;
+    private int currentTrash;
+
     public TrashContainer(int capacity) {
         this.capacity = capacity;
+        this.currentTrash = 0;
     }
 
-    public TrashContainer() {}
-
-    public int getCapacity() {
-        return capacity;
+    public TrashContainer() {
+        this(5);
     }
 
     public void addTrash() {
-        currentTrashAmount += 1;
+        currentTrash += 1;
     }
-    public boolean isTrashContainerFull() {
-        return currentTrashAmount >= capacity;
+
+    public boolean isContainerFull() {
+        return currentTrash >= capacity;
+    }
+
+    public void emptyTrash() {
+        currentTrash = 0;
     }
 }

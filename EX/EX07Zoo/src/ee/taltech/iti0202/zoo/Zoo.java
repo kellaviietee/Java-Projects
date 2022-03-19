@@ -1,6 +1,7 @@
 package ee.taltech.iti0202.zoo;
 
 import ee.taltech.iti0202.zoo.animal.Animal;
+import ee.taltech.iti0202.zoo.animal.AnimalBuilder;
 import ee.taltech.iti0202.zoo.caretaker.Caretaker;
 
 import java.util.ArrayList;
@@ -79,4 +80,10 @@ public class Zoo {
             animal.dayAdvanced();
         }
     }
+    public void test() {
+        Animal testAnimal = new AnimalBuilder().setName("asds")
+                .setHungerDays(4)
+                .createAnimal();
+    }
 }
+        
