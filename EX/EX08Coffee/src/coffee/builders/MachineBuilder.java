@@ -5,8 +5,8 @@ import coffee.trashcontainer.TrashContainer;
 import coffee.watertank.WaterTank;
 
 public abstract class MachineBuilder<T extends CoffeeMachine, B extends MachineBuilder<T,B>> {
-    private final float TANK_SIZE = 1.5f;
-    private final int CAPACITY = 5;
+    private static final float TANK_SIZE = 1.5f;
+    private static final int CAPACITY = 5;
     protected WaterTank waterTank = new WaterTank(TANK_SIZE);
     protected TrashContainer trashContainer = new TrashContainer(CAPACITY);
 
