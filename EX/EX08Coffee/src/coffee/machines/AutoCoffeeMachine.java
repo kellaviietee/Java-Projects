@@ -71,10 +71,13 @@ public class AutoCoffeeMachine extends CoffeeMachine {
 
     @Override
     public String toString() {
-        return "AutoCoffeeMachine{" +
-                "drinkList=" + drinkList +
-                ", trashContainer=" + trashContainer +
-                ", waterTank=" + waterTank +
-                '}';
+        return "AutoCoffeeMachine{"
+                + "drinkList="
+                + drinkList
+                + ", trashContainer="
+                + trashContainer
+                + ", waterTank="
+                + waterTank
+                + '}';
     }
 }

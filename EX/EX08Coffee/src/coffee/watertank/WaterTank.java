@@ -1,7 +1,5 @@
 package coffee.watertank;
 
-import coffee.exceptions.WaterTankException;
-
 public class WaterTank {
     private float capacity;
     private float currentWaterAmount;
@@ -30,8 +28,9 @@ public class WaterTank {
 
     @Override
     public String toString() {
-        return "WaterTank{" +
-                "capacity=" + capacity +
-                '}';
+        return "WaterTank{"
+                + "capacity="
+                + capacity
+                + '}';
     }
 }

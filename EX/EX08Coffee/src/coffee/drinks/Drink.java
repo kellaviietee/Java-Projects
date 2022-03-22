@@ -5,8 +5,8 @@ import coffee.logger.MyLogger;
 import java.util.logging.Logger;
 
 public class Drink {
-    private final static Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
     private DrinkType drinkType;
+    private final static Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
 
     public Drink(DrinkType drinkType) {
         this.drinkType = drinkType;
@@ -20,8 +20,9 @@ public class Drink {
 
     @Override
     public String toString() {
-        return "Drink{" +
-                "drinkType=" + drinkType +
-                '}';
+        return "Drink{"
+                + "drinkType="
+                + drinkType
+                + '}';
     }
 }
