@@ -85,7 +85,7 @@ class CoffeeTests {
     public void trashContainerFullNoCoffee() throws TrashContainerException, WaterTankException, DrinkTypeException {
         CoffeeMachine regular = regularBuilder.withTrashContainer(new TrashContainer(1)).build();
         regular.start(DrinkType.COFFEE);
-        assertThrows(TrashContainerException.class,() -> regular.start(DrinkType.COFFEE));
+        assertThrows(TrashContainerException.class, () -> regular.start(DrinkType.COFFEE));
     }
 
     /**
@@ -95,15 +95,15 @@ class CoffeeTests {
     public void automaticDifferentDrinks() throws TrashContainerException, WaterTankException, DrinkTypeException {
         AutoCoffeeMachine autoCoffeeMachine = autoBuilder.build();
         Drink drink1 = autoCoffeeMachine.start(DrinkType.COFFEE);
-        assertEquals(DrinkType.COFFEE,drink1.getDrinkType());
+        assertEquals(DrinkType.COFFEE, drink1.getDrinkType());
         Drink drink2 = autoCoffeeMachine.start(DrinkType.CAPPUCCINO);
-        assertEquals(DrinkType.CAPPUCCINO,drink2.getDrinkType());
+        assertEquals(DrinkType.CAPPUCCINO, drink2.getDrinkType());
         Drink drink3 = autoCoffeeMachine.start(DrinkType.COCOA);
-        assertEquals(DrinkType.COCOA,drink3.getDrinkType());
+        assertEquals(DrinkType.COCOA, drink3.getDrinkType());
         Drink drink4 = autoCoffeeMachine.start(DrinkType.TEA);
-        assertEquals(DrinkType.TEA,drink4.getDrinkType());
+        assertEquals(DrinkType.TEA, drink4.getDrinkType());
         Drink drink5 = autoCoffeeMachine.start(DrinkType.WATER);
-        assertEquals(DrinkType.WATER,drink5.getDrinkType());
+        assertEquals(DrinkType.WATER, drink5.getDrinkType());
     }
 
     /**
@@ -112,7 +112,7 @@ class CoffeeTests {
     @Test
     public void capsuleMachineWithoutCapsule() throws TrashContainerException, WaterTankException, DrinkTypeException {
         CapsuleCoffeeMachine capsuleCoffeeMachine = capsuleBuilder.build();
-        assertEquals(Optional.empty(),capsuleCoffeeMachine.getCapsule());
+        assertEquals(Optional.empty(), capsuleCoffeeMachine.getCapsule());
         assertEquals(DrinkType.WATER, capsuleCoffeeMachine.start(DrinkType.COFFEE).getDrinkType());
     }
 
@@ -134,8 +134,8 @@ class CoffeeTests {
             WaterTankException, DrinkTypeException, SocketException {
         CapsuleCoffeeMachine capsuleCoffeeMachine = capsuleBuilder.build();
         capsuleCoffeeMachine.addCapsuleToSocket(new Capsule(DrinkType.COFFEE));
-        assertEquals(DrinkType.COFFEE,capsuleCoffeeMachine.start(DrinkType.COFFEE).getDrinkType());
-        assertEquals(DrinkType.WATER,capsuleCoffeeMachine.start(DrinkType.COCOA).getDrinkType());
+        assertEquals(DrinkType.COFFEE, capsuleCoffeeMachine.start(DrinkType.COFFEE).getDrinkType());
+        assertEquals(DrinkType.WATER, capsuleCoffeeMachine.start(DrinkType.COCOA).getDrinkType());
     }
 
     /**
@@ -144,7 +144,7 @@ class CoffeeTests {
     @Test
     public void testCapsuleMachineTrashCapacity() {
         CapsuleCoffeeMachine capsuleCoffeeMachine = capsuleBuilder.build();
-        assertEquals(10,capsuleCoffeeMachine.getTrashContainer().getCapacity());
+        assertEquals(10, capsuleCoffeeMachine.getTrashContainer().getCapacity());
     }
 
     /**
@@ -153,7 +153,7 @@ class CoffeeTests {
     @Test
     public void testOneWaterTankMultipleMachines() throws TrashContainerException, WaterTankException,
             DrinkTypeException {
-        WaterTank testWatertank = new WaterTank(1.5f);
+        WaterTank testWatertank = new WaterTank(SMALL_WATER_TANK);
         CoffeeMachine regular1 = regularBuilder.withWaterTank(testWatertank).build();
         CoffeeMachine regular2 = regularBuilder.withWaterTank(testWatertank).build();
         CoffeeMachine regular3 = regularBuilder.withWaterTank(testWatertank).build();
@@ -162,7 +162,7 @@ class CoffeeTests {
         regular2.start(DrinkType.COFFEE);
         regular2.start(DrinkType.COFFEE);
         regular3.start(DrinkType.COFFEE);
-        assertThrows(WaterTankException.class,() -> regular3.start(DrinkType.COFFEE));
+        assertThrows(WaterTankException.class, () -> regular3.start(DrinkType.COFFEE));
     }
 
 
@@ -177,11 +177,11 @@ class CoffeeTests {
         CapsuleCoffeeMachine capsuleCoffeeMachine = capsuleBuilder.build();
         kitchen.addCoffeeMachine(coffeeMachine);
         kitchen.addCoffeeMachine(autoCoffeeMachine);
-        kitchen.addCoffeeMachine( capsuleCoffeeMachine);
+        kitchen.addCoffeeMachine(capsuleCoffeeMachine);
         Order order = new Order(DrinkType.TEA, MachineType.REGULAR);
         kitchen.addOrder(order);
-        assertEquals(Optional.empty(),kitchen.fulfillOrder(order));
-        assertEquals(DrinkType.COFFEE,kitchen.fulfillOrder(new Order(DrinkType.COFFEE,MachineType.REGULAR))
+        assertEquals(Optional.empty(), kitchen.fulfillOrder(order));
+        assertEquals(DrinkType.COFFEE, kitchen.fulfillOrder(new Order(DrinkType.COFFEE, MachineType.REGULAR))
                 .get().getDrinkType());
 
 
@@ -207,9 +207,9 @@ class CoffeeTests {
         AutoCoffeeMachine autoCoffeeMachine = autoBuilder.build();
         autoCoffeeMachine.start(DrinkType.COFFEE);
         autoCoffeeMachine.start(DrinkType.COCOA);
-        assertNotEquals(1.5f,autoCoffeeMachine.getWaterTank().getCurrentWaterAmount());
+        assertNotEquals(SMALL_WATER_TANK, autoCoffeeMachine.getWaterTank().getCurrentWaterAmount());
         autoCoffeeMachine.getWaterTank().fillTank();
-        assertEquals(1.5f,autoCoffeeMachine.getWaterTank().getCurrentWaterAmount());
+        assertEquals(SMALL_WATER_TANK, autoCoffeeMachine.getWaterTank().getCurrentWaterAmount());
 
     }
 
@@ -218,9 +218,9 @@ class CoffeeTests {
      */
     @Test
     public void testAutoCoffeeMachineSetDrinkList() {
-        List<DrinkType> drinkTypeList = new ArrayList<>(Arrays.asList(DrinkType.COCOA,DrinkType.TEA,DrinkType.WATER));
+        List<DrinkType> drinkTypeList = new ArrayList<>(Arrays.asList(DrinkType.COCOA, DrinkType.TEA, DrinkType.WATER));
         AutoCoffeeMachine autoCoffeeMachine = autoBuilder.withDrinkList(drinkTypeList).build();
-        assertEquals(drinkTypeList,autoCoffeeMachine.getDrinkList());
+        assertEquals(drinkTypeList, autoCoffeeMachine.getDrinkList());
     }
 
     /**
@@ -229,14 +229,14 @@ class CoffeeTests {
      */
     @Test
     public void testCapsuleCoffeeMachine() throws TrashContainerException, WaterTankException, DrinkTypeException {
-        CapsuleCoffeeMachine capsuleCoffeeMachine = capsuleBuilder.withWaterTank(new WaterTank(0.4f)).build();
+        CapsuleCoffeeMachine capsuleCoffeeMachine = capsuleBuilder.withWaterTank(new WaterTank(MIN_WATER_TANK)).build();
         capsuleCoffeeMachine.addCapsuleToMachine(new Capsule(DrinkType.COCOA));
         assertFalse(capsuleCoffeeMachine.canMakeTheDrink(DrinkType.TEA));
         capsuleCoffeeMachine.addCapsuleToMachine(new Capsule(DrinkType.TEA));
         capsuleCoffeeMachine.start(DrinkType.COCOA);
         assertFalse(capsuleCoffeeMachine.canMakeTheDrink(DrinkType.TEA));
         capsuleCoffeeMachine.getWaterTank().fillTank();
-        assertEquals(DrinkType.WATER,capsuleCoffeeMachine.start(DrinkType.COFFEE).getDrinkType());
+        assertEquals(DrinkType.WATER, capsuleCoffeeMachine.start(DrinkType.COFFEE).getDrinkType());
     }
 
     /**
