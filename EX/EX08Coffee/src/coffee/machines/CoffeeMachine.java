@@ -54,11 +54,7 @@ public class CoffeeMachine {
             return false;
         } else if (trashContainer.isContainerFull()) {
             return false;
-        } else if (!drinkType.equals(DrinkType.COFFEE)) {
-            return false;
-        } else {
-            return true;
-        }
+        } else return drinkType.equals(DrinkType.COFFEE);
     }
 
     public MachineType getMachineType() {
@@ -75,9 +71,11 @@ public class CoffeeMachine {
 
     @Override
     public String toString() {
-        return "CoffeeMachine{" +
-                "trashContainer=" + trashContainer +
-                ", waterTank=" + waterTank +
-                '}';
+        return "CoffeeMachine{"
+                + "trashContainer="
+                + trashContainer
+                + ", waterTank="
+                + waterTank
+                + '}';
     }
 }

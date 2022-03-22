@@ -1,7 +1,10 @@
 package coffee.machines;
 
 import coffee.capsule.Capsule;
-import coffee.exceptions.*;
+import coffee.exceptions.DrinkTypeException;
+import coffee.exceptions.WaterTankException;
+import coffee.exceptions.TrashContainerException;
+import coffee.exceptions.SocketException;
 import coffee.drinks.Drink;
 import coffee.drinks.DrinkType;
 import coffee.trashcontainer.TrashContainer;
@@ -76,8 +79,7 @@ public class CapsuleCoffeeMachine extends CoffeeMachine {
             trashContainer.addTrash();
             LOGGER.info("Here's your water! No available Capsule!");
             return new Drink(DrinkType.WATER);
-        }
-        else {
+        } else {
             waterTank.giveWater(CUP_SIZE);
             trashContainer.addTrash();
             if (socket.isEmpty() || socket.get().isEmpty()) {
@@ -144,9 +146,11 @@ public class CapsuleCoffeeMachine extends CoffeeMachine {
 
     @Override
     public String toString() {
-        return "CapsuleCoffeeMachine{" +
-                "trashContainer=" + trashContainer +
-                ", waterTank=" + waterTank +
-                '}';
+        return "CapsuleCoffeeMachine{"
+                + "trashContainer="
+                + trashContainer
+                + ", waterTank="
+                + waterTank
+                + '}';
     }
 }
