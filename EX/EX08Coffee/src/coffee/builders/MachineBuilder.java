@@ -8,7 +8,7 @@ import coffee.watertank.WaterTank;
 import java.util.logging.Logger;
 
 public abstract class MachineBuilder<T extends CoffeeMachine, B extends MachineBuilder<T, B>> {
-    protected final static Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
+    protected static final Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
     private static final float TANK_SIZE = 1.5f;
     private static final int CAPACITY = 5;
     protected WaterTank waterTank = new WaterTank(TANK_SIZE);

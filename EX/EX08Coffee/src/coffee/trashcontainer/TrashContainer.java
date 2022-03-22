@@ -28,8 +28,9 @@ public class TrashContainer {
 
     @Override
     public String toString() {
-        return "TrashContainer{" +
-                "capacity=" + capacity +
-                '}';
+        return "TrashContainer{"
+                + "capacity="
+                + capacity
+                + '}';
     }
 }

@@ -28,9 +28,11 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "drinkType=" + drinkType +
-                ", machineType=" + machineType +
-                '}';
+        return "Order{"
+                + "drinkType="
+                + drinkType
+                + ", machineType="
+                + machineType
+                + '}';
     }
 }

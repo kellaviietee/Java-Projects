@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  * Kitchen Constructor.
  */
 public class Kitchen {
-    private final static Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
     private final List<CoffeeMachine> allCoffeeMachines = new ArrayList<>();
     private final List<Order> orders = new ArrayList<>();
 

@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 public class Drink {
     private DrinkType drinkType;
-    private final static Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
 
     public Drink(DrinkType drinkType) {
         this.drinkType = drinkType;

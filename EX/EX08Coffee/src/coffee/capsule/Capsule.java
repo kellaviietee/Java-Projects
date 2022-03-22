@@ -6,7 +6,7 @@ import coffee.logger.MyLogger;
 import java.util.logging.Logger;
 
 public class Capsule {
-    private final static Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
     private final DrinkType drinkType;
     private boolean isEmpty = false;
 
@@ -33,8 +33,9 @@ public class Capsule {
 
     @Override
     public String toString() {
-        return "Capsule{" +
-                "drinkType=" + drinkType +
-                '}';
+        return "Capsule{"
+                + "drinkType="
+                + drinkType
+                + '}';
     }
 }
