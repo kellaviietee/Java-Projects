@@ -21,4 +21,5 @@ public class Capsule {
     public boolean isEmpty() {
         return isEmpty;
     }
+
 }

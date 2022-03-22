@@ -38,4 +38,17 @@ public class AutoCoffeeMachine extends CoffeeMachine {
             return new Drink(drinkType);
         }
     }
+
+    @Override
+    public boolean canMakeTheDrink(DrinkType drinkType) {
+        if (!waterTank.hasEnoughWater(CUP_SIZE)) {
+            return false;
+        } else if (trashContainer.isContainerFull()) {
+            return false;
+        } else if (!drinkList.contains(drinkType)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

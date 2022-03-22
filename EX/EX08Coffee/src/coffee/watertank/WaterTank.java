@@ -15,12 +15,16 @@ public class WaterTank {
         currentWaterAmount -= amount;
     }
 
-    public boolean hasEnoughWater(float amount) throws WaterTankException {
+    public boolean hasEnoughWater(float amount) {
         return currentWaterAmount >= amount;
 
     }
 
     public void fillTank() {
         currentWaterAmount = capacity;
+    }
+
+    public float getCurrentWaterAmount() {
+        return currentWaterAmount;
     }
 }

@@ -1,0 +1,8 @@
+märts 22, 2022 1:40:37 PM coffee.Kitchen addCoffeeMachine
+INFO: Added new Coffee Machine!
+märts 22, 2022 1:40:37 PM coffee.Kitchen addCoffeeMachine
+INFO: Added new Coffee Machine!
+märts 22, 2022 1:40:37 PM coffee.Kitchen addCoffeeMachine
+INFO: Added new Coffee Machine!
+märts 22, 2022 1:40:37 PM coffee.Kitchen addOrder
+INFO: New order in the kitchen!

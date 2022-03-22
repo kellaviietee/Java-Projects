@@ -9,9 +9,6 @@ public class TrashContainer {
         this.currentTrash = 0;
     }
 
-    public TrashContainer() {
-        this(5);
-    }
 
     public void addTrash() {
         currentTrash += 1;
@@ -23,5 +20,9 @@ public class TrashContainer {
 
     public void emptyTrash() {
         currentTrash = 0;
+    }
+
+    public int getCapacity() {
+        return capacity;
     }
 }

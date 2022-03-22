@@ -8,7 +8,12 @@ import coffee.exceptions.WaterTankException;
 import coffee.trashcontainer.TrashContainer;
 import coffee.watertank.WaterTank;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class CoffeeMachine {
+
+    private static final Logger LOGGER  = Logger.getLogger(CoffeeMachine.class.getName());
     protected MachineType machineType;
     protected TrashContainer trashContainer;
     protected WaterTank waterTank;
@@ -31,6 +36,18 @@ public class CoffeeMachine {
             waterTank.giveWater(CUP_SIZE);
             trashContainer.addTrash();
             return new Drink(DrinkType.COFFEE);
+        }
+    }
+
+    public boolean canMakeTheDrink(DrinkType drinkType) {
+        if (!waterTank.hasEnoughWater(CUP_SIZE)) {
+            return false;
+        } else if (trashContainer.isContainerFull()) {
+            return false;
+        } else if (!drinkType.equals(DrinkType.COFFEE)) {
+            return false;
+        } else {
+            return true;
         }
     }
 
