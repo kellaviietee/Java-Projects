@@ -32,6 +32,8 @@ import java.util.logging.SimpleFormatter;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CoffeeTests {
+    private final float MIN_WATER_TANK = 0.4f;
+    private final float SMALL_WATER_TANK = 1.5f;
     private final static Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
 
     @BeforeAll
@@ -242,7 +244,7 @@ class CoffeeTests {
      * */
     @Test
     public void testCapsuleWaterTank() throws TrashContainerException, WaterTankException, DrinkTypeException {
-        CapsuleCoffeeMachine capsuleCoffeeMachine = capsuleBuilder.withWaterTank(new WaterTank(0.4f)).build();
+        CapsuleCoffeeMachine capsuleCoffeeMachine = capsuleBuilder.withWaterTank(new WaterTank(MIN_WATER_TANK)).build();
         capsuleCoffeeMachine.start(DrinkType.COFFEE);
         assertFalse(capsuleCoffeeMachine.canMakeTheDrink(DrinkType.TEA));
         assertThrows(WaterTankException.class, () -> capsuleCoffeeMachine.start(DrinkType.TEA));
@@ -268,7 +270,7 @@ class CoffeeTests {
         CapsuleCoffeeMachine capsuleCoffeeMachine = capsuleBuilder.build();
         Capsule testCapsule = new Capsule(DrinkType.COCOA);
         capsuleCoffeeMachine.addCapsuleToMachine(testCapsule);
-        assertEquals(testCapsule,capsuleCoffeeMachine.findCapsuleWithDrinkType(DrinkType.COCOA).get());
+        assertEquals(testCapsule, capsuleCoffeeMachine.findCapsuleWithDrinkType(DrinkType.COCOA).get());
         capsuleCoffeeMachine.addCapsuleToSocket(testCapsule);
         assertThrows(DrinkTypeException.class, () -> capsuleCoffeeMachine.start(DrinkType.CAPPUCCINO));
         capsuleCoffeeMachine.removeCapsule(testCapsule.getDrinkType());
