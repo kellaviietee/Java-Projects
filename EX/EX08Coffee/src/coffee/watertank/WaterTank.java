@@ -27,4 +27,11 @@ public class WaterTank {
     public float getCurrentWaterAmount() {
         return currentWaterAmount;
     }
+
+    @Override
+    public String toString() {
+        return "WaterTank{" +
+                "capacity=" + capacity +
+                '}';
+    }
 }

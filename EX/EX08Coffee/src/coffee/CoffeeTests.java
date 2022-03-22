@@ -15,6 +15,7 @@ import coffee.machines.MachineType;
 import coffee.order.Order;
 import coffee.trashcontainer.TrashContainer;
 import coffee.watertank.WaterTank;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -38,6 +39,12 @@ class CoffeeTests {
         FileHandler fileHandler = new FileHandler("log.txt");
         fileHandler.setFormatter(new SimpleFormatter());
         LOGGER.addHandler(fileHandler);
+        LOGGER.info("Tests initialized!");
+    }
+
+    @AfterAll
+            static void end() {
+        LOGGER.info("Tests done!");
     }
     /*
     Tests setup.
@@ -156,8 +163,12 @@ class CoffeeTests {
         assertThrows(WaterTankException.class,() -> regular3.start(DrinkType.COFFEE));
     }
 
+
+    /**
+     * Test if Kitchen can fulfill orders.
+     */
     @Test
-    public void testkitchen() throws TrashContainerException, WaterTankException, DrinkTypeException {
+    public void testKitchen() throws TrashContainerException, WaterTankException, DrinkTypeException {
         Kitchen kitchen = new Kitchen();
         CoffeeMachine coffeeMachine = regularBuilder.build();
         AutoCoffeeMachine autoCoffeeMachine = autoBuilder.build();

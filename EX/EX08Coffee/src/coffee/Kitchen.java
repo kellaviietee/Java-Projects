@@ -22,6 +22,10 @@ public class Kitchen {
     private final List<CoffeeMachine> allCoffeeMachines = new ArrayList<>();
     private final List<Order> orders = new ArrayList<>();
 
+    public Kitchen() {
+        LOGGER.info("New Kitcen just opened up!");
+    }
+
     /**
      * Adding Coffe machine to the Kitchen.
      * @param coffeeMachine Machine to be added to the Kitchen.
@@ -58,6 +62,7 @@ public class Kitchen {
                 }
             }
         }
+        LOGGER.info("Hope you have a wonderful day! Enjoy your drink!");
         return drink;
     }
 
@@ -71,9 +76,11 @@ public class Kitchen {
         List<CoffeeMachine> machines = new ArrayList<>();
         for (CoffeeMachine coffeeMachine : allCoffeeMachines) {
             if (coffeeMachine.getMachineType().equals(machineType)) {
+                LOGGER.info("Found the machine!");
                 machines.add(coffeeMachine);
             }
         }
+        LOGGER.info("Here's your Machines! If I found any");
         return machines;
     }
 }

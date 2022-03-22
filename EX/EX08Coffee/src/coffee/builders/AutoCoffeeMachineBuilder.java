@@ -12,12 +12,14 @@ public class AutoCoffeeMachineBuilder extends MachineBuilder<AutoCoffeeMachine, 
 
 
     public AutoCoffeeMachineBuilder withDrinkList(List<DrinkType> drinkList) {
+        LOGGER.info("With the next Drinks" + drinkList.toString());
         this.drinkTypeList = drinkList;
         return this;
     }
 
     @Override
     public AutoCoffeeMachine build() {
+        LOGGER.info("Built a new Automatic Coffee Machine.");
         return new AutoCoffeeMachine(trashContainer, waterTank, drinkTypeList);
     }
 }

@@ -25,4 +25,11 @@ public class TrashContainer {
     public int getCapacity() {
         return capacity;
     }
+
+    @Override
+    public String toString() {
+        return "TrashContainer{" +
+                "capacity=" + capacity +
+                '}';
+    }
 }
