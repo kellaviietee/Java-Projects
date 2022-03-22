@@ -6,7 +6,10 @@ import coffee.builders.CoffeeMachineBuilder;
 import coffee.capsule.Capsule;
 import coffee.drinks.Drink;
 import coffee.drinks.DrinkType;
-import coffee.exceptions.*;
+import coffee.exceptions.SocketException;
+import coffee.exceptions.WaterTankException;
+import coffee.exceptions.DrinkTypeException;
+import coffee.exceptions.TrashContainerException;
 import coffee.logger.MyLogger;
 import coffee.machines.AutoCoffeeMachine;
 import coffee.machines.CapsuleCoffeeMachine;
@@ -29,7 +32,12 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class CoffeeTests {
     private final float minTank = 0.4f;
@@ -275,7 +283,4 @@ class CoffeeTests {
         assertThrows(DrinkTypeException.class, () -> capsuleCoffeeMachine.start(DrinkType.CAPPUCCINO));
         capsuleCoffeeMachine.removeCapsule(testCapsule.getDrinkType());
     }
-
-
-
 }

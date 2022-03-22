@@ -1,158 +1,158 @@
-märts 22, 2022 3:38:41 PM coffee.CoffeeTests setup
+märts 22, 2022 4:04:48 PM coffee.CoffeeTests setup
 INFO: Tests initialized!
-märts 22, 2022 3:38:41 PM coffee.builders.MachineBuilder withWaterTank
+märts 22, 2022 4:04:48 PM coffee.builders.MachineBuilder withWaterTank
 INFO: Specified WaterTankWaterTank{capacity=1.5}
-märts 22, 2022 3:38:41 PM coffee.builders.CoffeeMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CoffeeMachineBuilder build
 INFO: Created new regular coffee machine
-märts 22, 2022 3:38:41 PM coffee.builders.MachineBuilder withWaterTank
+märts 22, 2022 4:04:48 PM coffee.builders.MachineBuilder withWaterTank
 INFO: Specified WaterTankWaterTank{capacity=1.5}
-märts 22, 2022 3:38:41 PM coffee.builders.CoffeeMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CoffeeMachineBuilder build
 INFO: Created new regular coffee machine
-märts 22, 2022 3:38:41 PM coffee.builders.MachineBuilder withWaterTank
+märts 22, 2022 4:04:48 PM coffee.builders.MachineBuilder withWaterTank
 INFO: Specified WaterTankWaterTank{capacity=1.5}
-märts 22, 2022 3:38:41 PM coffee.builders.CoffeeMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CoffeeMachineBuilder build
 INFO: Created new regular coffee machine
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=COFFEE} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=COFFEE} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=COFFEE} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=COFFEE} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=COFFEE} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.Kitchen <init>
+märts 22, 2022 4:04:48 PM coffee.Kitchen <init>
 INFO: New Kitcen just opened up!
-märts 22, 2022 3:38:41 PM coffee.builders.CoffeeMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CoffeeMachineBuilder build
 INFO: Created new regular coffee machine
-märts 22, 2022 3:38:41 PM coffee.builders.AutoCoffeeMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.AutoCoffeeMachineBuilder build
 INFO: Built a new Automatic Coffee Machine.
-märts 22, 2022 3:38:41 PM coffee.builders.CapsuleMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CapsuleMachineBuilder build
 INFO: Created new Capsule coffee machine
-märts 22, 2022 3:38:41 PM coffee.Kitchen addCoffeeMachine
+märts 22, 2022 4:04:48 PM coffee.Kitchen addCoffeeMachine
 INFO: Added new Coffee Machine!
-märts 22, 2022 3:38:41 PM coffee.Kitchen addCoffeeMachine
+märts 22, 2022 4:04:48 PM coffee.Kitchen addCoffeeMachine
 INFO: Added new Coffee Machine!
-märts 22, 2022 3:38:41 PM coffee.Kitchen addCoffeeMachine
+märts 22, 2022 4:04:48 PM coffee.Kitchen addCoffeeMachine
 INFO: Added new Coffee Machine!
-märts 22, 2022 3:38:41 PM coffee.Kitchen addOrder
+märts 22, 2022 4:04:48 PM coffee.Kitchen addOrder
 INFO: New order in the kitchen!
-märts 22, 2022 3:38:41 PM coffee.Kitchen fulfillOrder
+märts 22, 2022 4:04:48 PM coffee.Kitchen fulfillOrder
 INFO: Trying to fulfill an Order!
-märts 22, 2022 3:38:41 PM coffee.Kitchen getTypesOfCoffeeMachines
+märts 22, 2022 4:04:48 PM coffee.Kitchen getTypesOfCoffeeMachines
 INFO: Finding right Coffee machines!
-märts 22, 2022 3:38:41 PM coffee.Kitchen getTypesOfCoffeeMachines
+märts 22, 2022 4:04:48 PM coffee.Kitchen getTypesOfCoffeeMachines
 INFO: Found the machine!
-märts 22, 2022 3:38:41 PM coffee.Kitchen getTypesOfCoffeeMachines
+märts 22, 2022 4:04:48 PM coffee.Kitchen getTypesOfCoffeeMachines
 INFO: Here's your Machines! If I found any
-märts 22, 2022 3:38:41 PM coffee.Kitchen fulfillOrder
+märts 22, 2022 4:04:48 PM coffee.Kitchen fulfillOrder
 INFO: Hope you have a wonderful day! Enjoy your drink!
-märts 22, 2022 3:38:41 PM coffee.Kitchen fulfillOrder
+märts 22, 2022 4:04:48 PM coffee.Kitchen fulfillOrder
 INFO: Trying to fulfill an Order!
-märts 22, 2022 3:38:41 PM coffee.Kitchen getTypesOfCoffeeMachines
+märts 22, 2022 4:04:48 PM coffee.Kitchen getTypesOfCoffeeMachines
 INFO: Finding right Coffee machines!
-märts 22, 2022 3:38:41 PM coffee.Kitchen getTypesOfCoffeeMachines
+märts 22, 2022 4:04:48 PM coffee.Kitchen getTypesOfCoffeeMachines
 INFO: Found the machine!
-märts 22, 2022 3:38:41 PM coffee.Kitchen getTypesOfCoffeeMachines
+märts 22, 2022 4:04:48 PM coffee.Kitchen getTypesOfCoffeeMachines
 INFO: Here's your Machines! If I found any
-märts 22, 2022 3:38:41 PM coffee.Kitchen fulfillOrder
+märts 22, 2022 4:04:48 PM coffee.Kitchen fulfillOrder
 INFO: Drink made!
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=COFFEE} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.Kitchen fulfillOrder
+märts 22, 2022 4:04:48 PM coffee.Kitchen fulfillOrder
 INFO: Hope you have a wonderful day! Enjoy your drink!
-märts 22, 2022 3:38:41 PM coffee.builders.MachineBuilder withTrashContainer
+märts 22, 2022 4:04:48 PM coffee.builders.MachineBuilder withTrashContainer
 INFO: With specified trash containerTrashContainer{capacity=1}
-märts 22, 2022 3:38:41 PM coffee.builders.AutoCoffeeMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.AutoCoffeeMachineBuilder build
 INFO: Built a new Automatic Coffee Machine.
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=COFFEE} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.builders.CapsuleMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CapsuleMachineBuilder build
 INFO: Created new Capsule coffee machine
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=WATER} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.builders.AutoCoffeeMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.AutoCoffeeMachineBuilder build
 INFO: Built a new Automatic Coffee Machine.
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=COFFEE} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=COCOA} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.builders.CoffeeMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CoffeeMachineBuilder build
 INFO: Created new regular coffee machine
-märts 22, 2022 3:38:41 PM coffee.builders.MachineBuilder withWaterTank
+märts 22, 2022 4:04:48 PM coffee.builders.MachineBuilder withWaterTank
 INFO: Specified WaterTankWaterTank{capacity=0.4}
-märts 22, 2022 3:38:41 PM coffee.builders.CapsuleMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CapsuleMachineBuilder build
 INFO: Created new Capsule coffee machine
-märts 22, 2022 3:38:41 PM coffee.capsule.Capsule <init>
+märts 22, 2022 4:04:48 PM coffee.capsule.Capsule <init>
 INFO: New Capsule is made!Capsule{drinkType=COCOA}
-märts 22, 2022 3:38:41 PM coffee.capsule.Capsule <init>
+märts 22, 2022 4:04:48 PM coffee.capsule.Capsule <init>
 INFO: New Capsule is made!Capsule{drinkType=TEA}
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=WATER} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=WATER} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.builders.CapsuleMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CapsuleMachineBuilder build
 INFO: Created new Capsule coffee machine
-märts 22, 2022 3:38:41 PM coffee.capsule.Capsule <init>
+märts 22, 2022 4:04:48 PM coffee.capsule.Capsule <init>
 INFO: New Capsule is made!Capsule{drinkType=COFFEE}
-märts 22, 2022 3:38:41 PM coffee.capsule.Capsule <init>
+märts 22, 2022 4:04:48 PM coffee.capsule.Capsule <init>
 INFO: New Capsule is made!Capsule{drinkType=TEA}
-märts 22, 2022 3:38:41 PM coffee.builders.MachineBuilder withWaterTank
+märts 22, 2022 4:04:48 PM coffee.builders.MachineBuilder withWaterTank
 INFO: Specified WaterTankWaterTank{capacity=0.4}
-märts 22, 2022 3:38:41 PM coffee.builders.CapsuleMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CapsuleMachineBuilder build
 INFO: Created new Capsule coffee machine
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=WATER} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.builders.CapsuleMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CapsuleMachineBuilder build
 INFO: Created new Capsule coffee machine
-märts 22, 2022 3:38:41 PM coffee.capsule.Capsule <init>
+märts 22, 2022 4:04:48 PM coffee.capsule.Capsule <init>
 INFO: New Capsule is made!Capsule{drinkType=COFFEE}
-märts 22, 2022 3:38:41 PM coffee.capsule.Capsule useCapsule
+märts 22, 2022 4:04:48 PM coffee.capsule.Capsule useCapsule
 INFO: Capsule is being emptied.
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=COFFEE} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=WATER} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.builders.CapsuleMachineBuilder withTrashContainer
+märts 22, 2022 4:04:48 PM coffee.builders.CapsuleMachineBuilder withTrashContainer
 INFO: With specifiedTrashContainer{capacity=1}
-märts 22, 2022 3:38:41 PM coffee.builders.CapsuleMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CapsuleMachineBuilder build
 INFO: Created new Capsule coffee machine
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=WATER} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.builders.MachineBuilder withTrashContainer
+märts 22, 2022 4:04:48 PM coffee.builders.MachineBuilder withTrashContainer
 INFO: With specified trash containerTrashContainer{capacity=1}
-märts 22, 2022 3:38:41 PM coffee.builders.CoffeeMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CoffeeMachineBuilder build
 INFO: Created new regular coffee machine
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=COFFEE} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.builders.CapsuleMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CapsuleMachineBuilder build
 INFO: Created new Capsule coffee machine
-märts 22, 2022 3:38:41 PM coffee.capsule.Capsule <init>
+märts 22, 2022 4:04:48 PM coffee.capsule.Capsule <init>
 INFO: New Capsule is made!Capsule{drinkType=COCOA}
-märts 22, 2022 3:38:41 PM coffee.builders.CoffeeMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CoffeeMachineBuilder build
 INFO: Created new regular coffee machine
-märts 22, 2022 3:38:41 PM coffee.builders.AutoCoffeeMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.AutoCoffeeMachineBuilder build
 INFO: Built a new Automatic Coffee Machine.
-märts 22, 2022 3:38:41 PM coffee.builders.CapsuleMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CapsuleMachineBuilder build
 INFO: Created new Capsule coffee machine
-märts 22, 2022 3:38:41 PM coffee.builders.AutoCoffeeMachineBuilder withDrinkList
+märts 22, 2022 4:04:48 PM coffee.builders.AutoCoffeeMachineBuilder withDrinkList
 INFO: With the next Drinks[COCOA, TEA, WATER]
-märts 22, 2022 3:38:41 PM coffee.builders.AutoCoffeeMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.AutoCoffeeMachineBuilder build
 INFO: Built a new Automatic Coffee Machine.
-märts 22, 2022 3:38:41 PM coffee.builders.AutoCoffeeMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.AutoCoffeeMachineBuilder build
 INFO: Built a new Automatic Coffee Machine.
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=COFFEE} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=CAPPUCCINO} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=COCOA} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=TEA} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.drinks.Drink <init>
+märts 22, 2022 4:04:48 PM coffee.drinks.Drink <init>
 INFO: New Drink{drinkType=WATER} just made! Huzzaa!
-märts 22, 2022 3:38:41 PM coffee.builders.CapsuleMachineBuilder build
+märts 22, 2022 4:04:48 PM coffee.builders.CapsuleMachineBuilder build
 INFO: Created new Capsule coffee machine
-märts 22, 2022 3:38:41 PM coffee.CoffeeTests end
+märts 22, 2022 4:04:48 PM coffee.CoffeeTests end
 INFO: Tests done!
