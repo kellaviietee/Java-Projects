@@ -1,8 +1,4 @@
-package ee.taltech.iti0202.delivery.courier;
-
-import ee.taltech.iti0202.delivery.location.Location;
-import ee.taltech.iti0202.delivery.packet.Packet;
-import ee.taltech.iti0202.delivery.strategy.Strategy;
+package ee.taltech.iti0202.delivery;
 
 import java.util.ArrayList;
 import java.util.List;
