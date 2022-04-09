@@ -27,4 +27,8 @@ public class Courier {
     public void setStrategy(Strategy strategy) {
         this.strategy = strategy;
     }
+
+    public String getName() {
+        return name;
+    }
 }
