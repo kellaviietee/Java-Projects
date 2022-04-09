@@ -16,7 +16,10 @@ public class Location {
     }
 
     public Integer getDistanceTo(String name) {
-    return distanceMap.get(name);
+        if (!distanceMap.containsKey(name)) {
+            return Integer.MAX_VALUE;
+        }
+        return distanceMap.get(name);
     }
     public void addDistance(String location, int distance) {
     distanceMap.put(location, distance);
