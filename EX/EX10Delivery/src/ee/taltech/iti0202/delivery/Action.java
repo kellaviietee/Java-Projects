@@ -20,6 +20,13 @@ public class Action {
     take.add(packetName);
     }
 
+    public List<String> getDeposit() {
+        return deposit;
+    }
+
+    public List<String> getTake() {
+        return take;
+    }
 
     @Override
     public String toString() {
