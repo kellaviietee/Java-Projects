@@ -7,17 +7,20 @@ public class Location {
     Map<String, Packet> packetMap = new HashMap<>();
     Map<String, Integer> distanceMap = new HashMap<>();
 
+    public Location(String name) {
+        this.name = name;
+    }
+
     public Integer getDistanceTo(String name) {
     return distanceMap.get(name);
     }
-
     public void addDistance(String location, int distance) {
     distanceMap.put(location, distance);
     }
     public void addPacket(Packet packet) {
         packetMap.put(packet.getName(), packet);
     }
-    Optional<Packet> getPacket(String name) {
+    public Optional<Packet> getPacket(String name) {
         return Optional.of(packetMap.get(name));
     }
 }
