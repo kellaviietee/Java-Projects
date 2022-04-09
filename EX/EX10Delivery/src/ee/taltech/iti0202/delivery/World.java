@@ -9,6 +9,7 @@ public class World {
     public Optional<Location> addLocation(String name, List<String> otherLocations, List<Integer> distances) {
         if (locations.containsKey(name)) {
             return Optional.empty();
+            }
         Location newLocation = new Location(name);
         locations.put(name, newLocation);
         for (int i = 0; i < otherLocations.size(); i++) {
