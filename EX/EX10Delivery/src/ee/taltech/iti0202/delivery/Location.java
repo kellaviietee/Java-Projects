@@ -3,12 +3,16 @@ package ee.taltech.iti0202.delivery;
 import java.util.*;
 
 public class Location {
-    String name;
+    final String name;
     Map<String, Packet> packetMap = new HashMap<>();
     Map<String, Integer> distanceMap = new HashMap<>();
 
     public Location(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Integer getDistanceTo(String name) {

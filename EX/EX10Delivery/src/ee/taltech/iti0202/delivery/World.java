@@ -17,5 +17,5 @@ public class World {
         return false;
     }
 
-    public void tick() {}
+    public void tick() { }
 }
