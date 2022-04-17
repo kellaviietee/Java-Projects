@@ -91,17 +91,5 @@ public class Component {
         return powerConsumption;
     }
 
-    @Override
-    public String toString() {
-        return "Component{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", type=" + type +
-                ", price=" + price +
-                ", amount=" + amount +
-                ", manufacturer='" + manufacturer + '\'' +
-                ", performancePoints=" + performancePoints +
-                ", powerConsumption=" + powerConsumption +
-                '}';
-    }
+
 }

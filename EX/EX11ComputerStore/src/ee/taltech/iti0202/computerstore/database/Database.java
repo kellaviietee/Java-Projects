@@ -9,7 +9,6 @@ import ee.taltech.iti0202.computerstore.exceptions.OutOfStockException;
 import ee.taltech.iti0202.computerstore.exceptions.ProductAlreadyExistsException;
 import ee.taltech.iti0202.computerstore.exceptions.ProductNotFoundException;
 
-import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -79,18 +78,18 @@ public class Database {
         Component.resetId();
     }
 
-    public void saveToFile(String location) throws IOException {
+    public void saveToFile(String location) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try {
             FileWriter writer = new FileWriter(location);
             gson.toJson(components.values(), writer);
             writer.close();
         } catch (IOException e) {
-            throw new IOException();
+            System.out.println("couldnt save to a file");
         }
     }
 
-    public void loadFromFile(String location) throws IOException, ProductAlreadyExistsException {
+    public void loadFromFile(String location) throws ProductAlreadyExistsException {
         resetEntireDatabase();
         try {
             FileReader fileReader = new FileReader(location);
@@ -101,7 +100,7 @@ public class Database {
                 saveComponent(component);
             }
         } catch (IOException e) {
-            throw new IOException();
+            System.out.println("Could not read from a File");
         }
     }
 }
