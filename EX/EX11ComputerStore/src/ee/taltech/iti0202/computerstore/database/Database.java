@@ -89,7 +89,7 @@ public class Database {
         }
     }
 
-    public void loadFromFile(String location) throws ProductAlreadyExistsException {
+    public void loadFromFile(String location) {
         resetEntireDatabase();
         try {
             FileReader fileReader = new FileReader(location);
@@ -99,7 +99,7 @@ public class Database {
             for (Component component : result) {
                 saveComponent(component);
             }
-        } catch (IOException e) {
+        } catch (IOException | ProductAlreadyExistsException e) {
             System.out.println("Could not read from a File");
         }
     }
