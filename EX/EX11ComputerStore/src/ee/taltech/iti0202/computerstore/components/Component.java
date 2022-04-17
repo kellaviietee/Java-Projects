@@ -3,13 +3,13 @@ import java.math.BigDecimal;
 
 public class Component {
     private final int id;
-    private final String name;
-    private final Type type;
-    private final BigDecimal price;
+    private  String name;
+    private  Type type;
+    private  BigDecimal price;
     private int amount = 1;
-    private final String manufacturer;
-    private final int performancePoints;
-    private final int powerConsumption;
+    private  String manufacturer;
+    private  int performancePoints;
+    private  int powerConsumption;
 
     public enum Type {
         CPU, GPU, RAM, MOTHERBOARD, HDD, SSD, PSU, KEYBOARD, TOUCHPAD, SCREEN, BATTERY, FAN
@@ -39,12 +39,36 @@ public class Component {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Type getType() {
         return type;
     }
 
+    public void setType(Type type) {
+        this.type = type;
+    }
+
     public BigDecimal getPrice() {
         return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public void setPerformancePoints(int performancePoints) {
+        this.performancePoints = performancePoints;
+    }
+
+    public void setPowerConsumption(int powerConsumption) {
+        this.powerConsumption = powerConsumption;
     }
 
     public int getAmount() {
