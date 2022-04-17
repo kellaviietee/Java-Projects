@@ -17,9 +17,11 @@ import java.util.List;
 import java.util.Map;
 
 
-public class Database {
+public final class Database {
     private static Database instance = null;
     private Map<Integer, Component> components = new HashMap<>();
+
+    private Database() { }
 
     public static Database getInstance() {
         if (instance == null) {
