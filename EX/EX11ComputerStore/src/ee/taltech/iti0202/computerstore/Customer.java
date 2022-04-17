@@ -1,4 +1,4 @@
-package ee.taltech.iti0202.computerstore.customer;
+package ee.taltech.iti0202.computerstore;
 import ee.taltech.iti0202.computerstore.components.Component;
 
 import java.util.ArrayList;

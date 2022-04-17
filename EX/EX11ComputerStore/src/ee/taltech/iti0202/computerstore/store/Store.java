@@ -1,5 +1,5 @@
-package ee.taltech.iti0202.computerstore;
-import ee.taltech.iti0202.computerstore.customer.Customer;
+package ee.taltech.iti0202.computerstore.store;
+import ee.taltech.iti0202.computerstore.Customer;
 import ee.taltech.iti0202.computerstore.components.Component;
 import ee.taltech.iti0202.computerstore.exceptions.NotEnoughMoneyException;
 import ee.taltech.iti0202.computerstore.exceptions.OutOfStockException;
