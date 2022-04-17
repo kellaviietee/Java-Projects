@@ -68,6 +68,9 @@ public final class Database {
         } else {
             Component stockComponent = components.get(id);
             stockComponent.setAmount(stockComponent.getAmount() - amount);
+            if (stockComponent.getAmount() - amount <= 0) {
+                deleteComponent(id);
+            }
         }
     }
 
