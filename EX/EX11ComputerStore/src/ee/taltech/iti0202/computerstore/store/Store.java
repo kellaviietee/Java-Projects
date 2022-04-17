@@ -34,7 +34,7 @@ public class Store {
         Component component = Database.getInstance().getComponents().get(id);
         if (component.getAmount() <= 0) {
             throw new OutOfStockException();
-        } else if (component.getPrice().compareTo(customer.getBalance()) < 0) {
+        } else if (component.getPrice().compareTo(customer.getBalance()) > 0) {
             throw new NotEnoughMoneyException();
         }
         customer.setBalance(customer.getBalance().subtract(component.getPrice()));
