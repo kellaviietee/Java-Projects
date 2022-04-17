@@ -81,9 +81,13 @@ public class Database {
 
     public void saveToFile(String location) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        FileWriter writer = new FileWriter(location);
-        gson.toJson(components.values(), writer);
-        writer.close();
+        try {
+            FileWriter writer = new FileWriter(location);
+            gson.toJson(components.values(), writer);
+            writer.close();
+        } catch (IOException e) {
+            throw new IOException();
+        }
     }
 
     public void loadFromFile(String location) throws IOException, ProductAlreadyExistsException {
@@ -97,7 +101,7 @@ public class Database {
                 saveComponent(component);
             }
         } catch (IOException e) {
-            System.out.println("Could not read the file");
+            throw new IOException();
         }
     }
 }
