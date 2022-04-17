@@ -34,12 +34,12 @@ public class Store {
         Component component = Database.getInstance().getComponents().get(id);
         if (component.getAmount() <= 0) {
             throw new OutOfStockException();
-        } else if (component.getPrice().compareTo(customer.getBalance()) > 0) {
+        } else if (component.getPrice().multiply(profitMargin).compareTo(customer.getBalance()) > 0) {
             throw new NotEnoughMoneyException();
         }
-        customer.setBalance(customer.getBalance().subtract(component.getPrice()));
+        customer.setBalance(customer.getBalance().subtract(component.getPrice().multiply(profitMargin)));
         customer.getComponents().add(component);
-        setBalance(balance.add(component.getPrice()));
+        setBalance(balance.add(component.getPrice().multiply(profitMargin)));
         Database.getInstance().decreaseComponentStock(id, 1);
         return component;
     }
