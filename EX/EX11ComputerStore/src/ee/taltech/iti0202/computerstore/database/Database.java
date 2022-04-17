@@ -64,6 +64,9 @@ public class Database {
             throw new IllegalArgumentException();
         } else if (components.get(id).getAmount() < amount) {
             throw new OutOfStockException();
+        } else {
+            Component stockComponent = components.get(id);
+            stockComponent.setAmount(stockComponent.getAmount() - amount);
         }
     }
 
