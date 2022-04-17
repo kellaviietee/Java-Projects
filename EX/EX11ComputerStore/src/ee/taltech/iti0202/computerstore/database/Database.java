@@ -88,11 +88,16 @@ public class Database {
 
     public void loadFromFile(String location) throws IOException, ProductAlreadyExistsException {
         resetEntireDatabase();
-        FileReader fileReader = new FileReader(location);
-        Gson gson = new Gson();
-        List<Component> result = gson.fromJson(fileReader, new TypeToken<List<Component>>() { }.getType());
-        for (Component component : result) {
-            saveComponent(component);
+        try {
+            FileReader fileReader = new FileReader(location);
+            Gson gson = new Gson();
+            List<Component> result = gson.fromJson(fileReader, new TypeToken<List<Component>>() {
+            }.getType());
+            for (Component component : result) {
+                saveComponent(component);
+            }
+        } catch (IOException e) {
+            System.out.println("Could not read the file");
         }
     }
 }
