@@ -1,5 +1,5 @@
-{
-  "0": {
+[
+  {
     "id": 0,
     "name": "Processor",
     "type": "CPU",
@@ -9,7 +9,7 @@
     "performancePoints": 8000,
     "powerConsumption": 500
   },
-  "1": {
+  {
     "id": 1,
     "name": "GraphicsCard",
     "type": "GPU",
@@ -19,4 +19,4 @@
     "performancePoints": 6000,
     "powerConsumption": 100
   }
-}
+]

@@ -1,28 +1,26 @@
-package ee.taltech.iti0202.computerstore;
+package ee.taltech.iti0202.computerstore.database;
 
 import com.google.gson.Gson;
+
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
 import ee.taltech.iti0202.computerstore.components.Component;
 import ee.taltech.iti0202.computerstore.exceptions.OutOfStockException;
 import ee.taltech.iti0202.computerstore.exceptions.ProductAlreadyExistsException;
 import ee.taltech.iti0202.computerstore.exceptions.ProductNotFoundException;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class Database {
     private static Database instance = null;
-    private final Map<Integer, Component> components = new HashMap<>();
+    private Map<Integer, Component> components = new HashMap<>();
 
     public static Database getInstance() {
         if (instance == null) {
@@ -79,17 +77,19 @@ public class Database {
     }
 
     public void saveToFile(String location) throws IOException {
-        FileWriter writer = new FileWriter(location);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        gson.toJson(components, writer);
-        writer.close(); //close write          <---
+        FileWriter writer = new FileWriter(location);
+        gson.toJson(components.values(), writer);
+        writer.close();
     }
 
     public void loadFromFile(String location) throws IOException, ProductAlreadyExistsException {
         resetEntireDatabase();
+        FileReader fileReader = new FileReader(location);
         Gson gson = new Gson();
-        Reader reader = Files.newBufferedReader(Paths.get(location));
-        Map<Integer, Component> map = gson.fromJson(reader, Map.class);
-        reader.close();
+        List<Component> result = gson.fromJson(fileReader, new TypeToken<List<Component>>() { }.getType());
+        for (Component component : result) {
+            saveComponent(component);
+        }
     }
 }

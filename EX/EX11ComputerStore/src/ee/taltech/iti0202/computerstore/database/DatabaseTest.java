@@ -1,11 +1,8 @@
-package ee.taltech.iti0202.computerstore;
+package ee.taltech.iti0202.computerstore.database;
 
 
 import ee.taltech.iti0202.computerstore.components.Component;
 import ee.taltech.iti0202.computerstore.exceptions.ProductAlreadyExistsException;
-import ee.taltech.iti0202.computerstore.exceptions.ProductNotFoundException;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -42,11 +39,11 @@ class DatabaseTest {
         database.saveComponent(firstComponent);
         assertThrows(ProductAlreadyExistsException.class, () -> database.saveComponent(firstComponent));
         database.saveComponent(secondComponent);
-        database.saveToFile("text.txt");
+        database.saveToFile("test.txt");
     }
 
     @Test
     void testLoadComponent() throws IOException, ProductAlreadyExistsException {
-        database.loadFromFile("text.txt");
+        database.loadFromFile("test.txt");
     }
 }
