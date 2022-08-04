@@ -1,2 +1,1 @@
-# iti0202-2022
-
+Java Course exercises done in University
